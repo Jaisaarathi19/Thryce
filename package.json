@@ -2,6 +2,7 @@
   "name": "thryce-portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jaisaarathi19.github.io/Thryce",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@fortawesome/fontawesome-free": "^6.7.2",
