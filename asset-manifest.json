@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.13a998b2.css",
-    "main.js": "/static/js/main.e082b689.js",
-    "static/js/453.2ba5aad4.chunk.js": "/static/js/453.2ba5aad4.chunk.js",
-    "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
-    "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.1815e00441357e01619e.ttf",
-    "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.2463b90d9a316e4e5294.woff2",
-    "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.c210719e60948b211a12.woff2",
-    "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.914997e1bdfc990d0897.ttf",
-    "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.89999bdf5d835c012025.woff2",
-    "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
-    "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
-    "index.html": "/index.html",
-    "main.13a998b2.css.map": "/static/css/main.13a998b2.css.map",
-    "main.e082b689.js.map": "/static/js/main.e082b689.js.map",
-    "453.2ba5aad4.chunk.js.map": "/static/js/453.2ba5aad4.chunk.js.map"
+    "main.css": "/Thryce/static/css/main.a5b9b2e5.css",
+    "main.js": "/Thryce/static/js/main.d1ed9e97.js",
+    "static/js/453.2ba5aad4.chunk.js": "/Thryce/static/js/453.2ba5aad4.chunk.js",
+    "static/media/fa-solid-900.ttf": "/Thryce/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
+    "static/media/fa-brands-400.ttf": "/Thryce/static/media/fa-brands-400.1815e00441357e01619e.ttf",
+    "static/media/fa-solid-900.woff2": "/Thryce/static/media/fa-solid-900.2463b90d9a316e4e5294.woff2",
+    "static/media/fa-brands-400.woff2": "/Thryce/static/media/fa-brands-400.c210719e60948b211a12.woff2",
+    "static/media/fa-regular-400.ttf": "/Thryce/static/media/fa-regular-400.914997e1bdfc990d0897.ttf",
+    "static/media/fa-regular-400.woff2": "/Thryce/static/media/fa-regular-400.89999bdf5d835c012025.woff2",
+    "static/media/fa-v4compatibility.ttf": "/Thryce/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
+    "static/media/fa-v4compatibility.woff2": "/Thryce/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
+    "index.html": "/Thryce/index.html",
+    "main.a5b9b2e5.css.map": "/Thryce/static/css/main.a5b9b2e5.css.map",
+    "main.d1ed9e97.js.map": "/Thryce/static/js/main.d1ed9e97.js.map",
+    "453.2ba5aad4.chunk.js.map": "/Thryce/static/js/453.2ba5aad4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.13a998b2.css",
-    "static/js/main.e082b689.js"
+    "static/css/main.a5b9b2e5.css",
+    "static/js/main.d1ed9e97.js"
   ]
 }
