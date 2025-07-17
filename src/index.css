@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide default cursor for custom cursor */
+* {
+  cursor: none !important;
+}
+
+/* Sliding Box Navigation Effect */
+nav {
+  position: relative;
+  padding: 1rem 0;
+}
+
+.sliding-box {
+  content: '';
+  position: absolute;
+  height: 44px;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  background: linear-gradient(120deg, 
+    rgba(255, 51, 51, 0.2) 0%, 
+    rgba(255, 51, 51, 0.9) 50%,
+    rgba(255, 51, 51, 0.2) 100%);
+  border: 1px solid rgba(255, 51, 51, 0.9);
+  border-radius: 4px;
+  clip-path: polygon(
+    0% 20%,
+    5% 0%,
+    95% 0%,
+    100% 20%,
+    100% 80%,
+    95% 100%,
+    5% 100%,
+    0% 80%
+  );
+  box-shadow: 
+    0 0 35px rgba(255, 0, 0, 0.6),
+    inset 0 0 20px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 2px 1px rgba(255, 255, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+  pointer-events: none;
+  filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.6));
+  animation: subtlePulse 3s infinite ease-in-out;
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 0.95;
+    box-shadow: 
+      0 0 35px rgba(255, 0, 0, 0.6),
+      inset 0 0 20px rgba(0, 0, 0, 0.5),
+      0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 
+      0 0 45px rgba(255, 0, 0, 0.8),
+      inset 0 0 25px rgba(0, 0, 0, 0.7),
+      0 0 15px rgba(255, 255, 255, 0.7);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', 'Share Tech Mono', 'Michroma', 'Rajdhani', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhanced theme transition handling with cyberpunk effects */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark-mode {
+  background-color: black !important;
+  color: white !important;
+}
+
+html.dark-mode body {
+  background-color: black !important;
+  color: white !important;
+}
+
+/* Prevent flash during page transitions */
+.dark-mode-transition {
+  transition: none !important;
+}
+
+/* Apply dark mode to all relevant containers with enhanced effects */
+html.dark-mode #root,
+html.dark-mode [class*="bg-white"],
+html.dark-mode [class*="bg-gray-50"],
+html.dark-mode [class*="bg-gray-100"] {
+  background-color: black !important;
+  background-image: linear-gradient(to bottom right, rgba(255, 0, 0, 0.05), transparent);
+}
+
+html.dark-mode [class*="text-gray-900"],
+html.dark-mode [class*="text-black"] {
+  color: white !important;
+}
+
+/* Force immediate application of dark theme with cyberpunk glow */
+.force-dark {
+  background-color: black !important;
+  color: #ff3333 !important;
+  text-shadow: 0 0 10px rgba(255, 51, 51, 0.8);
+}
+/* Add to your global CSS file */
+.page-transition {
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+body {
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+/* Quantum Navigation Effects */
+/* Neo-Tokyo Cyber Navigation - Red/Black/White Theme */
+
+
+
+
+/* Quantum Particle Effect - Red Theme */
+
+
+
+/* Neural Interface Active State - Red */
+/* Button Special Effect */
+/* Navbar Typography Enhancement */
+
+
+/* Ripple Effect on Click */
+nav a.active::before, .mobile-nav a.active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.4) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: rippleEffect 0.6s ease-out;
+}
+
+@keyframes rippleEffect {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 15px 10px rgba(239, 68, 68, 0.4);
+    }
+    100% {
+        width: 200%;
+        height: 200%;
+        opacity: 0;
+        box-shadow: 0 0 30px 20px rgba(239, 68, 68, 0);
+    }
+}
+
+
+
+
+/* Current Page Indicator Effect - Enhanced Cyberpunk Style */
+
+/* Mobile version adjustment */
+.mobile-nav a.active::after {
+    bottom: auto;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    animation: pulseGlowVertical 2s infinite ease-in-out;
+    display: block !important; /* Force display */
+}
+
+@keyframes pulseGlow {
+    0% { 
+        width: 60%;
+        opacity: 0.8;
+        box-shadow: 0 0 10px 2px rgba(239, 68, 68, 0.5);
+    }
+    50% { 
+        width: 80%;
+        opacity: 1;
+        box-shadow: 0 0 15px 5px rgba(239, 68, 68, 0.7);
+    }
+    100% { 
+        width: 60%;
+        opacity: 0.8;
+        box-shadow: 0 0 10px 2px rgba(239, 68, 68, 0.5);
+    }
+}
+
+@keyframes pulseGlowVertical {
+    0% { 
+        height: 60%;
+        opacity: 0.8;
+        box-shadow: 0 0 10px 2px rgba(239, 68, 68, 0.5);
+    }
+    50% { 
+        height: 80%;
+        opacity: 1;
+        box-shadow: 0 0 15px 5px rgba(239, 68, 68, 0.7);
+    }
+    100% { 
+        height: 60%;
+        opacity: 0.8;
+        box-shadow: 0 0 10px 2px rgba(239, 68, 68, 0.5);
+    }
+}
+
+/* Enhanced background transitions */
+
+
+
+/* Smooth background glow effect */
+nav a::before, .mobile-nav a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(239, 68, 68, 0.15), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav a:hover::before, .mobile-nav a:hover::before {
+    opacity: 0.8;
+}
+
+nav a, .mobile-nav a {
+    font-family: 'Orbitron', 'Share Tech Mono', 'Michroma', 'Rajdhani', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+nav a:hover, .mobile-nav a:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 15px rgba(255, 51, 51, 0.9);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a::after, .mobile-nav a::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(45deg,
+        transparent,
+        rgba(239, 68, 68, 0.4),
+        rgba(239, 68, 68, 0.2),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav a:hover::after, .mobile-nav a:hover::after {
+    opacity: 0.9;
+}
+
+/* Custom cursor animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
