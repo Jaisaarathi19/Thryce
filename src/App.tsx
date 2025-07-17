@@ -23,6 +23,7 @@ function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </Router>
     </ThemeProvider>

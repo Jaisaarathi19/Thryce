@@ -239,8 +239,12 @@ const ServicesPage: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <Link to="/" className="text-2xl font-bold tracking-tighter">
-                <span className="text-red-600">T</span>hryce
+              <Link to="/" className="flex items-center space-x-3 group">
+                <img 
+                  src={darkMode ? '/logo/THRYCE_black_logo.png' : '/logo/THRYCE_white_logo.png'}
+                  alt="Thryce Logo"
+                  className="h-8 w-auto transition-all duration-300 hover:drop-shadow-lg group-hover:brightness-110"
+                />
               </Link>
               <p className="mt-2 opacity-70">Crafting digital experiences that inspire.</p>
             </div>
