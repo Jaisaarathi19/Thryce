@@ -1,11 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useTheme } from '../context/ThemeContext';
 import Navigation from '../components/Navigation';
 
 const ServicesPage: React.FC = () => {
-  const { darkMode, toggleTheme } = useTheme();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cursorRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLCanvasElement>(null);
 
@@ -45,7 +42,7 @@ const ServicesPage: React.FC = () => {
           size: Math.random() * 2 + 0.5,
           speedX: Math.random() * 0.5 - 0.25,
           speedY: Math.random() * 0.5 - 0.25,
-          color: darkMode ? 'rgba(255, 0, 0, 0.5)' : 'rgba(255, 0, 0, 0.3)'
+          color: 'rgba(255, 0, 0, 0.5)'
         });
       }
     };
@@ -76,7 +73,7 @@ const ServicesPage: React.FC = () => {
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [darkMode]);
+  }, []);
 
   // Services data
   const services = [
@@ -102,7 +99,7 @@ const ServicesPage: React.FC = () => {
   ];
 
   return (
-    <div className={`min-h-screen font-sans ${darkMode ? 'bg-black text-white' : 'bg-white text-gray-900'} transition-colors duration-500`}>
+    <div className={`min-h-screen font-sans ${'bg-black text-white'} transition-colors duration-500`}>
       {/* Custom cursor */}
       <div ref={cursorRef} className="fixed w-8 h-8 rounded-full border-2 border-red-600 pointer-events-none z-50 transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference hidden lg:block"></div>
       {/* Particles background */}
@@ -132,7 +129,7 @@ const ServicesPage: React.FC = () => {
               {services.map((service, index) => (
                 <div 
                   key={index} 
-                  className={`group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
+                  className={`group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${'bg-gray-800'}`}
                 >
                   <div className="h-48 overflow-hidden">
                     <img 
@@ -155,7 +152,7 @@ const ServicesPage: React.FC = () => {
         </section>
         
         {/* Process Section */}
-        <section className={`py-20 ${darkMode ? 'bg-gray-900/50' : 'bg-gray-50'}`}>
+        <section className={`py-20 ${'bg-gray-900/50'}`}>
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Process</h2>
@@ -165,7 +162,7 @@ const ServicesPage: React.FC = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="relative h-full">
-                <div className={`p-8 rounded-xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'} relative z-10 h-full flex flex-col`}>
+                <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'} relative z-10 h-full flex flex-col`}>
                   <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center mb-6 text-white font-bold text-xl">
                     1
                   </div>
@@ -178,7 +175,7 @@ const ServicesPage: React.FC = () => {
               </div>
               
               <div className="relative h-full">
-                <div className={`p-8 rounded-xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'} relative z-10 h-full flex flex-col`}>
+                <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'} relative z-10 h-full flex flex-col`}>
                   <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center mb-6 text-white font-bold text-xl">
                     2
                   </div>
@@ -191,7 +188,7 @@ const ServicesPage: React.FC = () => {
               </div>
               
               <div className="relative h-full">
-                <div className={`p-8 rounded-xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'} relative z-10 h-full flex flex-col`}>
+                <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'} relative z-10 h-full flex flex-col`}>
                   <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center mb-6 text-white font-bold text-xl">
                     3
                   </div>
@@ -204,7 +201,7 @@ const ServicesPage: React.FC = () => {
               </div>
               
               <div className="relative h-full">
-                <div className={`p-8 rounded-xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'} relative z-10 h-full flex flex-col`}>
+                <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'} relative z-10 h-full flex flex-col`}>
                   <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center mb-6 text-white font-bold text-xl">
                     4
                   </div>
@@ -235,15 +232,15 @@ const ServicesPage: React.FC = () => {
       </main>
       
       {/* Footer */}
-      <footer className={`py-12 ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
+      <footer className={`py-12 ${'bg-gray-900'}`}>
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
               <Link to="/" className="flex items-center space-x-3 group">
                 <img 
-                  src={darkMode ? '/logo/THRYCE_black_logo.png' : '/logo/THRYCE_white_logo.png'}
+                  src={'/logo/THRYCE_white_logo.png'}
                   alt="Thryce Logo"
-                  className="h-8 w-auto transition-all duration-300 hover:drop-shadow-lg group-hover:brightness-110"
+                  className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
                 />
               </Link>
               <p className="mt-2 opacity-70">Crafting digital experiences that inspire.</p>

@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
-import { useTheme } from '../context/ThemeContext';
 import emailjs from '@emailjs/browser';
 
 const ContactPage: React.FC = () => {
-  const { darkMode } = useTheme();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -55,7 +52,7 @@ const ContactPage: React.FC = () => {
           size: Math.random() * 2 + 0.5,
           speedX: Math.random() * 0.5 - 0.25,
           speedY: Math.random() * 0.5 - 0.25,
-          color: darkMode ? 'rgba(255, 0, 0, 0.5)' : 'rgba(255, 0, 0, 0.3)'
+          color: 'rgba(255, 0, 0, 0.5)'
         });
       }
     };
@@ -86,9 +83,9 @@ const ContactPage: React.FC = () => {
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [darkMode]);
+  }, []);
 
-  // Remove the toggleTheme function and theme loading useEffect
+  // Theme loading effect
   
   // Handle form input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -173,7 +170,7 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className={`min-h-screen font-sans ${darkMode ? 'bg-black text-white' : 'bg-white text-gray-900'} transition-colors duration-500`}>
+    <div className={`min-h-screen font-sans bg-black text-white transition-colors duration-500`}>
       {/* Custom cursor */}
       <div ref={cursorRef} className="fixed w-8 h-8 rounded-full border-2 border-red-600 pointer-events-none z-50 transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference hidden lg:block"></div>
       
@@ -204,7 +201,7 @@ const ContactPage: React.FC = () => {
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Form */}
-              <div className={`p-8 rounded-xl shadow-lg ${darkMode ? 'bg-gray-800/50' : 'bg-white'}`}>
+              <div className={`p-8 rounded-xl shadow-lg bg-gray-800/50`}>
                 <h2 className="text-2xl font-bold mb-6">Send Me a Message</h2>
                 
                 {/* Success Message */}
@@ -237,7 +234,7 @@ const ContactPage: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-3 rounded-lg ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-50 border-gray-200'} border focus:outline-none focus:ring-2 focus:ring-red-600/50 transition-colors`}
+                      className={`w-full px-4 py-3 rounded-lg bg-gray-700 border-gray-600 border focus:outline-none focus:ring-2 focus:ring-red-600/50 transition-colors`}
                       placeholder="John Doe"
                     />
                   </div>
@@ -251,7 +248,7 @@ const ContactPage: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-3 rounded-lg ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-50 border-gray-200'} border focus:outline-none focus:ring-2 focus:ring-red-600/50 transition-colors`}
+                      className={`w-full px-4 py-3 rounded-lg bg-gray-700 border-gray-600 border focus:outline-none focus:ring-2 focus:ring-red-600/50 transition-colors`}
                       placeholder="john@example.com"
                     />
                   </div>
@@ -265,7 +262,7 @@ const ContactPage: React.FC = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-3 rounded-lg ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-50 border-gray-200'} border focus:outline-none focus:ring-2 focus:ring-red-600/50 transition-colors`}
+                      className={`w-full px-4 py-3 rounded-lg bg-gray-700 border-gray-600 border focus:outline-none focus:ring-2 focus:ring-red-600/50 transition-colors`}
                       placeholder="Project Inquiry"
                     />
                   </div>
@@ -279,7 +276,7 @@ const ContactPage: React.FC = () => {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className={`w-full px-4 py-3 rounded-lg ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-50 border-gray-200'} border focus:outline-none focus:ring-2 focus:ring-red-600/50 transition-colors resize-none`}
+                      className={`w-full px-4 py-3 rounded-lg bg-gray-700 border-gray-600 border focus:outline-none focus:ring-2 focus:ring-red-600/50 transition-colors resize-none`}
                       placeholder="Tell me about your project or inquiry..."
                     ></textarea>
                   </div>
@@ -301,7 +298,7 @@ const ContactPage: React.FC = () => {
               
               {/* Contact Info */}
               <div>
-                <div className={`p-8 rounded-xl shadow-lg mb-8 ${darkMode ? 'bg-gray-800/50' : 'bg-white'}`}>
+                <div className={`p-8 rounded-xl shadow-lg mb-8 bg-gray-800/50`}>
                   <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
                   <div className="space-y-6">
                     <div className="flex items-start">
@@ -337,14 +334,14 @@ const ContactPage: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className={`p-8 rounded-xl shadow-lg ${darkMode ? 'bg-gray-800/50' : 'bg-white'}`}>
+                <div className={`p-8 rounded-xl shadow-lg bg-gray-800/50`}>
                   <h2 className="text-2xl font-bold mb-6">Connect With Me</h2>
                   <div className="grid grid-cols-2 gap-4">
                     <a 
                       href="https://github.com/your-profile" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className={`p-4 rounded-lg flex items-center ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'} transition-colors`}
+                      className={`p-4 rounded-lg flex items-center bg-gray-700 hover:bg-gray-600 transition-colors`}
                     >
                       <i className="fab fa-github text-xl mr-3"></i>
                       <span>GitHub</span>
@@ -353,7 +350,7 @@ const ContactPage: React.FC = () => {
                       href="https://linkedin.com/in/your-profile" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className={`p-4 rounded-lg flex items-center ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'} transition-colors`}
+                      className={`p-4 rounded-lg flex items-center bg-gray-700 hover:bg-gray-600 transition-colors`}
                     >
                       <i className="fab fa-linkedin text-xl mr-3"></i>
                       <span>LinkedIn</span>
@@ -362,7 +359,7 @@ const ContactPage: React.FC = () => {
                       href="https://twitter.com/your-profile" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className={`p-4 rounded-lg flex items-center ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'} transition-colors`}
+                      className={`p-4 rounded-lg flex items-center bg-gray-700 hover:bg-gray-600 transition-colors`}
                     >
                       <i className="fab fa-twitter text-xl mr-3"></i>
                       <span>Twitter</span>
@@ -371,7 +368,7 @@ const ContactPage: React.FC = () => {
                       href="https://dribbble.com/your-profile" 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className={`p-4 rounded-lg flex items-center ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'} transition-colors`}
+                      className={`p-4 rounded-lg flex items-center bg-gray-700 hover:bg-gray-600 transition-colors`}
                     >
                       <i className="fab fa-dribbble text-xl mr-3"></i>
                       <span>Dribbble</span>
@@ -384,34 +381,34 @@ const ContactPage: React.FC = () => {
         </section>
         
         {/* FAQ Section */}
-        <section className={`py-20 ${darkMode ? 'bg-gray-900/50' : 'bg-gray-50'}`}>
+        <section className={`py-20 bg-gray-900/50`}>
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
               
               <div className="space-y-6">
-                <div className={`p-6 rounded-xl ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
+                <div className={`p-6 rounded-xl bg-gray-800 shadow-lg`}>
                   <h3 className="text-xl font-bold mb-3">What services do you offer?</h3>
                   <p className="opacity-80">
                     I specialize in web development, UI/UX design, and interactive experiences. This includes custom website development, web applications, e-commerce solutions, and brand identity design.
                   </p>
                 </div>
                 
-                <div className={`p-6 rounded-xl ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
+                <div className={`p-6 rounded-xl bg-gray-800 shadow-lg`}>
                   <h3 className="text-xl font-bold mb-3">What is your typical project timeline?</h3>
                   <p className="opacity-80">
                     Project timelines vary based on scope and complexity. A simple website might take 2-4 weeks, while more complex web applications can take 2-3 months. I'll provide a detailed timeline during our initial consultation.
                   </p>
                 </div>
                 
-                <div className={`p-6 rounded-xl ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
+                <div className={`p-6 rounded-xl bg-gray-800 shadow-lg`}>
                   <h3 className="text-xl font-bold mb-3">How do you handle project pricing?</h3>
                   <p className="opacity-80">
                     I offer both fixed-price and hourly rate options depending on the project requirements. For most client projects, I prefer a fixed-price approach with clear deliverables and milestones.
                   </p>
                 </div>
                 
-                <div className={`p-6 rounded-xl ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
+                <div className={`p-6 rounded-xl bg-gray-800 shadow-lg`}>
                   <h3 className="text-xl font-bold mb-3">Do you offer ongoing maintenance?</h3>
                   <p className="opacity-80">
                     Yes, I offer website maintenance and support packages to keep your site secure, updated, and performing optimally. These can be tailored to your specific needs and budget.
@@ -424,13 +421,13 @@ const ContactPage: React.FC = () => {
       </main>
       
       {/* Footer */}
-      <footer className={`py-12 ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
+      <footer className={`py-12 bg-gray-900`}>
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
               <Link to="/" className="flex items-center space-x-3 group">
                 <img 
-                  src={darkMode ? '/logo/THRYCE_black_logo.png' : '/logo/THRYCE_white_logo.png'}
+                  src={'/logo/THRYCE_black_logo.png'}
                   alt="Thryce Logo"
                   className="h-8 w-auto transition-all duration-300 hover:drop-shadow-lg group-hover:brightness-110"
                 />

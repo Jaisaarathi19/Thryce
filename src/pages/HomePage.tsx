@@ -1,12 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
-import { useTheme } from '../context/ThemeContext';
 
 const HomePage: React.FC = () => {
-  const { darkMode } = useTheme();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cursorRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLCanvasElement>(null);
@@ -48,7 +45,7 @@ const HomePage: React.FC = () => {
           size: Math.random() * 2 + 0.5,
           speedX: Math.random() * 0.5 - 0.25,
           speedY: Math.random() * 0.5 - 0.25,
-          color: darkMode ? 'rgba(255, 0, 0, 0.5)' : 'rgba(255, 0, 0, 0.3)'
+          color: 'rgba(255, 0, 0, 0.5)'
         });
       }
     };
@@ -79,7 +76,7 @@ const HomePage: React.FC = () => {
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [darkMode]);
+  }, []);
 
   // Skills chart
   useEffect(() => {
@@ -100,24 +97,22 @@ const HomePage: React.FC = () => {
         splitNumber: 5,
         scale: true,
         axisName: {
-          color: darkMode ? '#ffffff' : '#333333',
+          color: '#ffffff',
           fontSize: 12
         },
         splitArea: {
           areaStyle: {
-            color: darkMode ?
-              ['rgba(50, 50, 50, 0.3)', 'rgba(50, 50, 50, 0.2)', 'rgba(50, 50, 50, 0.1)', 'rgba(50, 50, 50, 0.05)'] :
-              ['rgba(250, 250, 250, 0.5)', 'rgba(250, 250, 250, 0.3)', 'rgba(250, 250, 250, 0.2)', 'rgba(250, 250, 250, 0.1)']
+            color: ['rgba(50, 50, 50, 0.3)', 'rgba(50, 50, 50, 0.2)', 'rgba(50, 50, 50, 0.1)', 'rgba(50, 50, 50, 0.05)']
           }
         },
         axisLine: {
           lineStyle: {
-            color: darkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)'
+            color: 'rgba(255, 255, 255, 0.2)'
           }
         },
         splitLine: {
           lineStyle: {
-            color: darkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)'
+            color: 'rgba(255, 255, 255, 0.2)'
           }
         }
       },
@@ -129,7 +124,7 @@ const HomePage: React.FC = () => {
             value: [95, 85, 80, 90, 85, 90],
             name: 'Skill Level',
             areaStyle: {
-              color: darkMode ? 'rgba(255, 0, 0, 0.6)' : 'rgba(255, 0, 0, 0.4)'
+              color: 'rgba(255, 0, 0, 0.6)'
             },
             lineStyle: {
               width: 2,
@@ -148,9 +143,9 @@ const HomePage: React.FC = () => {
       window.removeEventListener('resize', handleResize);
       chart.dispose();
     };
-  }, [darkMode]);
+  }, []);
 
-  // Remove the theme loading useEffect and toggleTheme function
+  // Theme loading effect
 
   // Services data
   const services = [
@@ -195,7 +190,7 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    <div className={`min-h-screen font-sans ${darkMode ? 'bg-black text-white' : 'bg-white text-gray-900'} transition-colors duration-500`}>
+    <div className="min-h-screen font-sans bg-black text-white transition-colors duration-500">
       {/* Custom cursor */}
       <div ref={cursorRef} className="fixed w-8 h-8 rounded-full border-2 border-red-600 pointer-events-none z-50 transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference hidden lg:block"></div>
       
@@ -207,95 +202,164 @@ const HomePage: React.FC = () => {
       
       <main>
         {/* Hero Section */}
-        <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-6 py-24">
-          <div className="container mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Creative <span className="text-red-600">Digital</span> Solutions
-            </h1>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-80">
-              Crafting immersive digital experiences with cutting-edge technology and stunning design.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link 
-                to="/contact" 
-                className="px-8 py-3 bg-red-600 text-white rounded-full font-medium hover:bg-red-600 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_15px_rgba(239,68,68,0.5)] active:scale-95"
-              >
-                Get in Touch
-              </Link>
-              <Link 
-                to="/projects" 
-                className="px-8 py-3 border border-current rounded-full font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)] active:scale-95"
-              >
-                View Projects
-              </Link>
+        <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-6 py-24 overflow-hidden">
+          {/* Enhanced background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-red-950/20 via-transparent to-red-950/20"></div>
+          
+          {/* Geometric patterns */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-20 left-10 w-32 h-32 border border-red-500 rotate-45 animate-pulse"></div>
+            <div className="absolute top-40 right-20 w-24 h-24 border border-red-400 rotate-12 animate-pulse delay-1000"></div>
+            <div className="absolute bottom-20 left-1/4 w-20 h-20 border border-red-600 rotate-90 animate-pulse delay-2000"></div>
+          </div>
+          
+          <div className="container mx-auto text-center relative z-10">
+            <div className="animate-fadeInUp">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+                Creative <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent animate-pulse">Digital</span> Solutions
+              </h1>
+              <div className="relative mb-10">
+                <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90 text-gray-200 leading-relaxed">
+                  Crafting immersive digital experiences with cutting-edge technology and stunning design that transforms ideas into reality.
+                </p>
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
+              </div>
+              
+              <div className="flex flex-wrap justify-center gap-6 mt-12">
+                <Link 
+                  to="/contact" 
+                  className="group relative px-10 py-4 bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white rounded-full font-semibold overflow-hidden transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(239,68,68,0.6)] active:scale-95"
+                >
+                  <span className="relative z-10">Get in Touch</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-700 via-red-600 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
+                <Link 
+                  to="/projects" 
+                  className="group relative px-10 py-4 border-2 border-red-500 text-white rounded-full font-semibold overflow-hidden transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(239,68,68,0.4)] active:scale-95 hover:bg-red-500/10"
+                >
+                  <span className="relative z-10 group-hover:text-white transition-colors duration-300">View Projects</span>
+                  <div className="absolute inset-0 bg-red-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
         
         {/* Skills Section */}
-        <section className="py-20 px-6">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
-              Technical <span className="text-red-600">Expertise</span>
-            </h2>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-10">
-              <div className="w-full md:w-1/2">
-                <p className="text-lg mb-6">
-                  With a focus on performance and user experience, We bring a comprehensive skill set to every project:
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <span className="text-red-600 mr-2">→</span>
-                    <span>React Development and Component Architecture</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-600 mr-2">→</span>
-                    <span>Modern JavaScript and ES6+ Features</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-600 mr-2">→</span>
-                    <span>Adobe Photoshop for Digital Design</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-600 mr-2">→</span>
-                    <span>Adobe Illustrator for Vector Graphics</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-600 mr-2">→</span>
-                    <span>Canva for Rapid Design Solutions</span>
-                  </li>
-                </ul>
+        <section className="py-24 px-6 relative overflow-hidden">
+          {/* Background effects */}
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-black/30 to-gray-900/50"></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
+          
+          <div className="container mx-auto relative z-10">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+                Technical <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">Expertise</span>
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full"></div>
+            </div>
+            
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
+              <div className="w-full lg:w-1/2 space-y-8">
+                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-red-500/50 transition-all duration-500 group">
+                  <p className="text-xl mb-8 text-gray-200 leading-relaxed group-hover:text-white transition-colors duration-300">
+                    With a focus on performance and user experience, we bring a comprehensive skill set to every project, delivering solutions that exceed expectations.
+                  </p>
+                  
+                  <div className="space-y-6">
+                    {[
+                      { skill: "React Development and Component Architecture", level: 95 },
+                      { skill: "Modern JavaScript and ES6+ Features", level: 90 },
+                      { skill: "Adobe Photoshop for Digital Design", level: 85 },
+                      { skill: "Adobe Illustrator for Vector Graphics", level: 88 },
+                      { skill: "Canva for Rapid Design Solutions", level: 92 }
+                    ].map((item, index) => (
+                      <div key={index} className="group/item">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-red-400 text-lg font-medium">→</span>
+                          <span className="flex-1 ml-4 text-gray-300 group-hover/item:text-white transition-colors duration-300">{item.skill}</span>
+                          <span className="text-red-500 font-bold text-sm">{item.level}%</span>
+                        </div>
+                        <div className="ml-8 h-2 bg-gray-700 rounded-full overflow-hidden">
+                          <div 
+                            className="h-full bg-gradient-to-r from-red-500 to-red-600 rounded-full transition-all duration-1000 delay-200"
+                            style={{ width: `${item.level}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div className="w-full md:w-1/2 h-80" ref={chartRef}></div>
+              
+              <div className="w-full lg:w-1/2 relative">
+                <div className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-red-500/30 transition-all duration-500">
+                  <div className="h-96" ref={chartRef}></div>
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-red-500 opacity-60"></div>
+                <div className="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-red-500 opacity-60"></div>
+              </div>
             </div>
           </div>
         </section>
         
         {/* Services Section */}
-        <section className="py-20 px-6 bg-black dark:bg-black text-white">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
-              Our <span className="text-red-600">Services</span>
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <section className="py-24 px-6 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+          {/* Animated background elements */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-red-500 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-red-600 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          </div>
+          
+          <div className="container mx-auto relative z-10">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                Our <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">Services</span>
+              </h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                We offer comprehensive digital solutions that transform your vision into reality
+              </p>
+              <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full mt-6"></div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {services.map((service, index) => (
                 <div 
                   key={index} 
-                  className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105 border-2 border-gray-100 dark:border-gray-700"
+                  className="group relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-red-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20"
+                  style={{ animationDelay: `${index * 200}ms` }}
                 >
-                  <div className="h-48 overflow-hidden">
+                  {/* Card background effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="relative h-56 overflow-hidden">
                     <img 
                       src={service.image} 
                       alt={service.title} 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                  </div>
-                  <div className="p-6">
-                    <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center mb-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    
+                    {/* Floating icon */}
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-xl flex items-center justify-center shadow-lg backdrop-blur-sm border border-red-400/30 group-hover:scale-110 transition-transform duration-300">
                       <i className={`fas ${service.icon} text-lg`}></i>
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-                    <p className="opacity-80">{service.description}</p>
+                  </div>
+                  
+                  <div className="p-8 relative">
+                    <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-red-400 transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                      {service.description}
+                    </p>
+                    
+                    {/* Bottom accent line */}
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </div>
               ))}
@@ -304,67 +368,159 @@ const HomePage: React.FC = () => {
         </section>
         
         {/* Portfolio Section */}
-        <section className="py-20 px-6">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
-              Featured <span className="text-red-600">Projects</span>
-            </h2>
+        <section className="py-24 px-6 relative overflow-hidden">
+          {/* Background pattern */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/30 via-black/50 to-gray-900/30"></div>
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,0,0,0.1)_0%,transparent_50%)]"></div>
+          </div>
+          
+          <div className="container mx-auto relative z-10">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+                Featured <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">Projects</span>
+              </h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Discover our latest work and creative solutions
+              </p>
+              <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full mt-6"></div>
+            </div>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {portfolioItems.map((item, index) => (
                 <div 
                   key={index} 
-                  className="group relative overflow-hidden rounded-lg shadow-lg h-64"
+                  className="group relative overflow-hidden rounded-2xl h-80 bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm border border-gray-700/50 hover:border-red-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20"
+                  style={{ animationDelay: `${index * 150}ms` }}
                 >
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <span className="text-sm text-red-400 mb-1">{item.category}</span>
-                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                  {/* Image container */}
+                  <div className="relative h-full overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    
+                    {/* Gradient overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    {/* Content overlay */}
+                    <div className="absolute inset-0 flex flex-col justify-end p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                        <span className="inline-block px-3 py-1 bg-red-500/80 backdrop-blur-sm text-white text-sm font-medium rounded-full mb-3 border border-red-400/50">
+                          {item.category}
+                        </span>
+                        <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors duration-300">
+                          {item.title}
+                        </h3>
+                        
+                        {/* Action button */}
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                          <button className="inline-flex items-center text-red-400 font-medium hover:text-red-300 transition-colors duration-300">
+                            View Project 
+                            <i className="fas fa-arrow-right ml-2 text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Corner accents */}
+                    <div className="absolute top-2 left-2 w-6 h-6 border-t-2 border-l-2 border-red-500 opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
+                    <div className="absolute bottom-2 right-2 w-6 h-6 border-b-2 border-r-2 border-red-500 opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
                   </div>
                 </div>
               ))}
             </div>
-            {/* Hero Section buttons */}
-            <div className="text-center mt-12">
-              <Link to="/projects" className="px-8 py-3 bg-red-600 text-white rounded-full font-medium hover:bg-black hover:text-red-600 hover:border-red-600 border-2 border-transparent transition-all duration-300 inline-block">
-                View All Projects
+            
+            {/* Enhanced CTA button */}
+            <div className="text-center mt-16">
+              <Link 
+                to="/projects" 
+                className="group relative inline-flex items-center px-12 py-4 bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white rounded-full font-semibold text-lg overflow-hidden transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(239,68,68,0.6)]"
+              >
+                <span className="relative z-10">View All Projects</span>
+                <i className="fas fa-arrow-right ml-3 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                <div className="absolute inset-0 bg-gradient-to-r from-red-700 via-red-600 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
             </div>
           </div>
         </section>
         
         {/* Contact CTA */}
-        <section className="py-20 px-6 bg-black text-white">
-          <div className="container mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to start your project?</h2>
-            <p className="text-lg max-w-2xl mx-auto mb-10 opacity-90">
-              Let's collaborate to create something amazing together. Reach out to discuss your ideas.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contact" className="px-8 py-3 bg-red-600 text-white rounded-full font-medium hover:bg-black hover:text-red-600 hover:border-red-600 border-2 border-transparent transition-all duration-300">
-                Get in Touch
-              </Link>
-              <Link to="/projects" className="px-8 py-3 bg-red-600 text-white rounded-full font-medium hover:bg-black hover:text-red-600 hover:border-red-600 border-2 border-transparent transition-all duration-300">
-                View Projects
-              </Link>
+        <section className="py-24 px-6 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+          {/* Background effects */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-20 left-20 w-32 h-32 border border-red-500 rotate-45 animate-spin-slow"></div>
+            <div className="absolute bottom-20 right-20 w-24 h-24 border border-red-400 rotate-12 animate-pulse"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+          </div>
+          
+          <div className="container mx-auto text-center relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+                Ready to start your project?
+              </h2>
+              <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+                Let's collaborate to create something amazing together. Transform your vision into a digital masterpiece that captivates and converts.
+              </p>
+              
+              {/* Enhanced CTA buttons */}
+              <div className="flex flex-wrap justify-center gap-8">
+                <Link 
+                  to="/contact" 
+                  className="group relative px-12 py-5 bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white rounded-full font-semibold text-lg overflow-hidden transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_40px_rgba(239,68,68,0.8)]"
+                >
+                  <span className="relative z-10 flex items-center">
+                    Get in Touch
+                    <i className="fas fa-rocket ml-3 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></i>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-700 via-red-600 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
+                
+                <Link 
+                  to="/projects" 
+                  className="group relative px-12 py-5 border-2 border-red-500 text-white rounded-full font-semibold text-lg overflow-hidden transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_40px_rgba(239,68,68,0.5)] hover:bg-red-500/10"
+                >
+                  <span className="relative z-10 flex items-center group-hover:text-white transition-colors duration-300">
+                    View Projects
+                    <i className="fas fa-eye ml-3 transform group-hover:scale-110 transition-transform duration-300"></i>
+                  </span>
+                  <div className="absolute inset-0 bg-red-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                </Link>
+              </div>
+              
+              {/* Statistics or additional info */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
+                <div className="group text-center p-6 bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm rounded-xl border border-gray-700/50 hover:border-red-500/50 transition-all duration-500">
+                  <div className="text-3xl font-bold text-red-500 mb-2 group-hover:scale-110 transition-transform duration-300">50+</div>
+                  <div className="text-gray-300 group-hover:text-white transition-colors duration-300">Projects Completed</div>
+                </div>
+                <div className="group text-center p-6 bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm rounded-xl border border-gray-700/50 hover:border-red-500/50 transition-all duration-500">
+                  <div className="text-3xl font-bold text-red-500 mb-2 group-hover:scale-110 transition-transform duration-300">24/7</div>
+                  <div className="text-gray-300 group-hover:text-white transition-colors duration-300">Support Available</div>
+                </div>
+                <div className="group text-center p-6 bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm rounded-xl border border-gray-700/50 hover:border-red-500/50 transition-all duration-500">
+                  <div className="text-3xl font-bold text-red-500 mb-2 group-hover:scale-110 transition-transform duration-300">100%</div>
+                  <div className="text-gray-300 group-hover:text-white transition-colors duration-300">Client Satisfaction</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
       </main>
       
       {/* Footer */}
-      <footer className={`py-12 px-6 ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
+      <footer className="py-12 px-6 bg-gray-900">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
               <Link to="/" className="flex items-center space-x-3 group">
                 <img 
-                  src={darkMode ? '/logo/THRYCE_black_logo.png' : '/logo/THRYCE_white_logo.png'}
+                  src='/logo/THRYCE_white_logo.png'
                   alt="Thryce Logo"
-                  className="h-8 w-auto transition-all duration-300 hover:drop-shadow-lg group-hover:brightness-110"
+                  className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
                 />
               </Link>
               <p className="mt-2 opacity-80 max-w-md">

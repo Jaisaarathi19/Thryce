@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
-import { useTheme } from '../context/ThemeContext';
 
 const ProjectsPage: React.FC = () => {
-  const { darkMode } = useTheme();
   const [activeCategory, setActiveCategory] = useState('all');
   const cursorRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLCanvasElement>(null);
@@ -45,7 +43,7 @@ const ProjectsPage: React.FC = () => {
           size: Math.random() * 2 + 0.5,
           speedX: Math.random() * 0.5 - 0.25,
           speedY: Math.random() * 0.5 - 0.25,
-          color: darkMode ? 'rgba(255, 0, 0, 0.5)' : 'rgba(255, 0, 0, 0.3)'
+          color: 'rgba(255, 0, 0, 0.5)'
         });
       }
     };
@@ -76,7 +74,7 @@ const ProjectsPage: React.FC = () => {
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [darkMode]);
+  }, []);
 
   // Project data
   const projects = [
@@ -158,7 +156,7 @@ const ProjectsPage: React.FC = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <div className={`min-h-screen font-sans ${darkMode ? 'bg-black text-white' : 'bg-white text-gray-900'} transition-colors duration-500`}>
+    <div className={`min-h-screen font-sans ${'bg-black text-white'} transition-colors duration-500`}>
       <Navigation />
       
       {/* Custom cursor */}
@@ -186,17 +184,17 @@ const ProjectsPage: React.FC = () => {
         </section>
         
         {/* All Projects Section */}
-        <section className={`py-1 ${darkMode ? 'bg-gray-900/50' : 'bg-gray-50'}`}>
+        <section className={`py-1 ${'bg-gray-900/50'}`}>
           <div className="container mx-auto px-6">
             {/* Category Filter */}
             <div className="flex justify-center mb-12">
-              <div className={`inline-flex rounded-lg p-1 ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-md`}>
+              <div className={`inline-flex rounded-lg p-1 ${'bg-gray-800'} shadow-md`}>
                 <button 
                   onClick={() => setActiveCategory('all')} 
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     activeCategory === 'all' 
                       ? 'bg-red-600 text-white' 
-                      : `${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`
+                      : `${'hover:bg-gray-700'}`
                   }`}
                 >
                   All
@@ -206,7 +204,7 @@ const ProjectsPage: React.FC = () => {
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     activeCategory === 'web' 
                       ? 'bg-red-600 text-white' 
-                      : `${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`
+                      : `${'hover:bg-gray-700'}`
                   }`}
                 >
                   Web Development
@@ -216,7 +214,7 @@ const ProjectsPage: React.FC = () => {
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     activeCategory === 'graphic' 
                       ? 'bg-red-600 text-white' 
-                      : `${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`
+                      : `${'hover:bg-gray-700'}`
                   }`}
                 >
                   Graphic Design
@@ -226,7 +224,7 @@ const ProjectsPage: React.FC = () => {
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     activeCategory === 'logo' 
                       ? 'bg-red-600 text-white' 
-                      : `${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`
+                      : `${'hover:bg-gray-700'}`
                   }`}
                 >
                   Logo Designing
@@ -239,7 +237,7 @@ const ProjectsPage: React.FC = () => {
               {filteredProjects.map((project) => (
                 <div 
                   key={project.id} 
-                  className={`group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${darkMode ? 'bg-gray-800/50' : 'bg-white'}`}
+                  className={`group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${'bg-gray-800/50'}`}
                 >
                   <div className="h-48 overflow-hidden">
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
@@ -268,13 +266,13 @@ const ProjectsPage: React.FC = () => {
                       {project.technologies.slice(0, 3).map((tech, index) => (
                         <span 
                           key={index} 
-                          className={`px-2 py-1 rounded-full text-xs font-medium ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}
+                          className={`px-2 py-1 rounded-full text-xs font-medium ${'bg-gray-700'}`}
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 3 && (
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${'bg-gray-700'}`}>
                           +{project.technologies.length - 3} more
                         </span>
                       )}
@@ -294,7 +292,7 @@ const ProjectsPage: React.FC = () => {
             
             {/* Empty State */}
             {filteredProjects.length === 0 && (
-              <div className={`p-12 rounded-xl text-center ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
+              <div className={`p-12 rounded-xl text-center ${'bg-gray-800'} shadow-lg`}>
                 <i className="fas fa-search text-4xl text-gray-400 mb-4"></i>
                 <h3 className="text-xl font-bold mb-2">No projects found</h3>
                 <p className="opacity-70">No projects match the selected category. Try selecting a different category.</p>
@@ -306,7 +304,7 @@ const ProjectsPage: React.FC = () => {
         {/* CTA Section */}
         <section className="py-20">
           <div className="container mx-auto px-6">
-            <div className={`rounded-2xl overflow-hidden relative ${darkMode ? 'bg-black' : 'bg-white'} shadow-xl`}>
+            <div className={`rounded-2xl overflow-hidden relative ${'bg-black'} shadow-xl`}>
               <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"></div>
               <div className="relative z-10 p-12 md:p-20 text-center">
@@ -324,13 +322,13 @@ const ProjectsPage: React.FC = () => {
       </main>
       
       {/* Footer */}
-      <footer className={`py-12 ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
+      <footer className={`py-12 ${'bg-gray-900'}`}>
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
               <Link to="/" className="flex items-center space-x-3 group">
                 <img 
-                  src={darkMode ? '/logo/THRYCE_black_logo.png' : '/logo/THRYCE_white_logo.png'}
+                  src={'/logo/THRYCE_white_logo.png'}
                   alt="Thryce Logo"
                   className="h-8 w-auto transition-all duration-300 hover:drop-shadow-lg group-hover:brightness-110"
                 />

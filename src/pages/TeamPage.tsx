@@ -1,11 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useTheme } from '../context/ThemeContext';
 import Navigation from '../components/Navigation';
 
 const TeamPage: React.FC = () => {
-  const { darkMode, toggleTheme } = useTheme();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cursorRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLCanvasElement>(null);
 
@@ -45,7 +42,7 @@ const TeamPage: React.FC = () => {
           size: Math.random() * 2 + 0.5,
           speedX: Math.random() * 0.5 - 0.25,
           speedY: Math.random() * 0.5 - 0.25,
-          color: darkMode ? 'rgba(255, 0, 0, 0.5)' : 'rgba(255, 0, 0, 0.3)'
+          color: 'rgba(255, 0, 0, 0.5)'
         });
       }
     };
@@ -76,7 +73,7 @@ const TeamPage: React.FC = () => {
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [darkMode]);
+  }, []);
 
   // Team members data
   const teamMembers = [
@@ -139,7 +136,7 @@ const TeamPage: React.FC = () => {
 
   // Update the grid layout in the Team Section
   return (
-    <div className={`min-h-screen font-sans ${darkMode ? 'bg-black text-white' : 'bg-white text-gray-900'} transition-colors duration-500`}>
+    <div className={`min-h-screen font-sans ${'bg-black text-white'} transition-colors duration-500`}>
       {/* Custom cursor */}
       <div ref={cursorRef} className="fixed w-8 h-8 rounded-full border-2 border-red-600 pointer-events-none z-50 transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference hidden lg:block"></div>
       {/* Particles background */}
@@ -147,37 +144,58 @@ const TeamPage: React.FC = () => {
       {/* Navigation Bar */}
       <Navigation />
       <main>
-      {/* Hero Section and rest of the page content follows... */}
-        <section className="relative min-h-[50vh] flex items-center justify-center pt-20">
-          <div className="container mx-auto px-6 py-12">
+        {/* Hero Section and rest of the page content follows... */}
+        <section className="relative min-h-[60vh] flex items-center justify-center pt-20 overflow-hidden">
+          {/* Animated background pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-20 left-20 w-32 h-32 border border-red-500 rotate-45 animate-spin-slow"></div>
+            <div className="absolute bottom-20 right-20 w-24 h-24 border border-red-400 rotate-12 animate-pulse"></div>
+            <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-red-500/20 rounded-full animate-float"></div>
+          </div>
+          
+          <div className="container mx-auto px-6 py-12 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-                <span className="block">Meet Our</span>
-                <span className="block text-red-600">Team</span>
-              </h1>
-              <p className="text-lg mb-8 opacity-80 max-w-2xl mx-auto">
-                We're a group of passionate professionals dedicated to creating exceptional digital experiences.
+              <div className="mb-8">
+                <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+                  <span className="block bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">Meet Our</span>
+                  <span className="block bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent animate-fadeInUp">Team</span>
+                </h1>
+                <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full"></div>
+              </div>
+              <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+                We're a group of passionate professionals dedicated to creating exceptional digital experiences and innovative solutions.
               </p>
             </div>
           </div>
         </section>
         
         {/* Team Section */}
-        <section className="py-12">
-          <div className="container mx-auto px-6">
+        <section className="py-24 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+          {/* Background effects */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-20 left-20 w-32 h-32 border border-red-500 rotate-45 animate-spin-slow"></div>
+            <div className="absolute bottom-20 right-20 w-24 h-24 border border-red-400 rotate-12 animate-pulse"></div>
+          </div>
+          
+          <div className="container mx-auto px-6 relative z-10">
             {/* First row - 3 members */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               {teamMembers.slice(0, 3).map((member, index) => (
                 <div 
                   key={index} 
-                  className={`group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
+                  className="group relative overflow-hidden rounded-2xl transition-all duration-500 transform hover:-translate-y-2"
                 >
-                  <div className="h-64 overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                    />
+                  {/* Card background with glassmorphism */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm border border-gray-700/50 rounded-2xl"></div>
+                  
+                  <div className="relative z-10 p-8">
+                    <div className="h-64 mb-6 overflow-hidden rounded-xl">
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </div>
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold">{member.name}</h3>
@@ -215,7 +233,7 @@ const TeamPage: React.FC = () => {
               {teamMembers.slice(3, 5).map((member, index) => (
                 <div 
                   key={index + 3} 
-                  className={`group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
+                  className={`group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${'bg-gray-800'}`}
                 >
                   <div className="h-64 overflow-hidden">
                     <img 
@@ -259,7 +277,7 @@ const TeamPage: React.FC = () => {
         </section>
         
         {/* Values Section */}
-        <section className={`py-20 ${darkMode ? 'bg-gray-900/50' : 'bg-gray-50'}`}>
+        <section className={`py-20 ${'bg-gray-900/50'}`}>
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
@@ -268,7 +286,7 @@ const TeamPage: React.FC = () => {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className={`p-8 rounded-xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+              <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'}`}>
                 <div className="w-16 h-16 rounded-full bg-red-600/10 flex items-center justify-center mb-6">
                   <i className="fa fa-lightbulb text-red-600 text-2xl"></i>
                 </div>
@@ -278,7 +296,7 @@ const TeamPage: React.FC = () => {
                 </p>
               </div>
               
-              <div className={`p-8 rounded-xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+              <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'}`}>
                 <div className="w-16 h-16 rounded-full bg-red-600/10 flex items-center justify-center mb-6">
                   <i className="fa fa-users text-red-600 text-2xl"></i>
                 </div>
@@ -288,7 +306,7 @@ const TeamPage: React.FC = () => {
                 </p>
               </div>
               
-              <div className={`p-8 rounded-xl shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+              <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'}`}>
                 <div className="w-16 h-16 rounded-full bg-red-600/10 flex items-center justify-center mb-6">
                   <i className="fa fa-heart text-red-600 text-2xl"></i>
                 </div>
@@ -318,15 +336,15 @@ const TeamPage: React.FC = () => {
       </main>
                 
                 {/* Footer */}
-                <footer className={`py-12 ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
+                <footer className={`py-12 ${'bg-gray-900'}`}>
                   <div className="container mx-auto px-6">
                     <div className="flex flex-col md:flex-row justify-between items-center">
                       <div className="mb-6 md:mb-0">
                         <Link to="/" className="flex items-center space-x-3 group">
                           <img 
-                            src={darkMode ? '/logo/THRYCE_black_logo.png' : '/logo/THRYCE_white_logo.png'}
+                            src={'/logo/THRYCE_white_logo.png'}
                             alt="Thryce Logo"
-                            className="h-8 w-auto transition-all duration-300 hover:drop-shadow-lg group-hover:brightness-110"
+                            className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
                           />
                         </Link>
                         <p className="mt-2 opacity-70">Crafting digital experiences that inspire.</p>

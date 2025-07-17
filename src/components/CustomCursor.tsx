@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useTheme } from '../context/ThemeContext';
 
 const CustomCursor: React.FC = () => {
-  const { darkMode } = useTheme();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
-  const [cursorVariant, setCursorVariant] = useState('default');
 
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
@@ -26,7 +23,6 @@ const CustomCursor: React.FC = () => {
         target.closest('button')
       ) {
         setIsHovering(true);
-        setCursorVariant('hover');
       }
     };
 
@@ -40,7 +36,6 @@ const CustomCursor: React.FC = () => {
         target.closest('button')
       ) {
         setIsHovering(false);
-        setCursorVariant('default');
       }
     };
 
@@ -73,11 +68,7 @@ const CustomCursor: React.FC = () => {
         }}
       >
         <div
-          className={`w-4 h-4 rounded-full border-2 transition-all duration-200 ${
-            darkMode
-              ? 'bg-red-400/80 border-red-300 shadow-[0_0_20px_rgba(248,113,113,0.6)]'
-              : 'bg-red-500/80 border-red-400 shadow-[0_0_20px_rgba(239,68,68,0.6)]'
-          }`}
+          className={`w-4 h-4 rounded-full border-2 transition-all duration-200 bg-red-400/80 border-red-300 shadow-[0_0_20px_rgba(248,113,113,0.6)]`}
         />
       </div>
 
@@ -93,12 +84,8 @@ const CustomCursor: React.FC = () => {
         <div
           className={`w-10 h-10 rounded-full border transition-all duration-300 ${
             isHovering
-              ? darkMode
-                ? 'border-red-300/60 bg-red-400/10'
-                : 'border-red-400/60 bg-red-500/10'
-              : darkMode
-              ? 'border-red-400/40 bg-transparent'
-              : 'border-red-500/40 bg-transparent'
+              ? 'border-red-300/60 bg-red-400/10'
+              : 'border-red-400/40 bg-transparent'
           }`}
         />
       </div>
@@ -114,9 +101,7 @@ const CustomCursor: React.FC = () => {
             }}
           >
             <div
-              className={`w-3 h-3 rounded-full ${
-                darkMode ? 'bg-red-400/40' : 'bg-red-500/40'
-              }`}
+              className={`w-3 h-3 rounded-full bg-red-400/40`}
             />
           </div>
           <div
@@ -127,9 +112,7 @@ const CustomCursor: React.FC = () => {
             }}
           >
             <div
-              className={`w-8 h-8 rounded-full border ${
-                darkMode ? 'border-red-300/30' : 'border-red-400/30'
-              }`}
+              className={`w-8 h-8 rounded-full border border-red-300/30`}
             />
           </div>
         </>
@@ -145,9 +128,7 @@ const CustomCursor: React.FC = () => {
           }}
         >
           <div
-            className={`w-12 h-12 rounded-full border-2 ${
-              darkMode ? 'border-red-300/50' : 'border-red-400/50'
-            }`}
+            className={`w-12 h-12 rounded-full border-2 border-red-300/50`}
           />
         </div>
       )}
@@ -161,11 +142,7 @@ const CustomCursor: React.FC = () => {
           }}
         >
           <div
-            className={`w-15 h-15 rounded-full animate-spin-slow ${
-              darkMode
-                ? 'bg-gradient-to-r from-red-400/20 via-transparent to-red-300/20'
-                : 'bg-gradient-to-r from-red-500/20 via-transparent to-red-400/20'
-            }`}
+            className={`w-15 h-15 rounded-full animate-spin-slow bg-gradient-to-r from-red-400/20 via-transparent to-red-300/20`}
             style={{
               width: '60px',
               height: '60px',

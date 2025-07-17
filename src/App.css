@@ -10,15 +10,15 @@ body.dark {
 }
 
 /* Navigation Animations */
-@keyframes slideGlow {
+@keyframes slide {
   0% {
-    box-shadow: 0 0 5px rgba(239, 68, 68, 0.3);
+    opacity: 0.5;
   }
   50% {
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 0 30px rgba(239, 68, 68, 0.4);
+    opacity: 1;
   }
   100% {
-    box-shadow: 0 0 5px rgba(239, 68, 68, 0.3);
+    opacity: 0.5;
   }
 }
 
@@ -41,7 +41,7 @@ body.dark {
 }
 
 .sliding-box {
-  animation: slideGlow 2s ease-in-out infinite;
+  animation: slide 2s ease-in-out infinite;
 }
 
 .animate-spin-slow {
