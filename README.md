@@ -31,11 +31,11 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Abhijitxx/thryce-portfolio.git
+git clone https://github.com/Jaisaarathi19/Thryce.git
 ```
 2. Navigate into the project folder:
 ```bash
-cd thryce-portfolio
+cd Thryce
 ```
 3. Install dependencies:
 ```bash
@@ -43,5 +43,5 @@ npm install
 ```
 4. Start the development server:
 ```bash
-npm run dev
+npm start
 ```
