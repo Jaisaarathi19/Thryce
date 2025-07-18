@@ -7,6 +7,7 @@ const HomePage: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLCanvasElement>(null);
   const chartRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLDivElement>(null);
 
   // Particles animation
   useEffect(() => {
@@ -64,6 +65,14 @@ const HomePage: React.FC = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Scroll to services section function
+  const scrollToServices = () => {
+    servicesRef.current?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
 
   // Skills chart
   useEffect(() => {
@@ -152,7 +161,7 @@ const HomePage: React.FC = () => {
       title: "Logo Design",
       description: "Designing memorable and impactful logos that capture your brand's essence and make a lasting impression.",
       icon: "fa-pen-nib",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80"
+      image: "/logo/THRYCE_black_logo_full.jpg"
     }
     // Add more services as needed
   ];
@@ -160,19 +169,19 @@ const HomePage: React.FC = () => {
   // Portfolio data
   const portfolioItems = [
     {
-      title: "Nebula Finance",
-      category: "Web App",
-      image: "https://public.readdy.ai/ai/img_res/8cb119b4aecf2ae918eb9d0235d93cdb.jpg"
+      title: "Datalore Symposium",
+      category: "Web Development",
+      image: "/project_img/datalore.jpg"
     },
     {
-      title: "Pulse E-commerce",
-      category: "UI/UX Design",
-      image: "https://public.readdy.ai/ai/img_res/a3025f7ec52b1ecac8875c31968035e1.jpg"
+      title: "Monish's Portfolio",
+      category: "Web Development",
+      image: "/project_img/monish-pf.png"
     },
     {
       title: "Synth Music Platform",
-      category: "Web Development",
-      image: "https://public.readdy.ai/ai/img_res/9b1b3fce70292547562aea5df91c1152.jpg"
+      category: "Logo Design",
+      image: "/project_img/synth-music-platform.jpg"
     },
   ];
 
@@ -231,13 +240,16 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           {/* Modern scroll indicator: double chevron with glow and subtle pulse */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center select-none">
+          <div 
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center select-none cursor-pointer group"
+            onClick={scrollToServices}
+          >
             <span className="relative flex flex-col items-center">
-              <span className="block animate-bounce">
+              <span className="block animate-bounce group-hover:animate-pulse transition-all duration-300">
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g filter="url(#chevronGlow)">
-                    <polyline points="12,16 18,24 24,16" fill="none" stroke="#ef4444" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    <polyline points="12,8 18,16 24,8" fill="none" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
+                    <polyline points="12,16 18,24 24,16" fill="none" stroke="#ef4444" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-red-300 transition-colors duration-300"/>
+                    <polyline points="12,8 18,16 24,8" fill="none" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" className="group-hover:stroke-red-300 transition-colors duration-300"/>
                   </g>
                   <defs>
                     <filter id="chevronGlow" x="-10" y="-10" width="56" height="56" filterUnits="userSpaceOnUse">
@@ -250,13 +262,13 @@ const HomePage: React.FC = () => {
                   </defs>
                 </svg>
               </span>
-              <span className="block w-2 h-2 mt-1 rounded-full bg-red-500 shadow-[0_0_12px_4px_rgba(239,68,68,0.5)] animate-pulse"></span>
+              <span className="block w-2 h-2 mt-1 rounded-full bg-red-500 shadow-[0_0_12px_4px_rgba(239,68,68,0.5)] animate-pulse group-hover:bg-red-300 group-hover:shadow-[0_0_16px_6px_rgba(239,68,68,0.7)] transition-all duration-300"></span>
             </span>
           </div>
         </section>
         
         {/* Services Section */}
-        <section className="py-24 px-6 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+        <section ref={servicesRef} className="py-24 px-6 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
           {/* Animated background elements */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-red-500 rounded-full blur-3xl animate-pulse"></div>
@@ -365,10 +377,13 @@ const HomePage: React.FC = () => {
                         
                         {/* Action button */}
                         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                          <button className="inline-flex items-center text-red-400 font-medium hover:text-red-300 transition-colors duration-300">
+                          <Link 
+                            to="/projects" 
+                            className="inline-flex items-center text-red-400 font-medium hover:text-red-300 transition-colors duration-300"
+                          >
                             View Project 
                             <i className="fas fa-arrow-right ml-2 text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
-                          </button>
+                          </Link>
                         </div>
                       </div>
                     </div>

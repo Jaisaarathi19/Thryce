@@ -168,152 +168,379 @@ const ProjectsPage: React.FC = () => {
       {/* Remove the duplicate header/navigation section */}
       
       <main>
-        {/* Hero Section */}
-        <section className="relative min-h-[30vh] flex items-center justify-center pt-20">
-          <div className="container mx-auto px-6 py-8">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
-                <span className="block">My</span>
-                <span className="block text-red-600">Projects</span>
-              </h1>
-              <p className="text-lg mb-4 opacity-80 max-w-2xl mx-auto">
-                A showcase of my recent work across web and mobile platforms. Each project represents a unique challenge and solution.
-              </p>
-            </div>
-          </div>
-        </section>
         
-        {/* All Projects Section */}
-        <section className={`py-1 ${'bg-gray-900/50'}`}>
-          <div className="container mx-auto px-6">
-            {/* Category Filter */}
-            <div className="flex justify-center mb-12">
-              <div className={`inline-flex rounded-lg p-1 ${'bg-gray-800'} shadow-md`}>
-                <button 
-                  onClick={() => setActiveCategory('all')} 
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeCategory === 'all' 
-                      ? 'bg-red-600 text-white' 
-                      : `${'hover:bg-gray-700'}`
-                  }`}
-                >
-                  All
-                </button>
-                <button 
-                  onClick={() => setActiveCategory('web')} 
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeCategory === 'web' 
-                      ? 'bg-red-600 text-white' 
-                      : `${'hover:bg-gray-700'}`
-                  }`}
-                >
-                  Web Development
-                </button>
-                <button 
-                  onClick={() => setActiveCategory('graphic')} 
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeCategory === 'graphic' 
-                      ? 'bg-red-600 text-white' 
-                      : `${'hover:bg-gray-700'}`
-                  }`}
-                >
-                  Graphic Design
-                </button>
-                <button 
-                  onClick={() => setActiveCategory('logo')} 
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeCategory === 'logo' 
-                      ? 'bg-red-600 text-white' 
-                      : `${'hover:bg-gray-700'}`
-                  }`}
-                >
-                  Logo Designing
-                </button>
+        {/* All Projects Section - Revolutionary Design */}
+        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-red-500 rounded-full filter blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-red-600 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            {/* Section Header */}
+            <div className="text-center mb-12 sm:mb-16 mt-16 sm:mt-20">
+              <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-2 mb-6">
+                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                <span className="text-red-400 text-sm font-medium uppercase tracking-wide">Our Portfolio</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+                Explore Our <span className="bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text text-transparent">Work</span>
+              </h2>
+            </div>
+            
+            {/* Modern Category Filter */}
+            <div className="flex justify-center mb-12 sm:mb-16">
+              <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-2 shadow-2xl">
+                <div className="flex flex-wrap justify-center gap-2">
+                  <button 
+                    onClick={() => setActiveCategory('all')} 
+                    className={`group relative px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                      activeCategory === 'all' 
+                        ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/25' 
+                        : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      <i className="fas fa-th-large"></i>
+                      All Projects
+                    </span>
+                    {activeCategory === 'all' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    )}
+                  </button>
+                  
+                  <button 
+                    onClick={() => setActiveCategory('web')} 
+                    className={`group relative px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                      activeCategory === 'web' 
+                        ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/25' 
+                        : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      <i className="fas fa-code"></i>
+                      Web Dev
+                    </span>
+                    {activeCategory === 'web' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    )}
+                  </button>
+                  
+                  <button 
+                    onClick={() => setActiveCategory('graphic')} 
+                    className={`group relative px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                      activeCategory === 'graphic' 
+                        ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/25' 
+                        : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      <i className="fas fa-palette"></i>
+                      Graphics
+                    </span>
+                    {activeCategory === 'graphic' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    )}
+                  </button>
+                  
+                  <button 
+                    onClick={() => setActiveCategory('logo')} 
+                    className={`group relative px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                      activeCategory === 'logo' 
+                        ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/25' 
+                        : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
+                    }`}
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      <i className="fas fa-bullseye"></i>
+                      Logos
+                    </span>
+                    {activeCategory === 'logo' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
             
-            {/* Projects Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project) => (
+            {/* Enhanced Projects Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
+              {filteredProjects.map((project, index) => (
                 <div 
                   key={project.id} 
-                  className={`group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${'bg-gray-800/50'}`}
+                  className="group relative"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="h-48 overflow-hidden">
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      <img 
-                        src={project.image} 
-                        alt={project.title} 
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    </a>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex justify-between items-start mb-3">
-                      <h3 className="text-xl font-bold">{project.title}</h3>
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        project.category === 'web' 
-                          ? 'bg-blue-500/10 text-blue-500' 
-                          : project.category === 'logo'
-                            ? 'bg-green-500/10 text-green-500'
-                            : 'bg-purple-500/10 text-purple-500'
-                      }`}>
-                        {project.category === 'web' ? 'Web Development' : project.category === 'logo' ? 'Logo Designing' : 'Graphic Designing'}
-                      </span>
+                  {/* Background Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500"></div>
+                  
+                  <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl overflow-hidden hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+                    
+                    {/* Image Container */}
+                    <div className="relative h-64 overflow-hidden">
+                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                        <img 
+                          src={project.image} 
+                          alt={project.title} 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        {/* Floating Action Button */}
+                        <div className="absolute top-4 right-4 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 shadow-lg">
+                          <i className="fas fa-external-link-alt text-white text-sm"></i>
+                        </div>
+                        
+                        {/* Category Badge */}
+                        <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm border ${
+                            project.category === 'web' 
+                              ? 'bg-blue-500/20 text-blue-400 border-blue-500/30' 
+                              : project.category === 'logo'
+                                ? 'bg-green-500/20 text-green-400 border-green-500/30'
+                                : 'bg-purple-500/20 text-purple-400 border-purple-500/30'
+                          }`}>
+                            {project.category === 'web' ? 'Web Dev' : project.category === 'logo' ? 'Logo' : 'Graphics'}
+                          </span>
+                        </div>
+                      </a>
                     </div>
-                    <p className="opacity-80 mb-4 text-sm line-clamp-2">{project.description}</p>
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {project.technologies.slice(0, 3).map((tech, index) => (
-                        <span 
-                          key={index} 
-                          className={`px-2 py-1 rounded-full text-xs font-medium ${'bg-gray-700'}`}
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.technologies.length > 3 && (
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${'bg-gray-700'}`}>
-                          +{project.technologies.length - 3} more
-                        </span>
-                      )}
+                    
+                    {/* Content Section */}
+                    <div className="p-6 sm:p-8">
+                      {/* Decorative Line */}
+                      <div className="w-12 h-1 bg-gradient-to-r from-red-500 to-red-600 rounded-full mb-4"></div>
+                      
+                      {/* Title */}
+                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors duration-300 line-clamp-2">
+                        {project.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-gray-300 leading-relaxed mb-6 group-hover:text-gray-200 transition-colors duration-300 text-sm sm:text-base">
+                        {project.description}
+                      </p>
+                      
+                      {/* Technologies */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                          <span 
+                            key={techIndex} 
+                            className="px-3 py-1 bg-gray-700/50 text-gray-300 text-xs rounded-full border border-gray-600/50 hover:border-red-500/50 transition-colors duration-300"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <span className="px-3 py-1 bg-gray-700/50 text-gray-300 text-xs rounded-full border border-gray-600/50">
+                            +{project.technologies.length - 3}
+                          </span>
+                        )}
+                      </div>
+                      
+                      {/* Action Button */}
+                      <a 
+                        href={project.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="group/btn inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors duration-300 font-medium"
+                      >
+                        <span>Explore Project</span>
+                        <i className="fas fa-arrow-right transform group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                      </a>
+                      
+                      {/* Bottom Accent */}
+                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                     </div>
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="inline-flex items-center text-sm text-red-600 hover:text-red-700 transition-colors"
-                    >
-                      View Details <i className="fas fa-arrow-right ml-1"></i>
-                    </a>
                   </div>
                 </div>
               ))}
             </div>
             
-            {/* Empty State */}
+            {/* Enhanced Empty State */}
             {filteredProjects.length === 0 && (
-              <div className={`p-12 rounded-xl text-center ${'bg-gray-800'} shadow-lg`}>
-                <i className="fas fa-search text-4xl text-gray-400 mb-4"></i>
-                <h3 className="text-xl font-bold mb-2">No projects found</h3>
-                <p className="opacity-70">No projects match the selected category. Try selecting a different category.</p>
+              <div className="max-w-md mx-auto text-center">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent rounded-3xl"></div>
+                  <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-12">
+                    <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <i className="fas fa-search text-white text-2xl"></i>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-4">No Projects Found</h3>
+                    <p className="text-gray-400 leading-relaxed mb-6">
+                      We couldn't find any projects matching your current filter. 
+                      Try selecting a different category to explore our work.
+                    </p>
+                    <button 
+                      onClick={() => setActiveCategory('all')}
+                      className="px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                    >
+                      View All Projects
+                    </button>
+                  </div>
+                </div>
               </div>
             )}
           </div>
         </section>
         
-        {/* CTA Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-6">
-            <div className={`rounded-2xl overflow-hidden relative ${'bg-black'} shadow-xl`}>
-              <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"></div>
-              <div className="relative z-10 p-12 md:p-20 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">Have a Project in Mind?</h2>
-                <p className="text-lg max-w-2xl mx-auto mb-8 opacity-70">
-                  We're always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-                </p>
-                <Link to="/contact" className="px-8 py-3 bg-red-600 text-white rounded-full hover:bg-transparent hover:border-2 hover:border-red-600 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer whitespace-nowrap">
-                  Get in Touch
+        {/* CTA Section - Revolutionary Design */}
+        <section className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+          {/* Animated Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-red-500/20 rounded-full filter blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-red-600/15 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-red-500/10 rounded-full animate-spin-slow"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
+            <div className="max-w-6xl mx-auto">
+              
+              {/* Main CTA Card */}
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-red-600/10 to-red-500/20 rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-700"></div>
+                <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl overflow-hidden">
+                  
+                  {/* Header Badge */}
+                  <div className="text-center pt-8 sm:pt-12">
+                    <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-2 mb-6">
+                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                      <span className="text-red-400 text-sm font-medium uppercase tracking-wide">Ready to Start?</span>
+                    </div>
+                  </div>
+                  
+                  {/* Main Content Grid */}
+                  <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 p-6 sm:p-8 lg:p-12">
+                    
+                    {/* Left Content */}
+                    <div className="space-y-6">
+                      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                        Let's Build Something
+                        <span className="block bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text text-transparent">
+                          Extraordinary
+                        </span>
+                      </h2>
+                      
+                      <p className="text-gray-300 text-lg leading-relaxed">
+                        From concept to completion, we're here to transform your vision into a digital masterpiece. 
+                        Whether it's a cutting-edge web application or stunning visual identity, let's create something amazing together.
+                      </p>
+                      
+                      {/* Feature List */}
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                            <i className="fas fa-check text-white text-xs"></i>
+                          </div>
+                          <span className="text-gray-300">Free initial consultation</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                            <i className="fas fa-check text-white text-xs"></i>
+                          </div>
+                          <span className="text-gray-300">Custom solutions tailored to your needs</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                            <i className="fas fa-check text-white text-xs"></i>
+                          </div>
+                          <span className="text-gray-300">24/7 support throughout the project</span>
+                        </div>
+                      </div>
+                      
+                      {/* CTA Buttons */}
+                      <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                        <Link 
+                          to="/contact" 
+                          className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-2xl font-semibold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/25"
+                        >
+                          <span className="relative z-10 flex items-center gap-2">
+                            <i className="fas fa-rocket"></i>
+                            Start Your Project
+                          </span>
+                          <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                        </Link>
+                        
+                        <Link 
+                          to="/about" 
+                          className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-600 text-gray-300 rounded-2xl font-semibold hover:border-red-500 hover:text-red-400 transition-all duration-300"
+                        >
+                          <span className="flex items-center gap-2">
+                            <i className="fas fa-users"></i>
+                            Learn More
+                          </span>
+                        </Link>
+                      </div>
+                    </div>
+                    
+                    {/* Right Visual Element */}
+                    <div className="relative lg:flex items-center justify-center hidden">
+                      <div className="relative">
+                        {/* Floating Cards */}
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl rotate-12 animate-float opacity-80"></div>
+                        <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl -rotate-12 animate-float delay-500 opacity-60"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gradient-to-br from-red-400 to-red-500 rounded-2xl rotate-45 animate-float delay-1000 opacity-70"></div>
+                        
+                        {/* Central Element */}
+                        <div className="w-48 h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl flex items-center justify-center border border-gray-700/50 shadow-2xl">
+                          <div className="text-6xl text-red-500">
+                            <i className="fas fa-code"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Bottom Stats Bar */}
+                  <div className="border-t border-gray-700/30 bg-gray-800/30 backdrop-blur-sm">
+                    <div className="grid grid-cols-2 divide-x divide-gray-700/30">
+                      <div className="text-center py-6">
+                        <div className="text-2xl font-bold text-red-500 mb-1">24/7</div>
+                        <div className="text-sm text-gray-400">Support Available</div>
+                      </div>
+                      <div className="text-center py-6">
+                        <div className="text-2xl font-bold text-red-500 mb-1">100%</div>
+                        <div className="text-sm text-gray-400">Client Satisfaction</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Secondary CTA Cards */}
+              <div className="grid sm:grid-cols-2 gap-6 mt-12">
+                
+                {/* Contact Card */}
+                <Link to="/contact" className="group relative block">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent rounded-2xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-500"></div>
+                  <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-red-500/50 transition-all duration-300 cursor-pointer">
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <i className="fas fa-envelope text-white text-xl"></i>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Quick Contact</h3>
+                    <p className="text-gray-400 mb-4">Drop us a message and we'll get back to you within 24 hours.</p>
+                    <span className="text-red-400 hover:text-red-300 transition-colors font-medium">
+                      Send Message →
+                    </span>
+                  </div>
+                </Link>
+                
+                {/* Portfolio Card */}
+                <Link to="/team" className="group relative block">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500"></div>
+                  <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-red-500/50 transition-all duration-300 cursor-pointer">
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <i className="fas fa-users text-white text-xl"></i>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">View Team</h3>
+                    <p className="text-gray-400 mb-4">Meet our talented team and see who makes the magic happen.</p>
+                    <span className="text-red-400 hover:text-red-300 transition-colors font-medium">
+                      Meet the Team →
+                    </span>
+                  </div>
                 </Link>
               </div>
             </div>

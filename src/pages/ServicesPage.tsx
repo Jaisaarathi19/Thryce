@@ -108,14 +108,13 @@ const ServicesPage: React.FC = () => {
       <Navigation />
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[50vh] flex items-center justify-center pt-20">
-          <div className="container mx-auto px-6 py-12">
+        <section className="relative min-h-[40vh] flex items-center justify-center pt-20">
+          <div className="container mx-auto px-6 py-8">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-                <span className="block">Our</span>
-                <span className="block text-red-600">Services</span>
-              </h1>
-              <p className="text-lg mb-8 opacity-80 max-w-2xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                Our <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Services</span>
+              </h2>
+              <p className="text-lg mb-4 opacity-80 max-w-2xl mx-auto">
                 We offer comprehensive digital solutions to help your business thrive in the digital landscape.
               </p>
             </div>
@@ -123,7 +122,7 @@ const ServicesPage: React.FC = () => {
         </section>
         
         {/* Services Section */}
-        <section className="py-12">
+        <section className="py-6">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {services.map((service, index) => (
@@ -152,63 +151,164 @@ const ServicesPage: React.FC = () => {
         </section>
         
         {/* Process Section */}
-        <section className={`py-20 ${'bg-gray-900/50'}`}>
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Process</h2>
-              <p className="opacity-70">
-                We follow a structured approach to deliver exceptional results for every project.
+        <section className={`py-24 ${'bg-gradient-to-b from-black to-gray-950'} relative overflow-hidden`}>
+          {/* Dynamic Background */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-10 w-32 h-32 bg-red-500/5 rounded-full blur-2xl animate-pulse"></div>
+            <div className="absolute bottom-20 right-10 w-40 h-40 bg-red-600/5 rounded-full blur-2xl animate-pulse delay-700"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-red-400/5 rounded-full blur-3xl"></div>
+          </div>
+          
+          <div className="container mx-auto px-6 relative z-10">
+            {/* Section Header */}
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                How We <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Work</span>
+              </h2>
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                Our proven methodology ensures exceptional results every time
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div className="relative h-full">
-                <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'} relative z-10 h-full flex flex-col`}>
-                  <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center mb-6 text-white font-bold text-xl">
-                    1
+            
+            {/* Horizontal Process Flow - Mobile */}
+            <div className="lg:hidden overflow-x-auto pb-6">
+              <div className="flex space-x-6 min-w-max">
+                {[
+                  { number: "01", title: "Discovery", desc: "Understanding your goals and vision", icon: "fas fa-search", tags: ["Research", "Analysis"] },
+                  { number: "02", title: "Design", desc: "Creating wireframes and prototypes", icon: "fas fa-drafting-compass", tags: ["UI/UX", "Prototypes"] },
+                  { number: "03", title: "Development", desc: "Building robust solutions", icon: "fas fa-code", tags: ["Frontend", "Backend"] },
+                  { number: "04", title: "Launch", desc: "Deploying with ongoing support", icon: "fas fa-rocket", tags: ["Deploy", "Support"] }
+                ].map((step, index) => (
+                  <div key={index} className="group relative flex-shrink-0 w-72">
+                    <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-800/50 hover:border-red-500/30 transition-all duration-500 h-full">
+                      <div className="flex items-center space-x-4 mb-4">
+                        <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500">
+                          <i className={`${step.icon} text-white text-sm`}></i>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <span className="text-xs font-medium text-red-400 bg-red-500/10 px-2 py-1 rounded-full">{step.number}</span>
+                          <h3 className="text-lg font-bold text-white group-hover:text-red-400 transition-colors duration-300">{step.title}</h3>
+                        </div>
+                      </div>
+                      <p className="text-gray-400 text-sm leading-relaxed mb-3">{step.desc}</p>
+                      <div className="flex flex-wrap gap-1">
+                        {step.tags.map((tag, i) => (
+                          <span key={i} className="text-xs bg-gray-800/50 text-gray-300 px-2 py-1 rounded">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                    {/* Arrow for mobile */}
+                    {index < 3 && (
+                      <div className="absolute -right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-red-500/20 rounded-full flex items-center justify-center">
+                        <i className="fas fa-chevron-right text-red-400 text-xs"></i>
+                      </div>
+                    )}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">Discovery</h3>
-                  <p className="opacity-70">
-                    We learn about your business, goals, and requirements to create a tailored strategy.
-                  </p>
-                </div>
-                <div className="hidden md:block absolute top-1/2 left-full w-full h-0.5 bg-red-600/30 -translate-y-1/2 z-0"></div>
+                ))}
               </div>
-              
-              <div className="relative h-full">
-                <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'} relative z-10 h-full flex flex-col`}>
-                  <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center mb-6 text-white font-bold text-xl">
-                    2
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">Planning</h3>
-                  <p className="opacity-70">
-                    We create detailed specifications and project roadmap with clear milestones.
-                  </p>
+            </div>
+            
+            {/* Horizontal Process Flow - Desktop */}
+            <div className="hidden lg:block max-w-7xl mx-auto">
+              <div className="relative">
+                {/* Connection Line */}
+                <div className="absolute top-16 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/30 to-transparent"></div>
+                
+                {/* Process Steps */}
+                <div className="grid grid-cols-4 gap-8">
+                  {[
+                    { 
+                      number: "01", 
+                      title: "Discovery", 
+                      desc: "We start by understanding your goals, challenges, and vision through detailed research and stakeholder interviews.",
+                      icon: "fas fa-search",
+                      tags: ["Research", "Analysis", "Strategy"]
+                    },
+                    { 
+                      number: "02", 
+                      title: "Design", 
+                      desc: "Creating wireframes, prototypes, and visual designs that bring your ideas to life with modern aesthetics.",
+                      icon: "fas fa-drafting-compass",
+                      tags: ["Wireframes", "Prototypes", "UI/UX"]
+                    },
+                    { 
+                      number: "03", 
+                      title: "Development", 
+                      desc: "Building robust, scalable solutions using cutting-edge technologies and best practices in development.",
+                      icon: "fas fa-code",
+                      tags: ["Frontend", "Backend", "Testing"]
+                    },
+                    { 
+                      number: "04", 
+                      title: "Launch", 
+                      desc: "Deploying your project with comprehensive testing, optimization, and ongoing support for success.",
+                      icon: "fas fa-rocket",
+                      tags: ["Deployment", "Optimization", "Support"]
+                    }
+                  ].map((step, index) => (
+                    <div key={index} className="group relative" style={{ animationDelay: `${index * 150}ms` }}>
+                      {/* Connection Point */}
+                      <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500"></div>
+                      
+                      {/* Arrow to Next Step */}
+                      {index < 3 && (
+                        <div className="absolute top-16 left-full w-full h-px bg-gradient-to-r from-red-500/60 to-red-500/20 transform translate-y-0.5 z-0"></div>
+                      )}
+                      
+                      {/* Card */}
+                      <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-800/50 hover:border-red-500/30 transition-all duration-500 mt-8 group-hover:transform group-hover:-translate-y-2">
+                        {/* Icon and Number */}
+                        <div className="flex items-center justify-center mb-6">
+                          <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                            <i className={`${step.icon} text-white text-xl`}></i>
+                          </div>
+                        </div>
+                        
+                        {/* Step Number and Title */}
+                        <div className="text-center mb-4">
+                          <div className="flex items-center justify-center space-x-2 mb-2">
+                            <span className="text-sm font-medium text-red-400 bg-red-500/10 px-3 py-1 rounded-full">{step.number}</span>
+                          </div>
+                          <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors duration-300 mb-3">
+                            {step.title}
+                          </h3>
+                        </div>
+                        
+                        {/* Description */}
+                        <p className="text-gray-400 text-sm leading-relaxed mb-4 text-center">
+                          {step.desc}
+                        </p>
+                        
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2 justify-center">
+                          {step.tags.map((tag, i) => (
+                            <span key={i} className="text-xs bg-gray-800/50 text-gray-300 px-2 py-1 rounded hover:bg-red-500/10 hover:text-red-400 transition-colors duration-300">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="hidden md:block absolute top-1/2 left-full w-full h-0.5 bg-red-600/30 -translate-y-1/2 z-0"></div>
               </div>
-              
-              <div className="relative h-full">
-                <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'} relative z-10 h-full flex flex-col`}>
-                  <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center mb-6 text-white font-bold text-xl">
-                    3
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">Execution</h3>
-                  <p className="opacity-70">
-                    Our team develops your solution with regular updates and feedback sessions.
-                  </p>
+            </div>
+
+            {/* Process Flow Indicator */}
+            <div className="flex justify-center mt-16">
+              <div className="flex items-center space-x-4 bg-gray-900/50 backdrop-blur-sm px-8 py-4 rounded-full border border-gray-800/50">
+                <div className="flex items-center space-x-2">
+                  <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                  <span className="text-gray-300 text-sm font-medium">Start</span>
                 </div>
-                <div className="hidden md:block absolute top-1/2 left-full w-full h-0.5 bg-red-600/30 -translate-y-1/2 z-0"></div>
-              </div>
-              
-              <div className="relative h-full">
-                <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'} relative z-10 h-full flex flex-col`}>
-                  <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center mb-6 text-white font-bold text-xl">
-                    4
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">Launch & Support</h3>
-                  <p className="opacity-70">
-                    We deploy your solution and provide ongoing maintenance and support.
-                  </p>
+                <div className="flex space-x-1">
+                  <div className="w-1 h-1 bg-red-400 rounded-full opacity-60"></div>
+                  <div className="w-1 h-1 bg-red-400 rounded-full opacity-40"></div>
+                  <div className="w-1 h-1 bg-red-400 rounded-full opacity-20"></div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse delay-1000"></div>
+                  <span className="text-gray-300 text-sm font-medium">Success</span>
                 </div>
               </div>
             </div>

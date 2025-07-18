@@ -140,7 +140,7 @@ const TeamPage: React.FC = () => {
       <Navigation />
       <main>
         {/* Hero Section and rest of the page content follows... */}
-        <section className="relative min-h-[60vh] flex items-center justify-center pt-20 overflow-hidden">
+        <section className="relative min-h-[40vh] flex items-center justify-center pt-20 overflow-hidden">
           {/* Animated background pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-20 left-20 w-32 h-32 border border-red-500 rotate-45 animate-spin-slow"></div>
@@ -148,13 +148,12 @@ const TeamPage: React.FC = () => {
             <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-red-500/20 rounded-full animate-float"></div>
           </div>
           
-          <div className="container mx-auto px-6 py-12 relative z-10">
+          <div className="container mx-auto px-6 py-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="mb-8">
-                <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-                  <span className="block bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">Meet Our</span>
-                  <span className="block bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent animate-fadeInUp">Team</span>
-                </h1>
+              <div className="mb-4">
+                <h1 className="text-4xl md:text-5xl font-bold mb-3 text-white">
+                Meet Our <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Team</span>
+              </h1>
                 <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full"></div>
               </div>
               <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
@@ -164,145 +163,498 @@ const TeamPage: React.FC = () => {
           </div>
         </section>
         
-        {/* Team Section */}
-        <section className="py-24 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
-          {/* Background effects */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 left-20 w-32 h-32 border border-red-500 rotate-45 animate-spin-slow"></div>
-            <div className="absolute bottom-20 right-20 w-24 h-24 border border-red-400 rotate-12 animate-pulse"></div>
-          </div>
-          
-          <div className="container mx-auto px-6 relative z-10">
-            {/* First row - 3 members */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-              {teamMembers.slice(0, 3).map((member, index) => (
-                <div 
-                  key={index} 
-                  className="group relative overflow-hidden rounded-2xl transition-all duration-500 transform hover:-translate-y-2"
-                >
-                  {/* Card background with glassmorphism */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm border border-gray-700/50 rounded-2xl"></div>
-                  
-                  <div className="relative z-10 p-8">
-                    <div className="h-64 mb-6 overflow-hidden rounded-xl">
-                      <img 
-                        src={member.image} 
-                        alt={member.name} 
-                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                      />
+        {/* Team Section - Ultra Responsive */}
+        <section className="py-6 sm:py-8 md:py-12 lg:py-16 bg-black">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Professional Team Grid */}
+            <div className="max-w-7xl mx-auto">
+              {/* First 3 members - Ultra Responsive Grid */}
+              <div className="w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 justify-items-center mb-12 sm:mb-16">
+                  {teamMembers.slice(0, 3).map((member, index) => (
+                    <div 
+                      key={index} 
+                      className="group relative bg-gradient-to-br from-gray-900/80 to-gray-800/60 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-red-500/50 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/10 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
+                    >
+                      {/* Enhanced Image Container */}
+                      <div className="relative overflow-hidden">
+                        <div className="w-full h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px] xl:h-[420px] overflow-hidden bg-gray-800">
+                          <img 
+                            src={member.image} 
+                            alt={member.name} 
+                            className="w-full h-full object-cover object-center filter brightness-85 group-hover:brightness-100 group-hover:scale-110 transition-all duration-700"
+                          />
+                          {/* Gradient Overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                          
+                          {/* Floating Social Links */}
+                          <div className="absolute top-4 right-4 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 delay-200">
+                            {member.social.linkedin && (
+                              <button 
+                                onClick={() => window.open(member.social.linkedin, '_blank')}
+                                className="w-10 h-10 bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-300 border border-white/10"
+                                aria-label={`${member.name}'s LinkedIn`}
+                              >
+                                <i className="fab fa-linkedin-in text-sm"></i>
+                              </button>
+                            )}
+                            {member.social.instagram && (
+                              <button 
+                                onClick={() => window.open(member.social.instagram, '_blank')}
+                                className="w-10 h-10 bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-300 border border-white/10"
+                                aria-label={`${member.name}'s Instagram`}
+                              >
+                                <i className="fab fa-instagram text-sm"></i>
+                              </button>
+                            )}
+                          </div>
+                          
+                          {/* Role Badge */}
+                          <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                            <span className="px-3 py-1 bg-red-500/90 backdrop-blur-sm text-white text-xs font-medium uppercase tracking-wide rounded-full border border-red-400/50">
+                              {member.role}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Enhanced Content Section */}
+                      <div className="p-8 relative">
+                        {/* Decorative Element */}
+                        <div className="absolute top-0 left-8 w-12 h-1 bg-gradient-to-r from-red-500 to-red-600 transform -translate-y-1"></div>
+                        
+                        <div className="pt-2">
+                          {/* Name */}
+                          <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors duration-300">
+                            {member.name}
+                          </h3>
+                          
+                          {/* Role */}
+                          <p className="text-red-500 font-semibold mb-4 uppercase tracking-wider text-sm">
+                            {member.role}
+                          </p>
+                          
+                          {/* Bio */}
+                          <p className="text-gray-300 leading-relaxed text-sm mb-6 group-hover:text-gray-200 transition-colors duration-300">
+                            {member.bio}
+                          </p>
+                          
+                          {/* Skills/Expertise Tags */}
+                          <div className="flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 delay-300">
+                            {member.role === 'Designer' && (
+                              <>
+                                <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-gray-700/50 text-gray-300 text-xs rounded-md border border-gray-600/50">UI/UX</span>
+                                <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-gray-700/50 text-gray-300 text-xs rounded-md border border-gray-600/50">Branding</span>
+                                <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-gray-700/50 text-gray-300 text-xs rounded-md border border-gray-600/50">Visual Design</span>
+                              </>
+                            )}
+                            {member.role === 'Developer' && (
+                              <>
+                                <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-gray-700/50 text-gray-300 text-xs rounded-md border border-gray-600/50">React</span>
+                                <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-gray-700/50 text-gray-300 text-xs rounded-md border border-gray-600/50">Node.js</span>
+                                <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-gray-700/50 text-gray-300 text-xs rounded-md border border-gray-600/50">TypeScript</span>
+                              </>
+                            )}
+                          </div>
+                        </div>
+                        
+                        {/* Bottom Accent */}
+                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold">{member.name}</h3>
-                    <p className="text-red-600 mb-3">{member.role}</p>
-                    <p className="opacity-70 mb-4">{member.bio}</p>
-                    <div className="flex space-x-4">
-                      {member.social.linkedin && (
-                        <button 
-                          onClick={() => window.open(member.social.linkedin, '_blank')}
-                          className="text-gray-400 hover:text-red-600 transition-colors"
-                          aria-label={`${member.name}'s LinkedIn`}
-                        >
-                          <i className="fab fa-linkedin-in"></i>
-                        </button>
-                      )}
-                      {member.social.instagram && (
-                        <button 
-                          onClick={() => window.open(member.social.instagram, '_blank')}
-                          className="text-gray-400 hover:text-red-600 transition-colors"
-                          aria-label={`${member.name}'s Instagram`}
-                        >
-                          <i className="fab fa-instagram"></i>
-                        </button>
-                      )}
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
+                
+                {/* Last 2 members - Ultra Responsive Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 justify-items-center max-w-5xl mx-auto">
+                  {teamMembers.slice(3, 5).map((member, index) => (
+                    <div 
+                      key={index + 3} 
+                      className="group relative bg-gradient-to-br from-gray-900/80 to-gray-800/60 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-red-500/50 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/10 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
+                    >
+                      {/* Enhanced Image Container */}
+                      <div className="relative overflow-hidden">
+                        <div className="w-full h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px] xl:h-[420px] overflow-hidden bg-gray-800">
+                          <img 
+                            src={member.image} 
+                            alt={member.name} 
+                            className="w-full h-full object-cover object-center filter brightness-85 group-hover:brightness-100 group-hover:scale-110 transition-all duration-700"
+                          />
+                          {/* Gradient Overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                          
+                          {/* Floating Social Links */}
+                          <div className="absolute top-2 sm:top-4 right-2 sm:right-4 flex flex-col space-y-1 sm:space-y-2 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 delay-200">
+                            {member.social.linkedin && (
+                              <button 
+                                onClick={() => window.open(member.social.linkedin, '_blank')}
+                                className="w-8 h-8 sm:w-10 sm:h-10 bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-300 border border-white/10"
+                                aria-label={`${member.name}'s LinkedIn`}
+                              >
+                                <i className="fab fa-linkedin-in text-xs sm:text-sm"></i>
+                              </button>
+                            )}
+                            {member.social.instagram && (
+                              <button 
+                                onClick={() => window.open(member.social.instagram, '_blank')}
+                                className="w-8 h-8 sm:w-10 sm:h-10 bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all duration-300 border border-white/10"
+                                aria-label={`${member.name}'s Instagram`}
+                              >
+                                <i className="fab fa-instagram text-xs sm:text-sm"></i>
+                              </button>
+                            )}
+                          </div>
+                          
+                          {/* Role Badge */}
+                          <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                            <span className="px-2 py-1 sm:px-3 sm:py-1 bg-red-500/90 backdrop-blur-sm text-white text-xs font-medium uppercase tracking-wide rounded-full border border-red-400/50">
+                              {member.role}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Enhanced Content Section */}
+                      <div className="p-4 sm:p-6 md:p-8 relative">
+                        {/* Decorative Element */}
+                        <div className="absolute top-0 left-4 sm:left-6 md:left-8 w-8 sm:w-10 md:w-12 h-1 bg-gradient-to-r from-red-500 to-red-600 transform -translate-y-1"></div>
+                        
+                        <div className="pt-2">
+                          {/* Name */}
+                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2 group-hover:text-red-400 transition-colors duration-300">
+                            {member.name}
+                          </h3>
+                          
+                          {/* Role */}
+                          <p className="text-red-500 font-semibold mb-2 sm:mb-3 md:mb-4 uppercase tracking-wider text-xs sm:text-sm">
+                            {member.role}
+                          </p>
+                          
+                          {/* Bio */}
+                          <p className="text-gray-300 leading-relaxed text-xs sm:text-sm mb-4 sm:mb-6 group-hover:text-gray-200 transition-colors duration-300">
+                            {member.bio}
+                          </p>
+                          
+                          {/* Skills/Expertise Tags */}
+                          <div className="flex flex-wrap gap-1 sm:gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 delay-300">
+                            {member.role === 'Designer' && (
+                              <>
+                                <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-gray-700/50 text-gray-300 text-xs rounded-md border border-gray-600/50">UI/UX</span>
+                                <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-gray-700/50 text-gray-300 text-xs rounded-md border border-gray-600/50">Branding</span>
+                                <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-gray-700/50 text-gray-300 text-xs rounded-md border border-gray-600/50">Visual Design</span>
+                              </>
+                            )}
+                            {member.role === 'Developer' && (
+                              <>
+                                <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-gray-700/50 text-gray-300 text-xs rounded-md border border-gray-600/50">React</span>
+                                <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-gray-700/50 text-gray-300 text-xs rounded-md border border-gray-600/50">Node.js</span>
+                                <span className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-gray-700/50 text-gray-300 text-xs rounded-md border border-gray-600/50">TypeScript</span>
+                              </>
+                            )}
+                          </div>
+                        </div>
+                        
+                        {/* Bottom Accent */}
+                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-            {/* Second row - 2 members */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {teamMembers.slice(3, 5).map((member, index) => (
-                <div 
-                  key={index + 3} 
-                  className={`group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${'bg-gray-800'}`}
-                >
-                  <div className="h-64 overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                    />
+            
+            {/* Team Stats - Revolutionary Design */}
+            <div className="mt-16 sm:mt-20 lg:mt-24 relative">
+              {/* Background Elements */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-red-500 rounded-full filter blur-2xl animate-pulse"></div>
+                <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-red-600 rounded-full filter blur-2xl animate-pulse delay-1000"></div>
+              </div>
+              
+              {/* Stats Container */}
+              <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+                {/* Section Header */}
+                <div className="text-center mb-12 sm:mb-16">
+                  <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-2 mb-4">
+                    <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                    <span className="text-red-400 text-sm font-medium uppercase tracking-wide">By The Numbers</span>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold">{member.name}</h3>
-                    <p className="text-red-600 mb-3">{member.role}</p>
-                    <p className="opacity-70 mb-4">{member.bio}</p>
-                    <div className="flex space-x-4">
-                      {member.social.linkedin && (
-                        <button 
-                          onClick={() => window.open(member.social.linkedin, '_blank')}
-                          className="text-gray-400 hover:text-red-600 transition-colors"
-                          aria-label={`${member.name}'s LinkedIn`}
-                        >
-                          <i className="fab fa-linkedin-in"></i>
-                        </button>
-                      )}
-                      {member.social.instagram && (
-                        <button 
-                          onClick={() => window.open(member.social.instagram, '_blank')}
-                          className="text-gray-400 hover:text-red-600 transition-colors"
-                          aria-label={`${member.name}'s Instagram`}
-                        >
-                          <i className="fab fa-instagram"></i>
-                        </button>
-                      )}
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
+                    Our <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Impact</span>
+                  </h3>
+                </div>
+                
+                {/* Stats Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                  
+                  {/* Team Members Stat */}
+                  <div className="group relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-transparent rounded-3xl transform rotate-2 group-hover:rotate-3 transition-transform duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+                      {/* Icon */}
+                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25">
+                        <i className="fas fa-users text-white text-xl"></i>
+                      </div>
+                      
+                      {/* Number */}
+                      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
+                        <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">5</span>
+                        <span className="text-red-500">+</span>
+                      </div>
+                      
+                      {/* Label */}
+                      <div className="text-gray-300 font-medium mb-2 group-hover:text-white transition-colors duration-300">Team Members</div>
+                      
+                      {/* Description */}
+                      <div className="text-xs text-gray-400 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        Passionate professionals driving innovation
+                      </div>
+                      
+                      {/* Progress Bar */}
+                      <div className="mt-4 w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-left"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Projects Stat */}
+                  <div className="group relative sm:mt-8 lg:mt-0">
+                    <div className="absolute inset-0 bg-gradient-to-br from-red-400/20 to-transparent rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+                      {/* Icon */}
+                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25">
+                        <i className="fas fa-rocket text-white text-xl"></i>
+                      </div>
+                      
+                      {/* Number */}
+                      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
+                        <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">5</span>
+                        <span className="text-red-500">+</span>
+                      </div>
+                      
+                      {/* Label */}
+                      <div className="text-gray-300 font-medium mb-2 group-hover:text-white transition-colors duration-300">Projects</div>
+                      
+                      {/* Description */}
+                      <div className="text-xs text-gray-400 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        Successful launches and counting
+                      </div>
+                      
+                      {/* Progress Bar */}
+                      <div className="mt-4 w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-left delay-200"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Experience Stat */}
+                  <div className="group relative lg:mt-8">
+                    <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-transparent rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+                      {/* Icon */}
+                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25">
+                        <i className="fas fa-calendar-alt text-white text-xl"></i>
+                      </div>
+                      
+                      {/* Number */}
+                      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
+                        <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">2</span>
+                        <span className="text-red-500">+</span>
+                      </div>
+                      
+                      {/* Label */}
+                      <div className="text-gray-300 font-medium mb-2 group-hover:text-white transition-colors duration-300">Years Experience</div>
+                      
+                      {/* Description */}
+                      <div className="text-xs text-gray-400 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        Proven track record of excellence
+                      </div>
+                      
+                      {/* Progress Bar */}
+                      <div className="mt-4 w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-left delay-500"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Satisfaction Stat */}
+                  <div className="group relative sm:mt-8 lg:mt-0">
+                    <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-transparent rounded-3xl transform -rotate-2 group-hover:-rotate-3 transition-transform duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+                      {/* Icon */}
+                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25">
+                        <i className="fas fa-heart text-white text-xl"></i>
+                      </div>
+                      
+                      {/* Number */}
+                      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
+                        <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">100</span>
+                        <span className="text-red-500">%</span>
+                      </div>
+                      
+                      {/* Label */}
+                      <div className="text-gray-300 font-medium mb-2 group-hover:text-white transition-colors duration-300">Satisfaction</div>
+                      
+                      {/* Description */}
+                      <div className="text-xs text-gray-400 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        Client happiness is our priority
+                      </div>
+                      
+                      {/* Progress Bar */}
+                      <div className="mt-4 w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-left delay-700"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              ))}
+                
+                {/* Bottom Achievement Banner */}
+                <div className="mt-12 sm:mt-16 relative">
+                  <div className="bg-gradient-to-r from-gray-900/80 via-gray-800/60 to-gray-900/80 backdrop-blur-sm border border-gray-700/30 rounded-2xl p-6 sm:p-8 text-center">
+                    <div className="flex items-center justify-center gap-4 mb-4">
+                      <div className="w-8 h-0.5 bg-gradient-to-r from-transparent to-red-500"></div>
+                      <div className="flex items-center gap-2">
+                        <i className="fas fa-trophy text-red-500 text-xl"></i>
+                        <span className="text-red-400 font-semibold uppercase tracking-wide">Achievement Unlocked</span>
+                      </div>
+                      <div className="w-8 h-0.5 bg-gradient-to-l from-transparent to-red-500"></div>
+                    </div>
+                    <p className="text-gray-300 text-lg sm:text-xl">
+                      Every number tells a story of <span className="text-red-400 font-semibold">dedication</span>, 
+                      <span className="text-red-400 font-semibold"> innovation</span>, and 
+                      <span className="text-red-400 font-semibold"> client success</span>.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
         
-        {/* Values Section */}
-        <section className={`py-20 ${'bg-gray-900/50'}`}>
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
-              <p className="opacity-70">
-                These core principles guide our work and define our culture.
+        {/* Values Section - Innovative Design */}
+        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-red-500 rounded-full filter blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-red-600 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            {/* Section Header */}
+            <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20">
+              <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-2 mb-6">
+                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                <span className="text-red-400 text-sm font-medium uppercase tracking-wide">Our Core Values</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight">
+                What Drives <span className="bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text text-transparent">Excellence</span>
+              </h2>
+              <p className="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto">
+                These principles aren't just words on a wall—they're the beating heart of everything we create and every relationship we build.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'}`}>
-                <div className="w-16 h-16 rounded-full bg-red-600/10 flex items-center justify-center mb-6">
-                  <i className="fa fa-lightbulb text-red-600 text-2xl"></i>
+            
+            {/* Values Grid - Modern Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
+              
+              {/* Innovation Card */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-transparent rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500"></div>
+                <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 lg:p-10 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2">
+                  {/* Icon Container */}
+                  <div className="relative mb-6 sm:mb-8">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25">
+                      <i className="fas fa-rocket text-white text-2xl sm:text-3xl"></i>
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-ping"></div>
+                  </div>
+                  
+                  {/* Content */}
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">
+                    Innovation
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed mb-6 group-hover:text-gray-200 transition-colors duration-300">
+                    We don't just follow trends—we create them. Every pixel, every line of code, every user interaction is an opportunity to push boundaries and redefine what's possible.
+                  </p>
+                  
+                  {/* Progress Bar */}
+                  <div className="w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-left"></div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Innovation</h3>
-                <p className="opacity-70">
-                  We constantly push boundaries and explore new technologies to deliver cutting-edge solutions that exceed expectations.
-                </p>
               </div>
               
-              <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'}`}>
-                <div className="w-16 h-16 rounded-full bg-red-600/10 flex items-center justify-center mb-6">
-                  <i className="fa fa-users text-red-600 text-2xl"></i>
+              {/* Collaboration Card */}
+              <div className="group relative lg:mt-8">
+                <div className="absolute inset-0 bg-gradient-to-br from-red-400/20 to-transparent rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-500"></div>
+                <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 lg:p-10 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2">
+                  {/* Icon Container */}
+                  <div className="relative mb-6 sm:mb-8">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25">
+                      <i className="fas fa-users text-white text-2xl sm:text-3xl"></i>
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-ping delay-200"></div>
+                  </div>
+                  
+                  {/* Content */}
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">
+                    Collaboration
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed mb-6 group-hover:text-gray-200 transition-colors duration-300">
+                    Great minds think differently, and that's our superpower. We bring together diverse perspectives, skills, and ideas to create solutions that no single person could imagine.
+                  </p>
+                  
+                  {/* Progress Bar */}
+                  <div className="w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-left delay-200"></div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Collaboration</h3>
-                <p className="opacity-70">
-                  We believe in the power of teamwork and open communication to create solutions that truly matter.
-                </p>
               </div>
               
-              <div className={`p-8 rounded-xl shadow-lg ${'bg-gray-800'}`}>
-                <div className="w-16 h-16 rounded-full bg-red-600/10 flex items-center justify-center mb-6">
-                  <i className="fa fa-heart text-red-600 text-2xl"></i>
+              {/* Excellence Card */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-transparent rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500"></div>
+                <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 lg:p-10 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2">
+                  {/* Icon Container */}
+                  <div className="relative mb-6 sm:mb-8">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25">
+                      <i className="fas fa-crown text-white text-2xl sm:text-3xl"></i>
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-ping delay-500"></div>
+                  </div>
+                  
+                  {/* Content */}
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">
+                    Excellence
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed mb-6 group-hover:text-gray-200 transition-colors duration-300">
+                    Good enough isn't in our vocabulary. We obsess over details, refine until perfect, and deliver experiences that don't just meet expectations—they shatter them.
+                  </p>
+                  
+                  {/* Progress Bar */}
+                  <div className="w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-left delay-500"></div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Excellence</h3>
-                <p className="opacity-70">
-                  We are committed to delivering the highest quality in everything we do, from code to customer service.
-                </p>
+              </div>
+            </div>
+            
+            {/* Bottom Quote Section */}
+            <div className="mt-16 sm:mt-20 lg:mt-24 max-w-4xl mx-auto text-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/10 to-transparent rounded-2xl"></div>
+                <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-2xl p-6 sm:p-8 lg:p-12">
+                  <div className="text-4xl sm:text-5xl text-red-500 mb-4 opacity-20">"</div>
+                  <blockquote className="text-xl sm:text-2xl lg:text-3xl font-light text-white leading-relaxed mb-6">
+                    These values aren't just our foundation—
+                    <span className="bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent font-semibold"> they're our promise</span> to every client, every project, and every dream we help bring to life.
+                  </blockquote>
+                  <div className="flex items-center justify-center gap-4">
+                    <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-red-500"></div>
+                    <span className="text-red-400 font-medium">The Thryce Team</span>
+                    <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-red-500"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -312,7 +664,9 @@ const TeamPage: React.FC = () => {
         <section className="py-20">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Join Our Team</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                Join Our<span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Team</span>
+              </h2>
               <p className="text-lg mb-8 opacity-80 max-w-2xl mx-auto">
                 We're always looking for talented individuals to join our growing team. Check out our open positions.
               </p>

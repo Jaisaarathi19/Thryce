@@ -182,14 +182,13 @@ const ContactPage: React.FC = () => {
       
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[50vh] flex items-center justify-center pt-20">
-          <div className="container mx-auto px-6 py-12">
+        <section className="relative min-h-[40vh] flex items-center justify-center pt-20">
+          <div className="container mx-auto px-6 py-8">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-                <span className="block">Get in</span>
-                <span className="block text-red-600">Touch</span>
-              </h1>
-              <p className="text-lg mb-8 opacity-80 max-w-2xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                Get in<span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent"> Touch</span>
+              </h2>
+              <p className="text-lg mb-4 opacity-80 max-w-2xl mx-auto">
                 Have a project in mind or just want to say hello? I'd love to hear from you. Fill out the form below or reach out through one of my social channels.
               </p>
             </div>
@@ -197,7 +196,7 @@ const ContactPage: React.FC = () => {
         </section>
         
         {/* Contact Form Section */}
-        <section className="py-12">
+        <section className="py-6">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Form */}
@@ -375,35 +374,73 @@ const ContactPage: React.FC = () => {
         <section className={`py-20 bg-gray-900/50`}>
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white text-center">
+                Frequently Asked<span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent"> Questions</span>
+              </h2>
               
               <div className="space-y-6">
-                <div className={`p-6 rounded-xl bg-gray-800 shadow-lg`}>
-                  <h3 className="text-xl font-bold mb-3">What services do you offer?</h3>
-                  <p className="opacity-80">
-                    We specialize in web development, UI/UX design, and interactive experiences. This includes custom website development, web applications, graphic design, logo design, and brand identity design.
-                  </p>
+                <div className="group cursor-pointer transition-all duration-300 hover:scale-[1.02]">
+                  <div className={`p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl hover:bg-gray-700/80 transition-all duration-300 border border-transparent hover:border-red-500/30`}>
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold group-hover:text-red-400 transition-colors duration-300">
+                        What <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">services</span> do you offer?
+                      </h3>
+                      <i className="fas fa-chevron-down text-red-500 transform group-hover:rotate-180 transition-transform duration-300"></i>
+                    </div>
+                    <div className="mt-3 overflow-hidden transition-all duration-300">
+                      <p className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                        We specialize in web development, UI/UX design, and interactive experiences. This includes custom website development, web applications, graphic design, logo design, and brand identity design.
+                      </p>
+                    </div>
+                  </div>
                 </div>
                 
-                <div className={`p-6 rounded-xl bg-gray-800 shadow-lg`}>
-                  <h3 className="text-xl font-bold mb-3">What is your typical project timeline?</h3>
-                  <p className="opacity-80">
-                    Project timelines vary based on scope and complexity. A simple website might take 2-4 weeks, while more complex web applications can take 2-3 months. We'll provide a detailed timeline during our initial consultation.
-                  </p>
+                <div className="group cursor-pointer transition-all duration-300 hover:scale-[1.02]">
+                  <div className={`p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl hover:bg-gray-700/80 transition-all duration-300 border border-transparent hover:border-red-500/30`}>
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold group-hover:text-red-400 transition-colors duration-300">
+                        What is your typical project <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">timeline</span>?
+                      </h3>
+                      <i className="fas fa-chevron-down text-red-500 transform group-hover:rotate-180 transition-transform duration-300"></i>
+                    </div>
+                    <div className="mt-3 overflow-hidden transition-all duration-300">
+                      <p className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                        Project timelines vary based on scope and complexity. A simple website might take 2-4 weeks, while more complex web applications can take 2-3 months. We'll provide a detailed timeline during our initial consultation.
+                      </p>
+                    </div>
+                  </div>
                 </div>
                 
-                <div className={`p-6 rounded-xl bg-gray-800 shadow-lg`}>
-                  <h3 className="text-xl font-bold mb-3">How do you handle project pricing?</h3>
-                  <p className="opacity-80">
-                    We offer both fixed-price and hourly rate options depending on the project requirements. For most client projects, I prefer a fixed-price approach with clear deliverables and milestones.
-                  </p>
+                <div className="group cursor-pointer transition-all duration-300 hover:scale-[1.02]">
+                  <div className={`p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl hover:bg-gray-700/80 transition-all duration-300 border border-transparent hover:border-red-500/30`}>
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold group-hover:text-red-400 transition-colors duration-300">
+                        How do you handle project <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">pricing</span>?
+                      </h3>
+                      <i className="fas fa-chevron-down text-red-500 transform group-hover:rotate-180 transition-transform duration-300"></i>
+                    </div>
+                    <div className="mt-3 overflow-hidden transition-all duration-300">
+                      <p className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                        We offer both fixed-price and hourly rate options depending on the project requirements. For most client projects, I prefer a fixed-price approach with clear deliverables and milestones.
+                      </p>
+                    </div>
+                  </div>
                 </div>
                 
-                <div className={`p-6 rounded-xl bg-gray-800 shadow-lg`}>
-                  <h3 className="text-xl font-bold mb-3">Do you offer ongoing maintenance?</h3>
-                  <p className="opacity-80">
-                    Yes, We offer website maintenance and support packages to keep your site secure, updated, and performing optimally. These can be tailored to your specific needs and budget.
-                  </p>
+                <div className="group cursor-pointer transition-all duration-300 hover:scale-[1.02]">
+                  <div className={`p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl hover:bg-gray-700/80 transition-all duration-300 border border-transparent hover:border-red-500/30`}>
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold group-hover:text-red-400 transition-colors duration-300">
+                        Do you offer ongoing <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">maintenance</span>?
+                      </h3>
+                      <i className="fas fa-chevron-down text-red-500 transform group-hover:rotate-180 transition-transform duration-300"></i>
+                    </div>
+                    <div className="mt-3 overflow-hidden transition-all duration-300">
+                      <p className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                        Yes, We offer website maintenance and support packages to keep your site secure, updated, and performing optimally. These can be tailored to your specific needs and budget.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
