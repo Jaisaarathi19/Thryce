@@ -93,7 +93,7 @@ const ServicesPage: React.FC = () => {
       title: "Logo Design",
       description: "Designing memorable and impactful logos that capture your brand's essence and make a lasting impression.",
       icon: "fa-pen-nib",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80"
+      image: "/logo/THRYCE_black_logo_full.jpg"
     }
     // Add more services as needed
   ];
