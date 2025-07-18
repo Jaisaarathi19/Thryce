@@ -4,22 +4,9 @@ import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 
 const HomePage: React.FC = () => {
-  const cursorRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLCanvasElement>(null);
   const chartRef = useRef<HTMLDivElement>(null);
-
-  // Custom cursor
-  useEffect(() => {
-    const cursor = cursorRef.current;
-    if (!cursor) return;
-    const moveCursor = (e: MouseEvent) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    };
-    window.addEventListener('mousemove', moveCursor);
-    return () => window.removeEventListener('mousemove', moveCursor);
-  }, []);
 
   // Particles animation
   useEffect(() => {
@@ -191,8 +178,6 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen font-sans bg-black text-white transition-colors duration-500">
-      {/* Custom cursor */}
-      <div ref={cursorRef} className="fixed w-8 h-8 rounded-full border-2 border-red-600 pointer-events-none z-50 transform -translate-x-1/2 -translate-y-1/2 mix-blend-difference hidden lg:block"></div>
       
       {/* Particles background */}
       <canvas ref={particlesRef} className="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
@@ -245,65 +230,28 @@ const HomePage: React.FC = () => {
               </div>
             </div>
           </div>
-        </section>
-        
-        {/* Skills Section */}
-        <section className="py-24 px-6 relative overflow-hidden">
-          {/* Background effects */}
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-black/30 to-gray-900/50"></div>
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
-          
-          <div className="container mx-auto relative z-10">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
-                Technical <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">Expertise</span>
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full"></div>
-            </div>
-            
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
-              <div className="w-full lg:w-1/2 space-y-8">
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-red-500/50 transition-all duration-500 group">
-                  <p className="text-xl mb-8 text-gray-200 leading-relaxed group-hover:text-white transition-colors duration-300">
-                    With a focus on performance and user experience, we bring a comprehensive skill set to every project, delivering solutions that exceed expectations.
-                  </p>
-                  
-                  <div className="space-y-6">
-                    {[
-                      { skill: "React Development and Component Architecture", level: 95 },
-                      { skill: "Modern JavaScript and ES6+ Features", level: 90 },
-                      { skill: "Adobe Photoshop for Digital Design", level: 85 },
-                      { skill: "Adobe Illustrator for Vector Graphics", level: 88 },
-                      { skill: "Canva for Rapid Design Solutions", level: 92 }
-                    ].map((item, index) => (
-                      <div key={index} className="group/item">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-red-400 text-lg font-medium">→</span>
-                          <span className="flex-1 ml-4 text-gray-300 group-hover/item:text-white transition-colors duration-300">{item.skill}</span>
-                          <span className="text-red-500 font-bold text-sm">{item.level}%</span>
-                        </div>
-                        <div className="ml-8 h-2 bg-gray-700 rounded-full overflow-hidden">
-                          <div 
-                            className="h-full bg-gradient-to-r from-red-500 to-red-600 rounded-full transition-all duration-1000 delay-200"
-                            style={{ width: `${item.level}%` }}
-                          ></div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              
-              <div className="w-full lg:w-1/2 relative">
-                <div className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-red-500/30 transition-all duration-500">
-                  <div className="h-96" ref={chartRef}></div>
-                </div>
-                
-                {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-red-500 opacity-60"></div>
-                <div className="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-red-500 opacity-60"></div>
-              </div>
-            </div>
+          {/* Modern scroll indicator: double chevron with glow and subtle pulse */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center select-none">
+            <span className="relative flex flex-col items-center">
+              <span className="block animate-bounce">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g filter="url(#chevronGlow)">
+                    <polyline points="12,16 18,24 24,16" fill="none" stroke="#ef4444" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <polyline points="12,8 18,16 24,8" fill="none" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
+                  </g>
+                  <defs>
+                    <filter id="chevronGlow" x="-10" y="-10" width="56" height="56" filterUnits="userSpaceOnUse">
+                      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                      <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                </svg>
+              </span>
+              <span className="block w-2 h-2 mt-1 rounded-full bg-red-500 shadow-[0_0_12px_4px_rgba(239,68,68,0.5)] animate-pulse"></span>
+            </span>
           </div>
         </section>
         
@@ -494,7 +442,7 @@ const HomePage: React.FC = () => {
               {/* Statistics or additional info */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
                 <div className="group text-center p-6 bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm rounded-xl border border-gray-700/50 hover:border-red-500/50 transition-all duration-500">
-                  <div className="text-3xl font-bold text-red-500 mb-2 group-hover:scale-110 transition-transform duration-300">50+</div>
+                  <div className="text-3xl font-bold text-red-500 mb-2 group-hover:scale-110 transition-transform duration-300">5+</div>
                   <div className="text-gray-300 group-hover:text-white transition-colors duration-300">Projects Completed</div>
                 </div>
                 <div className="group text-center p-6 bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm rounded-xl border border-gray-700/50 hover:border-red-500/50 transition-all duration-500">
@@ -518,7 +466,7 @@ const HomePage: React.FC = () => {
             <div className="mb-6 md:mb-0">
               <Link to="/" className="flex items-center space-x-3 group">
                 <img 
-                  src='/logo/THRYCE_white_logo.png'
+                  src='/logo/THRYCE_black_logo.png'
                   alt="Thryce Logo"
                   className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
                 />
@@ -528,22 +476,19 @@ const HomePage: React.FC = () => {
               </p>
             </div>
             <div className="flex space-x-6">
-              <button className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
-                <span className="sr-only">Twitter</span>
-                <i className="fab fa-twitter text-xl"></i>
-              </button>
-              <button className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
-                <span className="sr-only">Instagram</span>
-                <i className="fab fa-instagram text-xl"></i>
-              </button>
-              <button className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
-                <span className="sr-only">GitHub</span>
-                <i className="fab fa-github text-xl"></i>
-              </button>
-              <button className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+              {/* Only LinkedIn, WhatsApp, Instagram */}
+              <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
                 <span className="sr-only">LinkedIn</span>
                 <i className="fab fa-linkedin text-xl"></i>
-              </button>
+              </a>
+              <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                <span className="sr-only">WhatsApp</span>
+                <i className="fab fa-whatsapp text-xl"></i>
+              </a>
+              <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                <span className="sr-only">Instagram</span>
+                <i className="fab fa-instagram text-xl"></i>
+              </a>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center">

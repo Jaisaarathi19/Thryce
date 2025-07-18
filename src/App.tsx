@@ -6,14 +6,12 @@ import ProjectsPage from './pages/ProjectsPage';
 import TeamPage from './pages/TeamPage';
 import ContactPage from './pages/ContactPage';
 import ScrollToTop from './components/ScrollToTop';
-import CustomCursor from './components/CustomCursor';
 import './App.css';
 
 function App() {
   document.title = 'Thryce';
   return (
     <Router>
-      <CustomCursor />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />

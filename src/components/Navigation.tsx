@@ -76,7 +76,7 @@ const Navigation: React.FC = () => {
               className="group relative hover:scale-105 transition-transform duration-300 ease-out"
             >
               <img 
-                src={'/logo/THRYCE_white_logo.png'}
+                src={'/logo/THRYCE_black_logo.png'}
                 alt="Thryce Logo"
                 className="h-12 w-auto transition-all duration-300 hover:drop-shadow-lg group-hover:brightness-110"
               />

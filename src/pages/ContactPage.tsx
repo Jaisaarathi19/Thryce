@@ -338,15 +338,6 @@ const ContactPage: React.FC = () => {
                   <h2 className="text-2xl font-bold mb-6">Connect With Me</h2>
                   <div className="grid grid-cols-2 gap-4">
                     <a 
-                      href="https://github.com/your-profile" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className={`p-4 rounded-lg flex items-center bg-gray-700 hover:bg-gray-600 transition-colors`}
-                    >
-                      <i className="fab fa-github text-xl mr-3"></i>
-                      <span>GitHub</span>
-                    </a>
-                    <a 
                       href="https://linkedin.com/in/your-profile" 
                       target="_blank" 
                       rel="noopener noreferrer" 
@@ -356,22 +347,22 @@ const ContactPage: React.FC = () => {
                       <span>LinkedIn</span>
                     </a>
                     <a 
-                      href="https://twitter.com/your-profile" 
+                      href="https://wa.me/your-whatsapp-number" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className={`p-4 rounded-lg flex items-center bg-gray-700 hover:bg-gray-600 transition-colors`}
                     >
-                      <i className="fab fa-twitter text-xl mr-3"></i>
-                      <span>Twitter</span>
+                      <i className="fab fa-whatsapp text-xl mr-3"></i>
+                      <span>WhatsApp</span>
                     </a>
                     <a 
-                      href="https://dribbble.com/your-profile" 
+                      href="https://instagram.com/your-profile" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className={`p-4 rounded-lg flex items-center bg-gray-700 hover:bg-gray-600 transition-colors`}
                     >
-                      <i className="fab fa-dribbble text-xl mr-3"></i>
-                      <span>Dribbble</span>
+                      <i className="fab fa-instagram text-xl mr-3"></i>
+                      <span>Instagram</span>
                     </a>
                   </div>
                 </div>
@@ -390,28 +381,28 @@ const ContactPage: React.FC = () => {
                 <div className={`p-6 rounded-xl bg-gray-800 shadow-lg`}>
                   <h3 className="text-xl font-bold mb-3">What services do you offer?</h3>
                   <p className="opacity-80">
-                    I specialize in web development, UI/UX design, and interactive experiences. This includes custom website development, web applications, e-commerce solutions, and brand identity design.
+                    We specialize in web development, UI/UX design, and interactive experiences. This includes custom website development, web applications, graphic design, logo design, and brand identity design.
                   </p>
                 </div>
                 
                 <div className={`p-6 rounded-xl bg-gray-800 shadow-lg`}>
                   <h3 className="text-xl font-bold mb-3">What is your typical project timeline?</h3>
                   <p className="opacity-80">
-                    Project timelines vary based on scope and complexity. A simple website might take 2-4 weeks, while more complex web applications can take 2-3 months. I'll provide a detailed timeline during our initial consultation.
+                    Project timelines vary based on scope and complexity. A simple website might take 2-4 weeks, while more complex web applications can take 2-3 months. We'll provide a detailed timeline during our initial consultation.
                   </p>
                 </div>
                 
                 <div className={`p-6 rounded-xl bg-gray-800 shadow-lg`}>
                   <h3 className="text-xl font-bold mb-3">How do you handle project pricing?</h3>
                   <p className="opacity-80">
-                    I offer both fixed-price and hourly rate options depending on the project requirements. For most client projects, I prefer a fixed-price approach with clear deliverables and milestones.
+                    We offer both fixed-price and hourly rate options depending on the project requirements. For most client projects, I prefer a fixed-price approach with clear deliverables and milestones.
                   </p>
                 </div>
                 
                 <div className={`p-6 rounded-xl bg-gray-800 shadow-lg`}>
                   <h3 className="text-xl font-bold mb-3">Do you offer ongoing maintenance?</h3>
                   <p className="opacity-80">
-                    Yes, I offer website maintenance and support packages to keep your site secure, updated, and performing optimally. These can be tailored to your specific needs and budget.
+                    Yes, We offer website maintenance and support packages to keep your site secure, updated, and performing optimally. These can be tailored to your specific needs and budget.
                   </p>
                 </div>
               </div>

@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hide default cursor for custom cursor */
-* {
+/* Remove custom cursor hiding */
+/* * {
   cursor: none !important;
-}
+} */
 
 /* Enhanced Custom Animations */
 @keyframes fadeInUp {

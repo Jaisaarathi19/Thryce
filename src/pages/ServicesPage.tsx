@@ -238,7 +238,7 @@ const ServicesPage: React.FC = () => {
             <div className="mb-6 md:mb-0">
               <Link to="/" className="flex items-center space-x-3 group">
                 <img 
-                  src={'/logo/THRYCE_white_logo.png'}
+                  src={'/logo/THRYCE_black_logo.png'}
                   alt="Thryce Logo"
                   className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
                 />
@@ -246,21 +246,16 @@ const ServicesPage: React.FC = () => {
               <p className="mt-2 opacity-70">Crafting digital experiences that inspire.</p>
             </div>
             <div className="flex space-x-6">
-              <button className="text-gray-400 hover:text-red-600 transition-colors">
-                <i className="fab fa-twitter text-xl"></i>
-              </button>
-              <button className="text-gray-400 hover:text-red-600 transition-colors">
-                <i className="fab fa-instagram text-xl"></i>
-              </button>
-              <button className="text-gray-400 hover:text-red-600 transition-colors">
-                <i className="fab fa-dribbble text-xl"></i>
-              </button>
-              <button className="text-gray-400 hover:text-red-600 transition-colors">
-                <i className="fab fa-github text-xl"></i>
-              </button>
-              <button className="text-gray-400 hover:text-red-600 transition-colors">
+              {/* Only LinkedIn, WhatsApp, Instagram */}
+              <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in text-xl"></i>
-              </button>
+              </a>
+              <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors" aria-label="WhatsApp">
+                <i className="fab fa-whatsapp text-xl"></i>
+              </a>
+              <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors" aria-label="Instagram">
+                <i className="fab fa-instagram text-xl"></i>
+              </a>
             </div>
           </div>
           <div className="border-t border-gray-800/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
