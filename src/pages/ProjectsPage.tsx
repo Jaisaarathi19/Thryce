@@ -90,64 +90,54 @@ const ProjectsPage: React.FC = () => {
     },
     {
       id: 2,
-      title: "Brand Identity Design",
-      description: "Complete brand identity design including logo, color palette, typography, and brand guidelines for a tech startup.",
-      image: "https://public.readdy.ai/ai/img_res/brand-identity.jpg",
-      category: "graphic",
-      technologies: ["Adobe Illustrator", "Adobe Photoshop", "Figma"],
-      link: "#",
+      title: "MONISH E - Personal Portfolio",
+      description: "Modern and responsive personal portfolio website showcasing data analysis, design, and development skills with elegant UI/UX design.",
+      image: "/project_img/monish-pf.png",
+      category: "web",
+      technologies: ["React", "TypeScript", "CSS3", "Responsive Design"],
+      link: "https://monish-pf.vercel.app/",
       featured: true
     },
     {
-      id: 3,
-      title: "Marketing Campaign Visuals",
-      description: "Created engaging visual content for social media, print materials, and digital advertising campaigns.",
-      image: "https://public.readdy.ai/ai/img_res/marketing-campaign.jpg",
-      category: "graphic",
-      technologies: ["Adobe Photoshop", "Adobe InDesign", "Canva Pro"],
-      link: "#",
-      featured: true
-    },
-    {
-      id: 4,
-      title: "Product Packaging Design",
-      description: "Innovative packaging design for a premium skincare line, including box design, labels, and promotional materials.",
-      image: "https://public.readdy.ai/ai/img_res/packaging-design.jpg",
-      category: "graphic",
-      technologies: ["Adobe Illustrator", "Adobe Dimension", "Blender"],
-      link: "#",
-      featured: true
-    },
-    {
-      id: 5,
-      title: "Magazine Layout Design",
-      description: "Modern and elegant magazine layout design with custom typography, photo editing, and infographic creation.",
-      image: "https://public.readdy.ai/ai/img_res/magazine-layout.jpg",
-      category: "graphic",
-      technologies: ["Adobe InDesign", "Adobe Photoshop", "Adobe Illustrator"],
-      link: "#",
-      featured: true
-    },
-    {
-      id: 6,
-      title: "Motion Graphics Portfolio",
-      description: "Dynamic motion graphics and animations for digital advertisements and social media content.",
-      image: "https://public.readdy.ai/ai/img_res/motion-graphics.jpg",
-      category: "graphic",
-      technologies: ["After Effects", "Adobe Animate", "Cinema 4D"],
-      link: "#",
-      featured: true
-    },
-    {
-        id: 7,
-        title: "Logo Design",
-        description: "Distinctive logo design for brands, focusing on red and black themes to ensure strong visual identity and memorability.",
-        image: "https://public.readdy.ai/ai/img_res/logo-design-red-black.jpg",
+        id: 3,
+        title: "ALKET Logo Design",
+        description: "Modern geometric logo design featuring clean typography and minimalist aesthetic for a technology brand.",
+        image: "/logo/ALKET LOGO.png",
         category: "logo",
         technologies: ["Adobe Illustrator", "Figma", "Photoshop"],
         link: "#",
         featured: true
-      }
+    },
+    {
+        id: 4,
+        title: "Fin alch Brand Identity",
+        description: "Sophisticated diamond-shaped logo design in purple gradient, representing luxury and innovation in the fintech industry.",
+        image: "/logo/Fin alch-logo with BG-01.png",
+        category: "logo",
+        technologies: ["Adobe Illustrator", "Figma", "After Effects"],
+        link: "#",
+        featured: true
+    },
+    {
+        id: 5,
+        title: "EXT Business Logo",
+        description: "Corporate logo design with red accent elements, combining professionalism with dynamic growth symbolism.",
+        image: "/logo/EDC logo.png",
+        category: "logo",
+        technologies: ["Adobe Illustrator", "Photoshop", "Figma"],
+        link: "#",
+        featured: true
+    },
+    {
+        id: 6,
+        title: "ARQ Minimalist Logo",
+        description: "Clean and contemporary logo design emphasizing simplicity and modern architectural aesthetics.",
+        image: "/logo/ARQ.png",
+        category: "logo",
+        technologies: ["Adobe Illustrator", "Figma", "Sketch"],
+        link: "#",
+        featured: true
+    }
   ];
 
   // Filter projects by category
@@ -549,42 +539,44 @@ const ProjectsPage: React.FC = () => {
       </main>
       
       {/* Footer */}
-      <footer className={`py-12 ${'bg-gray-900'}`}>
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <Link to="/" className="flex items-center space-x-3 group">
-                <img 
-                  src={'/logo/THRYCE_black_logo.png'}
-                  alt="Thryce Logo"
-                  className="h-8 w-auto transition-all duration-300 hover:drop-shadow-lg group-hover:brightness-110"
-                />
-              </Link>
-              <p className="mt-2 opacity-70">Crafting digital experiences that inspire.</p>
-            </div>
-            <div className="flex space-x-6">
-              {/* Only LinkedIn, WhatsApp, Instagram */}
-              <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors focus:outline-none" aria-label="LinkedIn">
-                <i className="fab fa-linkedin-in text-xl"></i>
-              </a>
-              <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors focus:outline-none" aria-label="WhatsApp">
-                <i className="fab fa-whatsapp text-xl"></i>
-              </a>
-              <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors focus:outline-none" aria-label="Instagram">
-                <i className="fab fa-instagram text-xl"></i>
-              </a>
-            </div>
-          </div>
-          <div className="border-t border-gray-800/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm opacity-70">© 2023 Thryce Studio. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <button className="text-sm opacity-70 hover:text-red-600 transition-colors focus:outline-none" aria-label="Privacy Policy">Privacy Policy</button>
-              <button className="text-sm opacity-70 hover:text-red-600 transition-colors focus:outline-none" aria-label="Terms of Service">Terms of Service</button>
-              <button className="text-sm opacity-70 hover:text-red-600 transition-colors focus:outline-none" aria-label="Cookies">Cookies</button>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <footer className="py-12 px-6 bg-gray-900">
+              <div className="container mx-auto">
+                <div className="flex flex-col md:flex-row justify-between items-center">
+                  <div className="mb-6 md:mb-0">
+                    <Link to="/" className="flex items-center space-x-3 group">
+                      <img 
+                        src='/logo/THRYCE_black_logo.png'
+                        alt="Thryce Logo"
+                        className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
+                      />
+                    </Link>
+                    <p className="mt-2 opacity-80 max-w-md">
+                      Creating digital experiences that blend creativity with technical excellence.
+                    </p>
+                  </div>
+                  <div className="flex space-x-6">
+                    {/* Only LinkedIn, WhatsApp, Instagram */}
+                    <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                      <span className="sr-only">LinkedIn</span>
+                      <i className="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                      <span className="sr-only">WhatsApp</span>
+                      <i className="fab fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                      <span className="sr-only">Instagram</span>
+                      <i className="fab fa-instagram text-xl"></i>
+                    </a>
+                  </div>
+                </div>
+                <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center">
+                  <p className="opacity-60 text-sm">
+                    © {new Date().getFullYear()} Thryce. All rights reserved.
+                  </p>
+                </div>
+              </div>
+            </footer>
     </div>
   );
 };

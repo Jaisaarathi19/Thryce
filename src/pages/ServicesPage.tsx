@@ -332,42 +332,44 @@ const ServicesPage: React.FC = () => {
       </main>
       
       {/* Footer */}
-      <footer className={`py-12 ${'bg-gray-900'}`}>
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <Link to="/" className="flex items-center space-x-3 group">
-                <img 
-                  src={'/logo/THRYCE_black_logo.png'}
-                  alt="Thryce Logo"
-                  className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
-                />
-              </Link>
-              <p className="mt-2 opacity-70">Crafting digital experiences that inspire.</p>
-            </div>
-            <div className="flex space-x-6">
-              {/* Only LinkedIn, WhatsApp, Instagram */}
-              <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors" aria-label="LinkedIn">
-                <i className="fab fa-linkedin-in text-xl"></i>
-              </a>
-              <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors" aria-label="WhatsApp">
-                <i className="fab fa-whatsapp text-xl"></i>
-              </a>
-              <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors" aria-label="Instagram">
-                <i className="fab fa-instagram text-xl"></i>
-              </a>
-            </div>
-          </div>
-          <div className="border-t border-gray-800/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm opacity-70">© 2023 Thryce Studio. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="/privacy" className="text-sm opacity-70 hover:text-red-600 transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="text-sm opacity-70 hover:text-red-600 transition-colors">Terms of Service</Link>
-              <Link to="/cookies" className="text-sm opacity-70 hover:text-red-600 transition-colors">Cookies</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <footer className="py-12 px-6 bg-gray-900">
+              <div className="container mx-auto">
+                <div className="flex flex-col md:flex-row justify-between items-center">
+                  <div className="mb-6 md:mb-0">
+                    <Link to="/" className="flex items-center space-x-3 group">
+                      <img 
+                        src='/logo/THRYCE_black_logo.png'
+                        alt="Thryce Logo"
+                        className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
+                      />
+                    </Link>
+                    <p className="mt-2 opacity-80 max-w-md">
+                      Creating digital experiences that blend creativity with technical excellence.
+                    </p>
+                  </div>
+                  <div className="flex space-x-6">
+                    {/* Only LinkedIn, WhatsApp, Instagram */}
+                    <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                      <span className="sr-only">LinkedIn</span>
+                      <i className="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                      <span className="sr-only">WhatsApp</span>
+                      <i className="fab fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                      <span className="sr-only">Instagram</span>
+                      <i className="fab fa-instagram text-xl"></i>
+                    </a>
+                  </div>
+                </div>
+                <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center">
+                  <p className="opacity-60 text-sm">
+                    © {new Date().getFullYear()} Thryce. All rights reserved.
+                  </p>
+                </div>
+              </div>
+            </footer>
     </div>
   );
 };

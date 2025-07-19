@@ -179,9 +179,9 @@ const HomePage: React.FC = () => {
       image: "/project_img/monish-pf.png"
     },
     {
-      title: "Synth Music Platform",
+      title: "ALKET Logo Design",
       category: "Logo Design",
-      image: "/project_img/synth-music-platform.jpg"
+      image: "/logo/ALKET LOGO.png"
     },
   ];
 

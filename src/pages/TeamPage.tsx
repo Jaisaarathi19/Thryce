@@ -1,6 +1,43 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
+
+// Optimized Image Component for better loading performance
+const OptimizedImage: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className }) => {
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+
+  return (
+    <div className="relative w-full h-full">
+      {!loaded && !error && (
+        <div className="absolute inset-0 bg-gray-700 animate-pulse flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-red-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        className={className}
+        onLoad={() => setLoaded(true)}
+        onError={() => setError(true)}
+        style={{
+          opacity: loaded ? 1 : 0,
+          transition: 'opacity 0.3s ease-in-out'
+        }}
+      />
+      {error && (
+        <div className="absolute inset-0 bg-gray-700 flex items-center justify-center">
+          <div className="text-center text-gray-400">
+            <i className="fas fa-user text-2xl mb-2"></i>
+            <p className="text-sm">{alt}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const TeamPage: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -81,7 +118,7 @@ const TeamPage: React.FC = () => {
       name: "Monish",
       role: "Designer",
       bio: "Creative designer with expertise in UI/UX design, branding, and visual storytelling.",
-      image: "/images/Monish.png",
+      image: "/images/monish.jpg",
       social: {
         linkedin: "#",
         instagram: "#"
@@ -91,7 +128,7 @@ const TeamPage: React.FC = () => {
       name: "Abhijit",
       role: "Developer",
       bio: "Full-stack developer specializing in modern web technologies and scalable applications.",
-      image: "/images/abhijit.jpeg",
+      image: "/images/abhijit.jpg",
       social: {
         linkedin: "#",
         instagram: "#"
@@ -111,7 +148,7 @@ const TeamPage: React.FC = () => {
       name: "Joel Sam",
       role: "Designer",
       bio: "Innovative designer passionate about creating engaging user experiences and interfaces.",
-      image: "https://public.readdy.ai/ai/img_res/a296dd01dd447b379c14368feeef36fa.jpg",
+      image: "/images/joel.jpg",
       social: {
         linkedin: "#",
         instagram: "#"
@@ -121,7 +158,7 @@ const TeamPage: React.FC = () => {
       name: "Faleel Mohsin",
       role: "Developer",
       bio: "Frontend developer with expertise in creating responsive and interactive web applications.",
-      image: "/images/faleel.jpeg",
+      image: "/images/faleel.jpg",
       social: {
         linkedin: "#",
         instagram: "#"
@@ -179,7 +216,7 @@ const TeamPage: React.FC = () => {
                       {/* Enhanced Image Container */}
                       <div className="relative overflow-hidden">
                         <div className="w-full h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px] xl:h-[420px] overflow-hidden bg-gray-800">
-                          <img 
+                          <OptimizedImage 
                             src={member.image} 
                             alt={member.name} 
                             className="w-full h-full object-cover object-center filter brightness-85 group-hover:brightness-100 group-hover:scale-110 transition-all duration-700"
@@ -275,7 +312,7 @@ const TeamPage: React.FC = () => {
                       {/* Enhanced Image Container */}
                       <div className="relative overflow-hidden">
                         <div className="w-full h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px] xl:h-[420px] overflow-hidden bg-gray-800">
-                          <img 
+                          <OptimizedImage 
                             src={member.image} 
                             alt={member.name} 
                             className="w-full h-full object-cover object-center filter brightness-85 group-hover:brightness-100 group-hover:scale-110 transition-all duration-700"
@@ -679,42 +716,44 @@ const TeamPage: React.FC = () => {
       </main>
                 
                 {/* Footer */}
-                <footer className={`py-12 ${'bg-gray-900'}`}>
-                  <div className="container mx-auto px-6">
-                    <div className="flex flex-col md:flex-row justify-between items-center">
-                      <div className="mb-6 md:mb-0">
-                        <Link to="/" className="flex items-center space-x-3 group">
-                          <img 
-                            src={'/logo/THRYCE_black_logo.png'}
-                            alt="Thryce Logo"
-                            className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
-                          />
-                        </Link>
-                        <p className="mt-2 opacity-70">Crafting digital experiences that inspire.</p>
-                      </div>
-                      <div className="flex space-x-6">
-                        {/* Only LinkedIn, WhatsApp, Instagram */}
-                        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors" aria-label="LinkedIn">
-                          <i className="fab fa-linkedin-in text-xl"></i>
-                        </a>
-                        <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors" aria-label="WhatsApp">
-                          <i className="fab fa-whatsapp text-xl"></i>
-                        </a>
-                        <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors" aria-label="Instagram">
-                          <i className="fab fa-instagram text-xl"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="border-t border-gray-800/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                      <p className="text-sm opacity-70">© 2025 Thryce Studio. All rights reserved.</p>
-                      <div className="flex space-x-6 mt-4 md:mt-0">
-                        <button className="text-sm opacity-70 hover:text-red-600 transition-colors bg-transparent border-none cursor-pointer" aria-label="Privacy Policy">Privacy Policy</button>
-                        <button className="text-sm opacity-70 hover:text-red-600 transition-colors bg-transparent border-none cursor-pointer" aria-label="Terms of Service">Terms of Service</button>
-                        <button className="text-sm opacity-70 hover:text-red-600 transition-colors bg-transparent border-none cursor-pointer" aria-label="Cookies">Cookies</button>
-                      </div>
-                    </div>
-                  </div>
-                </footer>
+                <footer className="py-12 px-6 bg-gray-900">
+                        <div className="container mx-auto">
+                          <div className="flex flex-col md:flex-row justify-between items-center">
+                            <div className="mb-6 md:mb-0">
+                              <Link to="/" className="flex items-center space-x-3 group">
+                                <img 
+                                  src='/logo/THRYCE_black_logo.png'
+                                  alt="Thryce Logo"
+                                  className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
+                                />
+                              </Link>
+                              <p className="mt-2 opacity-80 max-w-md">
+                                Creating digital experiences that blend creativity with technical excellence.
+                              </p>
+                            </div>
+                            <div className="flex space-x-6">
+                              {/* Only LinkedIn, WhatsApp, Instagram */}
+                              <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                                <span className="sr-only">LinkedIn</span>
+                                <i className="fab fa-linkedin text-xl"></i>
+                              </a>
+                              <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                                <span className="sr-only">WhatsApp</span>
+                                <i className="fab fa-whatsapp text-xl"></i>
+                              </a>
+                              <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                                <span className="sr-only">Instagram</span>
+                                <i className="fab fa-instagram text-xl"></i>
+                              </a>
+                            </div>
+                          </div>
+                          <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center">
+                            <p className="opacity-60 text-sm">
+                              © {new Date().getFullYear()} Thryce. All rights reserved.
+                            </p>
+                          </div>
+                        </div>
+                      </footer>
                 </div>
                 );
                 };
