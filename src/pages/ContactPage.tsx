@@ -196,64 +196,108 @@ const ContactPage: React.FC = () => {
         </section>
         
         {/* Contact Form Section */}
-        <section className="py-6">
+        <section className="py-4">
           <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Form */}
-              <div className={`p-8 rounded-xl shadow-lg bg-gray-800/50`}>
-                <h2 className="text-2xl font-bold mb-6">Send Me a Message</h2>
+            {/* Send Me a Message Form */}
+            <div className="max-w-5xl mx-auto mb-8">
+              <div className="relative">
+                {/* Background Effects */}
+                <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-transparent to-red-800/20 rounded-3xl blur-xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-red-500/5 to-transparent rounded-3xl"></div>
+                
+                <div className={`relative p-8 md:p-10 rounded-3xl shadow-2xl bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-xl border border-red-500/20 hover:border-red-400/40 transition-all duration-700 transform hover:scale-[1.01]`}>
+                  {/* Header Section */}
+                  <div className="text-center mb-10">
+                    <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-500/20 to-red-600/20 border border-red-500/30 mb-6">
+                      <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                      <span className="text-red-400 text-sm font-medium">Ready to collaborate</span>
+                    </div>
+                    <h2 className="text-3xl md:text-4xl font-black mb-4">
+                      <span className="text-white">Send Me a </span>
+                      <span className="bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">Message</span>
+                    </h2>
+                    <p className="text-gray-400 text-lg max-w-md mx-auto">
+                      Let's discuss your project and bring your vision to life
+                    </p>
+                  </div>
                 
                 {/* Success Message */}
                 {submitSuccess && (
-                  <div className="mb-6 p-4 rounded-lg bg-green-500/10 border border-green-500 text-green-500">
-                    <p className="flex items-center">
-                      <i className="fa fa-check-circle mr-2"></i>
-                      Your message has been sent successfully! I'll get back to you soon.
-                    </p>
+                  <div className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 backdrop-blur-sm">
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-500/20 to-green-600/20 flex items-center justify-center mr-4 border border-green-500/30">
+                        <i className="fa fa-check text-green-400"></i>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-green-300 mb-1">Message Sent Successfully!</h3>
+                        <p className="text-green-400/80 text-sm">I'll get back to you within 24 hours.</p>
+                      </div>
+                    </div>
                   </div>
                 )}
                 
                 {/* Error Message */}
                 {submitError && (
-                  <div className="mb-6 p-4 rounded-lg bg-red-500/10 border border-red-500 text-red-500">
-                    <p className="flex items-center">
-                      <i className="fa fa-exclamation-circle mr-2"></i>
-                      There was an error sending your message. Please try again.
-                    </p>
+                  <div className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-red-500/10 to-rose-500/10 border border-red-500/30 backdrop-blur-sm">
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-r from-red-500/20 to-red-600/20 flex items-center justify-center mr-4 border border-red-500/30">
+                        <i className="fa fa-exclamation-triangle text-red-400"></i>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-red-300 mb-1">Message Failed</h3>
+                        <p className="text-red-400/80 text-sm">Something went wrong. Please try again or contact me directly.</p>
+                      </div>
+                    </div>
                   </div>
                 )}
                 
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-4">
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className={`w-full px-4 py-3 rounded-lg bg-gray-700 border-gray-600 border focus:outline-none focus:ring-2 focus:ring-red-600/50 transition-colors`}
-                      placeholder="John Doe"
-                    />
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Name and Email Row */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="relative group">
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                      <label htmlFor="name" className="block text-sm font-semibold mb-3 text-gray-300 group-focus-within:text-red-400 transition-colors">
+                        <i className="fas fa-user mr-2 text-red-500"></i>
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="relative w-full px-6 py-4 rounded-2xl bg-gray-800/50 border-2 border-gray-700/50 focus:outline-none focus:border-red-500/70 focus:ring-1 focus:ring-red-500/30 transition-all duration-300 text-white placeholder-gray-500 backdrop-blur-sm hover:bg-gray-800/70"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                    
+                    <div className="relative group">
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                      <label htmlFor="email" className="block text-sm font-semibold mb-3 text-gray-300 group-focus-within:text-red-400 transition-colors">
+                        <i className="fas fa-envelope mr-2 text-red-500"></i>
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="relative w-full px-6 py-4 rounded-2xl bg-gray-800/50 border-2 border-gray-700/50 focus:outline-none focus:border-red-500/70 focus:ring-1 focus:ring-red-500/30 transition-all duration-300 text-white placeholder-gray-500 backdrop-blur-sm hover:bg-gray-800/70"
+                        placeholder="john@example.com"
+                      />
+                    </div>
                   </div>
                   
-                  <div className="mb-4">
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">Your Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className={`w-full px-4 py-3 rounded-lg bg-gray-700 border-gray-600 border focus:outline-none focus:ring-2 focus:ring-red-600/50 transition-colors`}
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                  
-                  <div className="mb-4">
-                    <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
+                  {/* Subject */}
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                    <label htmlFor="subject" className="block text-sm font-semibold mb-3 text-gray-300 group-focus-within:text-red-400 transition-colors">
+                      <i className="fas fa-tag mr-2 text-red-500"></i>
+                      Project Type
+                    </label>
                     <input
                       type="text"
                       id="subject"
@@ -261,13 +305,18 @@ const ContactPage: React.FC = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-3 rounded-lg bg-gray-700 border-gray-600 border focus:outline-none focus:ring-2 focus:ring-red-600/50 transition-colors`}
-                      placeholder="Project Inquiry"
+                      className="relative w-full px-6 py-4 rounded-2xl bg-gray-800/50 border-2 border-gray-700/50 focus:outline-none focus:border-red-500/70 focus:ring-1 focus:ring-red-500/30 transition-all duration-300 text-white placeholder-gray-500 backdrop-blur-sm hover:bg-gray-800/70"
+                      placeholder="Web Development, UI/UX Design, Branding..."
                     />
                   </div>
                   
-                  <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">Your Message</label>
+                  {/* Message */}
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                    <label htmlFor="message" className="block text-sm font-semibold mb-3 text-gray-300 group-focus-within:text-red-400 transition-colors">
+                      <i className="fas fa-comment-dots mr-2 text-red-500"></i>
+                      Project Details
+                    </label>
                     <textarea
                       id="message"
                       name="message"
@@ -275,94 +324,260 @@ const ContactPage: React.FC = () => {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className={`w-full px-4 py-3 rounded-lg bg-gray-700 border-gray-600 border focus:outline-none focus:ring-2 focus:ring-red-600/50 transition-colors resize-none`}
-                      placeholder="Tell me about your project or inquiry..."
+                      className="relative w-full px-6 py-4 rounded-2xl bg-gray-800/50 border-2 border-gray-700/50 focus:outline-none focus:border-red-500/70 focus:ring-1 focus:ring-red-500/30 transition-all duration-300 resize-none text-white placeholder-gray-500 backdrop-blur-sm hover:bg-gray-800/70"
+                      placeholder="Tell me about your project goals, timeline, budget, and any specific requirements. The more details you provide, the better I can help you achieve your vision."
                     ></textarea>
                   </div>
                   
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`w-full py-3 px-6 rounded-lg bg-red-600 text-white font-medium hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600/50 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
-                  >
-                    {isSubmitting ? (
-                      <span className="flex items-center justify-center">
-                        <i className="fa fa-circle-notch fa-spin mr-2"></i>
-                        Sending...
-                      </span>
-                    ) : 'Send Message'}
-                  </button>
+                  {/* Submit Button */}
+                  <div className="pt-4">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className={`w-full relative overflow-hidden group ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-xl hover:shadow-red-500/25'}`}
+                    >
+                      {/* Button Background Effects */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 rounded-2xl"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Button Content */}
+                      <div className="relative px-8 py-4 rounded-2xl transition-all duration-300 transform group-hover:scale-[1.02]">
+                        {isSubmitting ? (
+                          <div className="flex items-center justify-center text-white font-bold text-lg">
+                            <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin mr-3"></div>
+                            <span>Sending Your Message...</span>
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-center text-white font-bold text-lg">
+                            <i className="fas fa-paper-plane mr-3 transform group-hover:translate-x-1 transition-transform"></i>
+                            <span>Send Message</span>
+                            <div className="ml-3 w-2 h-2 rounded-full bg-white/60 group-hover:bg-white transition-colors"></div>
+                          </div>
+                        )}
+                      </div>
+                    </button>
+                  </div>
+                  
+                  {/* Footer Info */}
+                  <div className="pt-6 text-center">
+                    <div className="flex items-center justify-center space-x-4 text-sm text-gray-400">
+                      <div className="flex items-center space-x-2">
+                        <i className="fas fa-shield-alt text-red-500"></i>
+                        <span>Your data is secure</span>
+                      </div>
+                      <div className="w-px h-4 bg-gray-600"></div>
+                      <div className="flex items-center space-x-2">
+                        <i className="fas fa-clock text-red-500"></i>
+                        <span>24hr response time</span>
+                      </div>
+                    </div>
+                  </div>
                 </form>
+                </div>
               </div>
-              
-              {/* Contact Info */}
-              <div>
-                <div className={`p-8 rounded-xl shadow-lg mb-8 bg-gray-800/50`}>
-                  <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-                  <div className="space-y-6">
-                    <div className="flex items-start">
-                      <div className="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center mr-4 flex-shrink-0">
-                        <i className="fa fa-envelope text-red-600"></i>
+            </div>
+            
+            {/* Contact Information and Let's Connect - Horizontal Layout */}
+            <div className="max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Contact Information */}
+                <div className="relative order-1 lg:order-1">
+                  {/* Background Effects */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-900/15 via-transparent to-red-800/15 rounded-3xl blur-xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-red-500/3 to-transparent rounded-3xl"></div>
+                  
+                  <div className={`relative p-8 rounded-3xl shadow-2xl bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-xl border border-red-500/20 hover:border-red-400/40 transition-all duration-700 transform hover:scale-[1.01] h-full`}>
+                    {/* Header Section */}
+                    <div className="text-center mb-8">
+                      <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-500/20 to-red-600/20 border border-red-500/30 mb-4">
+                        <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                        <span className="text-red-400 text-sm font-medium">Direct contact</span>
                       </div>
-                      <div>
-                        <h3 className="font-medium mb-1">Email</h3>
-                        <a href="mailto:hello@thryce.com" className="text-red-600 hover:underline">hello@thryce.com</a>
-                      </div>
+                      <h2 className="text-2xl md:text-3xl font-black mb-3">
+                        <span className="text-white">Contact </span>
+                        <span className="bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">Information</span>
+                      </h2>
+                      <p className="text-gray-400 text-base">
+                        Multiple ways to reach out and start our collaboration
+                      </p>
                     </div>
-                    
-                    <div className="flex items-start">
-                      <div className="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center mr-4 flex-shrink-0">
-                        <i className="fa fa-phone text-red-600"></i>
+
+                    <div className="space-y-6">
+                      {/* Email */}
+                      <div className="group relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-red-700/30 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
+                        <div className="relative p-4 rounded-2xl bg-gradient-to-r from-red-600/10 to-red-700/10 border border-red-500/20 group-hover:border-red-400/50 transition-all duration-300">
+                          <div className="flex items-center space-x-4">
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500/30 to-red-600/30 flex items-center justify-center border border-red-400/30 group-hover:scale-110 transition-transform duration-300">
+                              <i className="fa fa-envelope text-lg text-red-300"></i>
+                            </div>
+                            <div className="flex-1">
+                              <h3 className="font-bold text-base text-red-200 group-hover:text-red-100 transition-colors mb-1">Email Address</h3>
+                              <a href="mailto:hellothryce@gmail.com" className="text-red-400/90 hover:text-red-300 transition-colors text-sm">hellothryce@gmail.com</a>
+                            </div>
+                            <div className="text-red-400 group-hover:text-red-300 transition-colors transform group-hover:translate-x-1 duration-300">
+                              <i className="fas fa-external-link-alt text-base"></i>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-medium mb-1">Phone</h3>
-                        <a href="tel:+91 9789096777" className="text-red-600 hover:underline">+91 9789096777</a>
+
+                      {/* Phone */}
+                      <div className="group relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-green-600/20 to-green-700/30 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
+                        <div className="relative p-4 rounded-2xl bg-gradient-to-r from-green-600/10 to-green-700/10 border border-green-500/20 group-hover:border-green-400/50 transition-all duration-300">
+                          <div className="flex items-start space-x-4">
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500/30 to-green-600/30 flex items-center justify-center border border-green-400/30 group-hover:scale-110 transition-transform duration-300">
+                              <i className="fa fa-phone text-lg text-green-300"></i>
+                            </div>
+                            <div className="flex-1">
+                              <h3 className="font-bold text-base text-green-200 group-hover:text-green-100 transition-colors mb-2">Phone Numbers</h3>
+                              <div className="space-y-1">
+                                <div><a href="tel:+917358281869" className="text-green-400/90 hover:text-green-300 transition-colors text-sm block">+91 73582 81869</a></div>
+                                <div><a href="tel:+917358208027" className="text-green-400/90 hover:text-green-300 transition-colors text-sm block">+91 73582 08027</a></div>
+                                <div><a href="tel:+919789096777" className="text-green-400/90 hover:text-green-300 transition-colors text-sm block">+91 97890 96777</a></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <div className="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center mr-4 flex-shrink-0">
-                        <i className="fa fa-map-marker-alt text-red-600"></i>
-                      </div>
-                      <div>
-                        <h3 className="font-medium mb-1">Location</h3>
-                        <p>Ambattur, Chennai</p>
-                        <p>India</p>
+
+                      {/* Location */}
+                      <div className="group relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-700/30 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
+                        <div className="relative p-4 rounded-2xl bg-gradient-to-r from-blue-600/10 to-blue-700/10 border border-blue-500/20 group-hover:border-blue-400/50 transition-all duration-300">
+                          <div className="flex items-center space-x-4">
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-600/30 flex items-center justify-center border border-blue-400/30 group-hover:scale-110 transition-transform duration-300">
+                              <i className="fa fa-map-marker-alt text-lg text-blue-300"></i>
+                            </div>
+                            <div className="flex-1">
+                              <h3 className="font-bold text-base text-blue-200 group-hover:text-blue-100 transition-colors mb-1">Location</h3>
+                              <div className="text-blue-400/90 text-sm">
+                                <p>Ambattur, Chennai</p>
+                                <p>Tamil Nadu, India</p>
+                              </div>
+                            </div>
+                            <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
+                              <i className="fas fa-globe text-base"></i>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                
-                <div className={`p-8 rounded-xl shadow-lg bg-gray-800/50`}>
-                  <h2 className="text-2xl font-bold mb-6">Connect With Me</h2>
-                  <div className="grid grid-cols-2 gap-4">
-                    <a 
-                      href="https://linkedin.com/in/your-profile" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className={`p-4 rounded-lg flex items-center bg-gray-700 hover:bg-gray-600 transition-colors`}
-                    >
-                      <i className="fab fa-linkedin text-xl mr-3"></i>
-                      <span>LinkedIn</span>
-                    </a>
-                    <a 
-                      href="https://wa.me/your-whatsapp-number" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className={`p-4 rounded-lg flex items-center bg-gray-700 hover:bg-gray-600 transition-colors`}
-                    >
-                      <i className="fab fa-whatsapp text-xl mr-3"></i>
-                      <span>WhatsApp</span>
-                    </a>
-                    <a 
-                      href="https://instagram.com/your-profile" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className={`p-4 rounded-lg flex items-center bg-gray-700 hover:bg-gray-600 transition-colors`}
-                    >
-                      <i className="fab fa-instagram text-xl mr-3"></i>
-                      <span>Instagram</span>
-                    </a>
+
+                {/* Let's Connect */}
+                <div className="relative order-2 lg:order-2">
+                  {/* Background Effects */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-900/15 via-transparent to-pink-800/15 rounded-3xl blur-xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-purple-500/3 to-transparent rounded-3xl"></div>
+                  
+                  <div className={`relative p-8 rounded-3xl shadow-2xl bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-xl border border-purple-500/20 hover:border-purple-400/40 transition-all duration-700 transform hover:scale-[1.01] h-full`}>
+                    {/* Header Section */}
+                    <div className="text-center mb-8">
+                      <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-500/20 to-red-600/20 border border-red-500/30 mb-4">
+                        <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                        <span className="text-red-400 text-sm font-medium">Social Networks</span>
+                      </div>
+                      <h2 className="text-2xl md:text-3xl font-black mb-3">
+                        <span className="text-white">Let's </span>
+                        <span className="bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">Connect</span>
+                      </h2>
+                      <p className="text-gray-400 text-base">
+                        Follow my journey and connect on your preferred platform
+                      </p>
+                    </div>
+                  
+                    <div className="space-y-5">
+                      {/* LinkedIn */}
+                      <a 
+                        href="https://linkedin.com/in/your-profile" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="group relative overflow-hidden block"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-700/30 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
+                        <div className="relative p-4 rounded-2xl bg-gradient-to-r from-blue-600/10 to-blue-700/10 border border-blue-500/20 group-hover:border-blue-400/50 transition-all duration-300">
+                          <div className="flex items-center space-x-4">
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-600/30 flex items-center justify-center border border-blue-400/30 group-hover:scale-110 transition-transform duration-300">
+                              <i className="fab fa-linkedin text-xl text-blue-300"></i>
+                            </div>
+                            <div className="flex-1">
+                              <h3 className="font-bold text-base text-blue-200 group-hover:text-blue-100 transition-colors">LinkedIn</h3>
+                              <p className="text-sm text-blue-300/80 group-hover:text-blue-200/90 transition-colors">Professional networking & career updates</p>
+                            </div>
+                            <div className="text-blue-400 group-hover:text-blue-300 transition-colors transform group-hover:translate-x-1 duration-300">
+                              <i className="fas fa-arrow-right text-base"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+
+                      {/* WhatsApp */}
+                      <a 
+                        href="https://wa.me/917358281869" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="group relative overflow-hidden block"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-green-600/20 to-green-700/30 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
+                        <div className="relative p-4 rounded-2xl bg-gradient-to-r from-green-600/10 to-green-700/10 border border-green-500/20 group-hover:border-green-400/50 transition-all duration-300">
+                          <div className="flex items-center space-x-4">
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500/30 to-green-600/30 flex items-center justify-center border border-green-400/30 group-hover:scale-110 transition-transform duration-300">
+                              <i className="fab fa-whatsapp text-xl text-green-300"></i>
+                            </div>
+                            <div className="flex-1">
+                              <h3 className="font-bold text-base text-green-200 group-hover:text-green-100 transition-colors">WhatsApp</h3>
+                              <p className="text-sm text-green-300/80 group-hover:text-green-200/90 transition-colors">Quick messages & instant communication</p>
+                            </div>
+                            <div className="text-green-400 group-hover:text-green-300 transition-colors transform group-hover:translate-x-1 duration-300">
+                              <i className="fas fa-arrow-right text-base"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+
+                      {/* Instagram */}
+                      <a 
+                        href="https://instagram.com/your-profile" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="group relative overflow-hidden block"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-pink-600/20 via-purple-600/20 to-orange-600/20 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
+                        <div className="relative p-4 rounded-2xl bg-gradient-to-r from-pink-600/10 via-purple-600/10 to-orange-600/10 border border-pink-500/20 group-hover:border-pink-400/50 transition-all duration-300">
+                          <div className="flex items-center space-x-4">
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/30 via-purple-500/30 to-orange-500/30 flex items-center justify-center border border-pink-400/30 group-hover:scale-110 transition-transform duration-300">
+                              <i className="fab fa-instagram text-xl text-pink-300"></i>
+                            </div>
+                            <div className="flex-1">
+                              <h3 className="font-bold text-base text-pink-200 group-hover:text-pink-100 transition-colors">Instagram</h3>
+                              <p className="text-sm text-pink-300/80 group-hover:text-pink-200/90 transition-colors">Behind the scenes & creative showcase</p>
+                            </div>
+                            <div className="text-pink-400 group-hover:text-pink-300 transition-colors transform group-hover:translate-x-1 duration-300">
+                              <i className="fas fa-arrow-right text-base"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+
+                    {/* Response Time Info */}
+                    <div className="mt-8 p-4 rounded-xl bg-gradient-to-r from-gray-700/30 to-gray-800/30 border border-gray-600/30">
+                      <div className="flex items-center justify-center space-x-4 text-center">
+                        <div className="flex items-center space-x-2">
+                          <i className="fas fa-clock text-red-500"></i>
+                          <span className="text-sm text-gray-300 font-medium">Typically responds within 24 hours</span>
+                        </div>
+                        <div className="w-px h-4 bg-gray-600"></div>
+                        <div className="flex items-center space-x-2">
+                          <i className="fas fa-shield-alt text-red-500"></i>
+                          <span className="text-sm text-gray-300 font-medium">Your privacy is protected</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -371,7 +586,7 @@ const ContactPage: React.FC = () => {
         </section>
         
         {/* FAQ Section */}
-        <section className={`py-20 bg-gray-900/50`}>
+        <section className={`py-20 bg-gradient-to-br from-gray-900/70 to-black/70 backdrop-blur-sm`}>
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white text-center">
@@ -380,7 +595,7 @@ const ContactPage: React.FC = () => {
               
               <div className="space-y-6">
                 <div className="group cursor-pointer transition-all duration-300 hover:scale-[1.02]">
-                  <div className={`p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl hover:bg-gray-700/80 transition-all duration-300 border border-transparent hover:border-red-500/30`}>
+                  <div className={`p-6 rounded-2xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 shadow-2xl hover:shadow-red-500/10 hover:from-gray-800/80 hover:to-gray-900/80 transition-all duration-300 border border-gray-700/50 hover:border-red-500/30 backdrop-blur-sm`}>
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-bold group-hover:text-red-400 transition-colors duration-300">
                         What <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">services</span> do you offer?
@@ -388,7 +603,7 @@ const ContactPage: React.FC = () => {
                       <i className="fas fa-chevron-down text-red-500 transform group-hover:rotate-180 transition-transform duration-300"></i>
                     </div>
                     <div className="mt-3 overflow-hidden transition-all duration-300">
-                      <p className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="opacity-80 group-hover:opacity-100 transition-opacity duration-300 text-gray-300">
                         We specialize in web development, UI/UX design, and interactive experiences. This includes custom website development, web applications, graphic design, logo design, and brand identity design.
                       </p>
                     </div>
@@ -396,7 +611,7 @@ const ContactPage: React.FC = () => {
                 </div>
                 
                 <div className="group cursor-pointer transition-all duration-300 hover:scale-[1.02]">
-                  <div className={`p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl hover:bg-gray-700/80 transition-all duration-300 border border-transparent hover:border-red-500/30`}>
+                  <div className={`p-6 rounded-2xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 shadow-2xl hover:shadow-red-500/10 hover:from-gray-800/80 hover:to-gray-900/80 transition-all duration-300 border border-gray-700/50 hover:border-red-500/30 backdrop-blur-sm`}>
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-bold group-hover:text-red-400 transition-colors duration-300">
                         What is your typical project <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">timeline</span>?
@@ -404,7 +619,7 @@ const ContactPage: React.FC = () => {
                       <i className="fas fa-chevron-down text-red-500 transform group-hover:rotate-180 transition-transform duration-300"></i>
                     </div>
                     <div className="mt-3 overflow-hidden transition-all duration-300">
-                      <p className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="opacity-80 group-hover:opacity-100 transition-opacity duration-300 text-gray-300">
                         Project timelines vary based on scope and complexity. A simple website might take 2-4 weeks, while more complex web applications can take 2-3 months. We'll provide a detailed timeline during our initial consultation.
                       </p>
                     </div>
@@ -412,7 +627,7 @@ const ContactPage: React.FC = () => {
                 </div>
                 
                 <div className="group cursor-pointer transition-all duration-300 hover:scale-[1.02]">
-                  <div className={`p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl hover:bg-gray-700/80 transition-all duration-300 border border-transparent hover:border-red-500/30`}>
+                  <div className={`p-6 rounded-2xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 shadow-2xl hover:shadow-red-500/10 hover:from-gray-800/80 hover:to-gray-900/80 transition-all duration-300 border border-gray-700/50 hover:border-red-500/30 backdrop-blur-sm`}>
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-bold group-hover:text-red-400 transition-colors duration-300">
                         How do you handle project <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">pricing</span>?
@@ -420,7 +635,7 @@ const ContactPage: React.FC = () => {
                       <i className="fas fa-chevron-down text-red-500 transform group-hover:rotate-180 transition-transform duration-300"></i>
                     </div>
                     <div className="mt-3 overflow-hidden transition-all duration-300">
-                      <p className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="opacity-80 group-hover:opacity-100 transition-opacity duration-300 text-gray-300">
                         We offer both fixed-price and hourly rate options depending on the project requirements. For most client projects, I prefer a fixed-price approach with clear deliverables and milestones.
                       </p>
                     </div>
@@ -428,7 +643,7 @@ const ContactPage: React.FC = () => {
                 </div>
                 
                 <div className="group cursor-pointer transition-all duration-300 hover:scale-[1.02]">
-                  <div className={`p-6 rounded-xl bg-gray-800 shadow-lg hover:shadow-xl hover:bg-gray-700/80 transition-all duration-300 border border-transparent hover:border-red-500/30`}>
+                  <div className={`p-6 rounded-2xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 shadow-2xl hover:shadow-red-500/10 hover:from-gray-800/80 hover:to-gray-900/80 transition-all duration-300 border border-gray-700/50 hover:border-red-500/30 backdrop-blur-sm`}>
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-bold group-hover:text-red-400 transition-colors duration-300">
                         Do you offer ongoing <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">maintenance</span>?
@@ -436,7 +651,7 @@ const ContactPage: React.FC = () => {
                       <i className="fas fa-chevron-down text-red-500 transform group-hover:rotate-180 transition-transform duration-300"></i>
                     </div>
                     <div className="mt-3 overflow-hidden transition-all duration-300">
-                      <p className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="opacity-80 group-hover:opacity-100 transition-opacity duration-300 text-gray-300">
                         Yes, We offer website maintenance and support packages to keep your site secure, updated, and performing optimally. These can be tailored to your specific needs and budget.
                       </p>
                     </div>
