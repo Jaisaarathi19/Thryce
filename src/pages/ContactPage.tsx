@@ -436,7 +436,6 @@ const ContactPage: React.FC = () => {
                               <div className="space-y-1">
                                 <div><a href="tel:+917358281869" className="text-green-400/90 hover:text-green-300 transition-colors text-sm block">+91 73582 81869</a></div>
                                 <div><a href="tel:+917358208027" className="text-green-400/90 hover:text-green-300 transition-colors text-sm block">+91 73582 08027</a></div>
-                                <div><a href="tel:+919789096777" className="text-green-400/90 hover:text-green-300 transition-colors text-sm block">+91 97890 96777</a></div>
                               </div>
                             </div>
                           </div>
