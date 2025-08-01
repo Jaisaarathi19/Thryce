@@ -91,7 +91,7 @@ const ProjectsPage: React.FC = () => {
     {
       id: 2,
       title: "MONISH E - Personal Portfolio",
-      description: "Modern and responsive personal portfolio website showcasing data analysis, design, and development skills with elegant UI/UX design.",
+      description: "Modern and responsive personal portfolio website showcasing data analysis, design with elegant UI/UX design.",
       image: "/project_img/monish-pf.png",
       category: "web",
       technologies: ["React", "TypeScript", "CSS3", "Responsive Design"],
@@ -120,8 +120,8 @@ const ProjectsPage: React.FC = () => {
     },
     {
         id: 5,
-        title: "EXT Business Logo",
-        description: "Corporate logo design with red accent elements, combining professionalism with dynamic growth symbolism.",
+        title: "EDC Logo",
+        description: "Dynamic brand identity for the Entrepreneurship Development Cell featuring innovation and student leadership.",
         image: "/logo/EDC logo.png",
         category: "logo",
         technologies: ["Adobe Illustrator", "Photoshop", "Figma"],

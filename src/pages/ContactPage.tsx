@@ -387,37 +387,37 @@ const ContactPage: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-red-900/15 via-transparent to-red-800/15 rounded-3xl blur-xl"></div>
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-red-500/3 to-transparent rounded-3xl"></div>
                   
-                  <div className={`relative p-8 rounded-3xl shadow-2xl bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-xl border border-red-500/20 hover:border-red-400/40 transition-all duration-700 transform hover:scale-[1.01] h-full`}>
+                  <div className={`relative p-4 sm:p-6 md:p-8 rounded-3xl shadow-2xl bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-xl border border-red-500/20 hover:border-red-400/40 transition-all duration-700 transform hover:scale-[1.01] h-full`}>
                     {/* Header Section */}
-                    <div className="text-center mb-8">
-                      <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-500/20 to-red-600/20 border border-red-500/30 mb-4">
-                        <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                        <span className="text-red-400 text-sm font-medium">Direct contact</span>
+                    <div className="text-center mb-6 md:mb-8">
+                      <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-red-500/20 to-red-600/20 border border-red-500/30 mb-3 sm:mb-4">
+                        <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-red-500 animate-pulse"></div>
+                        <span className="text-red-400 text-xs sm:text-sm font-medium">Direct contact</span>
                       </div>
-                      <h2 className="text-2xl md:text-3xl font-black mb-3">
+                      <h2 className="text-xl sm:text-2xl md:text-3xl font-black mb-2 sm:mb-3">
                         <span className="text-white">Contact </span>
                         <span className="bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">Information</span>
                       </h2>
-                      <p className="text-gray-400 text-base">
+                      <p className="text-gray-400 text-sm sm:text-base px-2">
                         Multiple ways to reach out and start our collaboration
                       </p>
                     </div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6">
                       {/* Email */}
                       <div className="group relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-red-700/30 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
-                        <div className="relative p-4 rounded-2xl bg-gradient-to-r from-red-600/10 to-red-700/10 border border-red-500/20 group-hover:border-red-400/50 transition-all duration-300">
-                          <div className="flex items-center space-x-4">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500/30 to-red-600/30 flex items-center justify-center border border-red-400/30 group-hover:scale-110 transition-transform duration-300">
-                              <i className="fa fa-envelope text-lg text-red-300"></i>
+                        <div className="relative p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-red-600/10 to-red-700/10 border border-red-500/20 group-hover:border-red-400/50 transition-all duration-300">
+                          <div className="flex items-center space-x-3 sm:space-x-4">
+                            <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-gradient-to-br from-red-500/30 to-red-600/30 flex items-center justify-center border border-red-400/30 group-hover:scale-110 transition-transform duration-300">
+                              <i className="fa fa-envelope text-base sm:text-lg text-red-300"></i>
                             </div>
-                            <div className="flex-1">
-                              <h3 className="font-bold text-base text-red-200 group-hover:text-red-100 transition-colors mb-1">Email Address</h3>
-                              <a href="mailto:hellothryce@gmail.com" className="text-red-400/90 hover:text-red-300 transition-colors text-sm">hellothryce@gmail.com</a>
+                            <div className="flex-1 min-w-0">
+                              <h3 className="font-bold text-sm sm:text-base text-red-200 group-hover:text-red-100 transition-colors mb-0.5 sm:mb-1">Email Address</h3>
+                              <a href="mailto:hellothryce@gmail.com" className="text-red-400/90 hover:text-red-300 transition-colors text-xs sm:text-sm truncate block">hellothryce@gmail.com</a>
                             </div>
                             <div className="text-red-400 group-hover:text-red-300 transition-colors transform group-hover:translate-x-1 duration-300">
-                              <i className="fas fa-external-link-alt text-base"></i>
+                              <i className="fas fa-external-link-alt text-sm sm:text-base"></i>
                             </div>
                           </div>
                         </div>
@@ -426,16 +426,16 @@ const ContactPage: React.FC = () => {
                       {/* Phone */}
                       <div className="group relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-r from-green-600/20 to-green-700/30 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
-                        <div className="relative p-4 rounded-2xl bg-gradient-to-r from-green-600/10 to-green-700/10 border border-green-500/20 group-hover:border-green-400/50 transition-all duration-300">
-                          <div className="flex items-start space-x-4">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500/30 to-green-600/30 flex items-center justify-center border border-green-400/30 group-hover:scale-110 transition-transform duration-300">
-                              <i className="fa fa-phone text-lg text-green-300"></i>
+                        <div className="relative p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-green-600/10 to-green-700/10 border border-green-500/20 group-hover:border-green-400/50 transition-all duration-300">
+                          <div className="flex items-start space-x-3 sm:space-x-4">
+                            <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-gradient-to-br from-green-500/30 to-green-600/30 flex items-center justify-center border border-green-400/30 group-hover:scale-110 transition-transform duration-300">
+                              <i className="fa fa-phone text-base sm:text-lg text-green-300"></i>
                             </div>
-                            <div className="flex-1">
-                              <h3 className="font-bold text-base text-green-200 group-hover:text-green-100 transition-colors mb-2">Phone Numbers</h3>
-                              <div className="space-y-1">
-                                <div><a href="tel:+917358281869" className="text-green-400/90 hover:text-green-300 transition-colors text-sm block">+91 73582 81869</a></div>
-                                <div><a href="tel:+917358208027" className="text-green-400/90 hover:text-green-300 transition-colors text-sm block">+91 73582 08027</a></div>
+                            <div className="flex-1 min-w-0">
+                              <h3 className="font-bold text-sm sm:text-base text-green-200 group-hover:text-green-100 transition-colors mb-1 sm:mb-2">Phone Numbers</h3>
+                              <div className="space-y-0.5 sm:space-y-1">
+                                <div><a href="tel:+917358281869" className="text-green-400/90 hover:text-green-300 transition-colors text-xs sm:text-sm block">+91 73582 81869</a></div>
+                                <div><a href="tel:+917358208027" className="text-green-400/90 hover:text-green-300 transition-colors text-xs sm:text-sm block">+91 73582 08027</a></div>
                               </div>
                             </div>
                           </div>
@@ -445,20 +445,20 @@ const ContactPage: React.FC = () => {
                       {/* Location */}
                       <div className="group relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-700/30 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-100"></div>
-                        <div className="relative p-4 rounded-2xl bg-gradient-to-r from-blue-600/10 to-blue-700/10 border border-blue-500/20 group-hover:border-blue-400/50 transition-all duration-300">
-                          <div className="flex items-center space-x-4">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-600/30 flex items-center justify-center border border-blue-400/30 group-hover:scale-110 transition-transform duration-300">
-                              <i className="fa fa-map-marker-alt text-lg text-blue-300"></i>
+                        <div className="relative p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-blue-600/10 to-blue-700/10 border border-blue-500/20 group-hover:border-blue-400/50 transition-all duration-300">
+                          <div className="flex items-center space-x-3 sm:space-x-4">
+                            <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-600/30 flex items-center justify-center border border-blue-400/30 group-hover:scale-110 transition-transform duration-300">
+                              <i className="fa fa-map-marker-alt text-base sm:text-lg text-blue-300"></i>
                             </div>
-                            <div className="flex-1">
-                              <h3 className="font-bold text-base text-blue-200 group-hover:text-blue-100 transition-colors mb-1">Location</h3>
-                              <div className="text-blue-400/90 text-sm">
+                            <div className="flex-1 min-w-0">
+                              <h3 className="font-bold text-sm sm:text-base text-blue-200 group-hover:text-blue-100 transition-colors mb-0.5 sm:mb-1">Location</h3>
+                              <div className="text-blue-400/90 text-xs sm:text-sm">
                                 <p>Ambattur, Chennai</p>
                                 <p>Tamil Nadu, India</p>
                               </div>
                             </div>
                             <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
-                              <i className="fas fa-globe text-base"></i>
+                              <i className="fas fa-globe text-sm sm:text-base"></i>
                             </div>
                           </div>
                         </div>
