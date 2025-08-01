@@ -349,11 +349,11 @@ const ServicesPage: React.FC = () => {
                   </div>
                   <div className="flex space-x-6">
                     {/* Only LinkedIn, WhatsApp, Instagram */}
-                    <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                    <a href="https://www.linkedin.com/company/thryce-official/" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
                       <span className="sr-only">LinkedIn</span>
                       <i className="fab fa-linkedin text-xl"></i>
                     </a>
-                    <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                    <a href="https://wa.me/917358281869" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
                       <span className="sr-only">WhatsApp</span>
                       <i className="fab fa-whatsapp text-xl"></i>
                     </a>
