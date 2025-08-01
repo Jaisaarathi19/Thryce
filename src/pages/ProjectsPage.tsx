@@ -131,7 +131,7 @@ const ProjectsPage: React.FC = () => {
     {
         id: 6,
         title: "ARQ Minimalist Logo",
-        description: "Clean and contemporary logo design emphasizing simplicity and modern architectural aesthetics.",
+        description: "The community requested a distinctive and meaningful logo for ARQ (Analytics | Research | Quant). We designed this creative piece, embedding the letters A, R, and Q within the logo to reflect the brand’s identity.",
         image: "/logo/ARQ.png",
         category: "logo",
         technologies: ["Adobe Illustrator", "Figma", "Sketch"],
