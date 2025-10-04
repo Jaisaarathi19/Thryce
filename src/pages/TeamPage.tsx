@@ -118,7 +118,7 @@ const TeamPage: React.FC = () => {
       name: "Monish",
       role: "Designer",
       bio: "Creative designer with expertise in UI/UX design, branding, and visual storytelling.",
-      image: "/images/monish.jpg",
+      image: "/images/monish.jpeg",
       social: {
         linkedin: "#",
         instagram: "#"
@@ -722,7 +722,7 @@ const TeamPage: React.FC = () => {
                             <div className="mb-6 md:mb-0">
                               <Link to="/" className="flex items-center space-x-3 group">
                                 <img 
-                                  src='/logo/THRYCE_black_logo.png'
+                                  src='/logo/THRYCE_black_logo.svg'
                                   alt="Thryce Logo"
                                   className="h-8 w-auto transition-all duration-300 group-hover:brightness-110"
                                 />
@@ -741,7 +741,7 @@ const TeamPage: React.FC = () => {
                                   <span className="sr-only">WhatsApp</span>
                                   <i className="fab fa-whatsapp text-xl"></i>
                                 </a>
-                                <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
+                                <a href="https://www.instagram.com/thryce_digital" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full p-1">
                                   <span className="sr-only">Instagram</span>
                                   <i className="fab fa-instagram text-xl"></i>
                                 </a>

@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [currentLogo, setCurrentLogo] = useState('/logo/THRYCE_black_logo.svg');
   const [hoverEffect, setHoverEffect] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -56,8 +57,17 @@ const Navigation: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const scrollPosition = window.scrollY;
+      setScrolled(scrollPosition > 20);
+      
+      // Change logo based on scroll position - switch between main logo and Thrycee.ai logo
+      if (scrollPosition > 400) {
+        setCurrentLogo('/logo/Thrycee.ai.svg');
+      } else {
+        setCurrentLogo('/logo/THRYCE_black_logo.svg');
+      }
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -76,13 +86,15 @@ const Navigation: React.FC = () => {
               className="group relative hover:scale-105 transition-transform duration-300 ease-out"
             >
               <div className="flex flex-col">
-                <p className="text-xs text-gray-400 tracking-wider mb-0.5 opacity-70 group-hover:opacity-100 transition-opacity duration-300 text-center">
-                  Not Once. Not Twice.
-                </p>
+                {currentLogo === '/logo/THRYCE_black_logo.png' && (
+                  <p className="text-xs text-gray-400 tracking-wider mb-0.5 opacity-70 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                    Not Once. Not Twice.
+                  </p>
+                )}
                 <img 
-                  src={'/logo/THRYCE_black_logo.png'}
+                  src={currentLogo}
                   alt="Thryce Logo"
-                  className="h-8 w-auto transition-all duration-300 hover:drop-shadow-lg group-hover:brightness-110"
+                  className={`${currentLogo === '/logo/Thrycee.ai.svg' ? 'h-16' : 'h-8'} w-auto hover:drop-shadow-lg group-hover:brightness-110 transform group-hover:scale-105`}
                 />
               </div>
             </Link>
