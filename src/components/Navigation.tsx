@@ -75,11 +75,16 @@ const Navigation: React.FC = () => {
               }}
               className="group relative hover:scale-105 transition-transform duration-300 ease-out"
             >
-              <img 
-                src={'/logo/THRYCE_black_logo.png'}
-                alt="Thryce Logo"
-                className="h-12 w-auto transition-all duration-300 hover:drop-shadow-lg group-hover:brightness-110"
-              />
+              <div className="flex flex-col">
+                <p className="text-xs text-gray-400 tracking-wider mb-0.5 opacity-70 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                  Not Once. Not Twice.
+                </p>
+                <img 
+                  src={'/logo/THRYCE_black_logo.png'}
+                  alt="Thryce Logo"
+                  className="h-8 w-auto transition-all duration-300 hover:drop-shadow-lg group-hover:brightness-110"
+                />
+              </div>
             </Link>
           </div>
           

@@ -425,120 +425,120 @@ const TeamPage: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                   
                   {/* Team Members Stat */}
-                  <div className="group relative">
+                  <div className="group relative h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-transparent rounded-3xl transform rotate-2 group-hover:rotate-3 transition-transform duration-500"></div>
-                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 h-[280px] flex flex-col">
                       {/* Icon */}
-                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25">
+                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25 flex-shrink-0">
                         <i className="fas fa-users text-white text-xl"></i>
                       </div>
                       
                       {/* Number */}
-                      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
+                      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 flex-shrink-0">
                         <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">5</span>
                         <span className="text-red-500">+</span>
                       </div>
                       
                       {/* Label */}
-                      <div className="text-gray-300 font-medium mb-2 group-hover:text-white transition-colors duration-300">Team Members</div>
+                      <div className="text-gray-300 font-medium mb-2 group-hover:text-white transition-colors duration-300 flex-shrink-0">Team Members</div>
                       
                       {/* Description */}
-                      <div className="text-xs text-gray-400 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="text-xs text-gray-400 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex-grow">
                         Passionate professionals driving innovation
                       </div>
                       
                       {/* Progress Bar */}
-                      <div className="mt-4 w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                      <div className="mt-4 w-full h-1 bg-gray-700 rounded-full overflow-hidden flex-shrink-0">
                         <div className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-left"></div>
                       </div>
                     </div>
                   </div>
                   
                   {/* Projects Stat */}
-                  <div className="group relative sm:mt-8 lg:mt-0">
+                  <div className="group relative h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-red-400/20 to-transparent rounded-3xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-500"></div>
-                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 h-[280px] flex flex-col">
                       {/* Icon */}
-                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25">
+                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25 flex-shrink-0">
                         <i className="fas fa-rocket text-white text-xl"></i>
                       </div>
                       
                       {/* Number */}
-                      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
+                      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 flex-shrink-0">
                         <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">5</span>
                         <span className="text-red-500">+</span>
                       </div>
                       
                       {/* Label */}
-                      <div className="text-gray-300 font-medium mb-2 group-hover:text-white transition-colors duration-300">Projects</div>
+                      <div className="text-gray-300 font-medium mb-2 group-hover:text-white transition-colors duration-300 flex-shrink-0">Projects</div>
                       
                       {/* Description */}
-                      <div className="text-xs text-gray-400 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="text-xs text-gray-400 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex-grow">
                         Successful launches and counting
                       </div>
                       
                       {/* Progress Bar */}
-                      <div className="mt-4 w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                      <div className="mt-4 w-full h-1 bg-gray-700 rounded-full overflow-hidden flex-shrink-0">
                         <div className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-left delay-200"></div>
                       </div>
                     </div>
                   </div>
                   
                   {/* Experience Stat */}
-                  <div className="group relative lg:mt-8">
+                  <div className="group relative h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-transparent rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500"></div>
-                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 h-[280px] flex flex-col">
                       {/* Icon */}
-                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25">
+                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25 flex-shrink-0">
                         <i className="fas fa-calendar-alt text-white text-xl"></i>
                       </div>
                       
                       {/* Number */}
-                      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
+                      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 flex-shrink-0">
                         <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">2</span>
                         <span className="text-red-500">+</span>
                       </div>
                       
                       {/* Label */}
-                      <div className="text-gray-300 font-medium mb-2 group-hover:text-white transition-colors duration-300">Years Experience</div>
+                      <div className="text-gray-300 font-medium mb-2 group-hover:text-white transition-colors duration-300 flex-shrink-0">Years Experience</div>
                       
                       {/* Description */}
-                      <div className="text-xs text-gray-400 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="text-xs text-gray-400 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex-grow">
                         Proven track record of excellence
                       </div>
                       
                       {/* Progress Bar */}
-                      <div className="mt-4 w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                      <div className="mt-4 w-full h-1 bg-gray-700 rounded-full overflow-hidden flex-shrink-0">
                         <div className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-left delay-500"></div>
                       </div>
                     </div>
                   </div>
                   
                   {/* Satisfaction Stat */}
-                  <div className="group relative sm:mt-8 lg:mt-0">
+                  <div className="group relative h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-transparent rounded-3xl transform -rotate-2 group-hover:-rotate-3 transition-transform duration-500"></div>
-                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+                    <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 sm:p-8 hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 h-[280px] flex flex-col">
                       {/* Icon */}
-                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25">
+                      <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/25 flex-shrink-0">
                         <i className="fas fa-heart text-white text-xl"></i>
                       </div>
                       
                       {/* Number */}
-                      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
+                      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 flex-shrink-0">
                         <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">100</span>
                         <span className="text-red-500">%</span>
                       </div>
                       
                       {/* Label */}
-                      <div className="text-gray-300 font-medium mb-2 group-hover:text-white transition-colors duration-300">Satisfaction</div>
+                      <div className="text-gray-300 font-medium mb-2 group-hover:text-white transition-colors duration-300 flex-shrink-0">Satisfaction</div>
                       
                       {/* Description */}
-                      <div className="text-xs text-gray-400 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="text-xs text-gray-400 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex-grow">
                         Client happiness is our priority
                       </div>
                       
                       {/* Progress Bar */}
-                      <div className="mt-4 w-full h-1 bg-gray-700 rounded-full overflow-hidden">
+                      <div className="mt-4 w-full h-1 bg-gray-700 rounded-full overflow-hidden flex-shrink-0">
                         <div className="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-left delay-700"></div>
                       </div>
                     </div>

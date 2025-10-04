@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation';
 
 const ProjectsPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLCanvasElement>(null);
 
@@ -85,7 +86,7 @@ const ProjectsPage: React.FC = () => {
       image: "/project_img/datalore.jpg",
       category: "web",
       technologies: ["React", "Node.js", "MongoDB"],
-      link: "https://rajalakshmi.org/dataloresymposium",
+      link: "https://datalorewebsite.vercel.app",
       featured: true
     },
     {
@@ -135,6 +136,26 @@ const ProjectsPage: React.FC = () => {
         image: "/logo/ARQ.png",
         category: "logo",
         technologies: ["Adobe Illustrator", "Figma", "Sketch"],
+        link: "#",
+        featured: true
+    },
+    {
+        id: 7,
+        title: "QubitSpace Logo Design",
+        description: "Innovative logo design for a quantum computing startup, combining space exploration aesthetics with cutting-edge quantum technology themes.",
+        image: "/logo/qubitspace.png",
+        category: "logo",
+        technologies: ["Adobe Illustrator", "Figma", "Photoshop"],
+        link: "#",
+        featured: true
+    },
+    {
+        id: 8,
+        title: "ELECSTAR Recruitment Poster",
+        description: "Eye-catching recruitment poster design for Entrepreneurship Development Cell featuring bold typography and creative illustrations to attract second-year engineering students.",
+        image: "/graphics/EDC recruitment poster.png",
+        category: "graphic",
+        technologies: ["Adobe Photoshop", "Illustrator", "Typography"],
         link: "#",
         featured: true
     }
@@ -257,97 +278,133 @@ const ProjectsPage: React.FC = () => {
             
             {/* Enhanced Projects Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
-              {filteredProjects.map((project, index) => (
-                <div 
-                  key={project.id} 
-                  className="group relative"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  {/* Background Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500"></div>
-                  
-                  <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl overflow-hidden hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+              {filteredProjects.map((project, index) => {
+                // Check if this is a web project (id 1 or 2)
+                const isClickableWebProject = project.id === 1 || project.id === 2;
+                
+                const cardContent = (
+                  <>
+                    {/* Background Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500"></div>
                     
-                    {/* Image Container */}
-                    <div className="relative h-64 overflow-hidden">
-                      <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        <img 
-                          src={project.image} 
-                          alt={project.title} 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                        {/* Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        {/* Floating Action Button */}
-                        <div className="absolute top-4 right-4 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 shadow-lg">
-                          <i className="fas fa-external-link-alt text-white text-sm"></i>
+                    <div className="relative h-full flex flex-col bg-gradient-to-br from-gray-900/90 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 rounded-3xl overflow-hidden hover:border-red-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20">
+                      
+                      {/* Image Container */}
+                      <div className="relative h-56 sm:h-64 overflow-hidden flex-shrink-0">
+                        <div onClick={(e) => {
+                          if (!isClickableWebProject) {
+                            e.stopPropagation();
+                            setSelectedImage(project.image);
+                          }
+                        }} className={!isClickableWebProject ? "cursor-pointer" : ""}>
+                          <img 
+                            src={project.image} 
+                            alt={project.title} 
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          />
+                          {/* Overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                          
+                          {/* Floating Action Button */}
+                          <div className="absolute top-4 right-4 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 shadow-lg">
+                            <i className={`fas ${isClickableWebProject ? 'fa-external-link-alt' : 'fa-search-plus'} text-white text-sm`}></i>
+                          </div>
+                          
+                          {/* Category Badge */}
+                          <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                            <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm border ${
+                              project.category === 'web' 
+                                ? 'bg-blue-500/20 text-blue-400 border-blue-500/30' 
+                                : project.category === 'logo'
+                                  ? 'bg-green-500/20 text-green-400 border-green-500/30'
+                                  : 'bg-purple-500/20 text-purple-400 border-purple-500/30'
+                            }`}>
+                              {project.category === 'web' ? 'Web Dev' : project.category === 'logo' ? 'Logo' : 'Graphics'}
+                            </span>
+                          </div>
                         </div>
-                        
-                        {/* Category Badge */}
-                        <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
-                          <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm border ${
-                            project.category === 'web' 
-                              ? 'bg-blue-500/20 text-blue-400 border-blue-500/30' 
-                              : project.category === 'logo'
-                                ? 'bg-green-500/20 text-green-400 border-green-500/30'
-                                : 'bg-purple-500/20 text-purple-400 border-purple-500/30'
-                          }`}>
-                            {project.category === 'web' ? 'Web Dev' : project.category === 'logo' ? 'Logo' : 'Graphics'}
-                          </span>
-                        </div>
-                      </a>
-                    </div>
-                    
-                    {/* Content Section */}
-                    <div className="p-6 sm:p-8">
-                      {/* Decorative Line */}
-                      <div className="w-12 h-1 bg-gradient-to-r from-red-500 to-red-600 rounded-full mb-4"></div>
-                      
-                      {/* Title */}
-                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors duration-300 line-clamp-2">
-                        {project.title}
-                      </h3>
-                      
-                      {/* Description */}
-                      <p className="text-gray-300 leading-relaxed mb-6 group-hover:text-gray-200 transition-colors duration-300 text-sm sm:text-base">
-                        {project.description}
-                      </p>
-                      
-                      {/* Technologies */}
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                          <span 
-                            key={techIndex} 
-                            className="px-3 py-1 bg-gray-700/50 text-gray-300 text-xs rounded-full border border-gray-600/50 hover:border-red-500/50 transition-colors duration-300"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.technologies.length > 3 && (
-                          <span className="px-3 py-1 bg-gray-700/50 text-gray-300 text-xs rounded-full border border-gray-600/50">
-                            +{project.technologies.length - 3}
-                          </span>
-                        )}
                       </div>
                       
-                      {/* Action Button */}
+                      {/* Content Section */}
+                      <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                        {/* Decorative Line */}
+                        <div className="w-12 h-1 bg-gradient-to-r from-red-500 to-red-600 rounded-full mb-4"></div>
+                        
+                        {/* Title */}
+                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors duration-300 line-clamp-2 min-h-[3.5rem]">
+                          {project.title}
+                        </h3>
+                        
+                        {/* Description */}
+                        <p className="text-gray-300 leading-relaxed mb-6 group-hover:text-gray-200 transition-colors duration-300 text-sm sm:text-base line-clamp-3 flex-grow min-h-[4.5rem]">
+                          {project.description}
+                        </p>
+                        
+                        {/* Technologies */}
+                        <div className="flex flex-wrap gap-2 mb-6 min-h-[2rem]">
+                          {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                            <span 
+                              key={techIndex} 
+                              className="px-3 py-1 bg-gray-700/50 text-gray-300 text-xs rounded-full border border-gray-600/50 hover:border-red-500/50 transition-colors duration-300"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                          {project.technologies.length > 3 && (
+                            <span className="px-3 py-1 bg-gray-700/50 text-gray-300 text-xs rounded-full border border-gray-600/50">
+                              +{project.technologies.length - 3}
+                            </span>
+                          )}
+                        </div>
+                        
+                        {/* Action Button */}
+                        {!isClickableWebProject && (
+                          <a 
+                            href={project.link} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="group/btn inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors duration-300 font-medium"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <span>Explore Project</span>
+                            <i className="fas fa-arrow-right transform group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                          </a>
+                        )}
+                        {isClickableWebProject && (
+                          <div className="group/btn inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors duration-300 font-medium">
+                            <span>Visit Website</span>
+                            <i className="fas fa-arrow-right transform group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                          </div>
+                        )}
+                        
+                        {/* Bottom Accent */}
+                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                      </div>
+                    </div>
+                  </>
+                );
+
+                return (
+                  <div 
+                    key={project.id} 
+                    className="group relative h-full"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    {isClickableWebProject ? (
                       <a 
                         href={project.link} 
                         target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="group/btn inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors duration-300 font-medium"
+                        rel="noopener noreferrer"
+                        className="block h-full cursor-pointer"
                       >
-                        <span>Explore Project</span>
-                        <i className="fas fa-arrow-right transform group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                        {cardContent}
                       </a>
-                      
-                      {/* Bottom Accent */}
-                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                    </div>
+                    ) : (
+                      cardContent
+                    )}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             
             {/* Enhanced Empty State */}
@@ -577,6 +634,39 @@ const ProjectsPage: React.FC = () => {
                 </div>
               </div>
             </footer>
+            
+      {/* Image Modal/Popup */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-sm animate-fadeIn"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center p-4">
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 z-10 w-12 h-12 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
+              aria-label="Close"
+            >
+              <i className="fas fa-times text-white text-xl"></i>
+            </button>
+            
+            {/* Image */}
+            <img
+              src={selectedImage}
+              alt="Project preview"
+              className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl animate-scaleIn"
+              onClick={(e) => e.stopPropagation()}
+            />
+            
+            {/* Decorative corners */}
+            <div className="absolute top-8 left-8 w-16 h-16 border-t-2 border-l-2 border-red-500 rounded-tl-lg pointer-events-none"></div>
+            <div className="absolute top-8 right-8 w-16 h-16 border-t-2 border-r-2 border-red-500 rounded-tr-lg pointer-events-none"></div>
+            <div className="absolute bottom-8 left-8 w-16 h-16 border-b-2 border-l-2 border-red-500 rounded-bl-lg pointer-events-none"></div>
+            <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 border-red-500 rounded-br-lg pointer-events-none"></div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

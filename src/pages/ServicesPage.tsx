@@ -93,7 +93,7 @@ const ServicesPage: React.FC = () => {
       title: "Logo Design",
       description: "Designing memorable and impactful logos that capture your brand's essence and make a lasting impression.",
       icon: "fa-pen-nib",
-      image: "/logo/THRYCE_white_logo_full.jpg"
+      image: "/logo/THRYCE_white_logo_full.png"
     }
     // Add more services as needed
   ];
@@ -179,10 +179,10 @@ const ServicesPage: React.FC = () => {
                   { number: "03", title: "Development", desc: "Building robust solutions", icon: "fas fa-code", tags: ["Frontend", "Backend"] },
                   { number: "04", title: "Launch", desc: "Deploying with ongoing support", icon: "fas fa-rocket", tags: ["Deploy", "Support"] }
                 ].map((step, index) => (
-                  <div key={index} className="group relative flex-shrink-0 w-72">
-                    <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-800/50 hover:border-red-500/30 transition-all duration-500 h-full">
+                  <div key={index} className="group relative flex-shrink-0 w-72 h-64">
+                    <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-800/50 hover:border-red-500/30 transition-all duration-500 h-full flex flex-col">
                       <div className="flex items-center space-x-4 mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500">
+                        <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 flex-shrink-0">
                           <i className={`${step.icon} text-white text-sm`}></i>
                         </div>
                         <div className="flex items-center space-x-2">
@@ -190,7 +190,7 @@ const ServicesPage: React.FC = () => {
                           <h3 className="text-lg font-bold text-white group-hover:text-red-400 transition-colors duration-300">{step.title}</h3>
                         </div>
                       </div>
-                      <p className="text-gray-400 text-sm leading-relaxed mb-3">{step.desc}</p>
+                      <p className="text-gray-400 text-sm leading-relaxed mb-3 flex-grow">{step.desc}</p>
                       <div className="flex flex-wrap gap-1">
                         {step.tags.map((tag, i) => (
                           <span key={i} className="text-xs bg-gray-800/50 text-gray-300 px-2 py-1 rounded">{tag}</span>
@@ -246,7 +246,7 @@ const ServicesPage: React.FC = () => {
                       tags: ["Deployment", "Optimization", "Support"]
                     }
                   ].map((step, index) => (
-                    <div key={index} className="group relative" style={{ animationDelay: `${index * 150}ms` }}>
+                    <div key={index} className="group relative h-full" style={{ animationDelay: `${index * 150}ms` }}>
                       {/* Connection Point */}
                       <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500"></div>
                       
@@ -256,16 +256,16 @@ const ServicesPage: React.FC = () => {
                       )}
                       
                       {/* Card */}
-                      <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-800/50 hover:border-red-500/30 transition-all duration-500 mt-8 group-hover:transform group-hover:-translate-y-2">
+                      <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-800/50 hover:border-red-500/30 transition-all duration-500 mt-8 group-hover:transform group-hover:-translate-y-2 h-[420px] flex flex-col">
                         {/* Icon and Number */}
-                        <div className="flex items-center justify-center mb-6">
+                        <div className="flex items-center justify-center mb-6 flex-shrink-0">
                           <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                             <i className={`${step.icon} text-white text-xl`}></i>
                           </div>
                         </div>
                         
                         {/* Step Number and Title */}
-                        <div className="text-center mb-4">
+                        <div className="text-center mb-4 flex-shrink-0">
                           <div className="flex items-center justify-center space-x-2 mb-2">
                             <span className="text-sm font-medium text-red-400 bg-red-500/10 px-3 py-1 rounded-full">{step.number}</span>
                           </div>
@@ -275,12 +275,12 @@ const ServicesPage: React.FC = () => {
                         </div>
                         
                         {/* Description */}
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4 text-center">
+                        <p className="text-gray-400 text-sm leading-relaxed mb-4 text-center flex-grow">
                           {step.desc}
                         </p>
                         
                         {/* Tags */}
-                        <div className="flex flex-wrap gap-2 justify-center">
+                        <div className="flex flex-wrap gap-2 justify-center flex-shrink-0">
                           {step.tags.map((tag, i) => (
                             <span key={i} className="text-xs bg-gray-800/50 text-gray-300 px-2 py-1 rounded hover:bg-red-500/10 hover:text-red-400 transition-colors duration-300">
                               {tag}
