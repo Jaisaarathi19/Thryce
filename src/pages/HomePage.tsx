@@ -377,14 +377,14 @@ const HomePage: React.FC = () => {
   // Portfolio data
   const portfolioItems = [
     {
-      title: "Datalore Symposium",
-      category: "Web Development",
-      image: "/project_img/datalore.jpg"
+      title: "QubitSpace",
+      category: "Logo Design",
+      image: "/logo/qubitspace.png"
     },
     {
-      title: "Monish's Portfolio",
+      title: "Luminix Clopthing",
       category: "Web Development",
-      image: "/project_img/monish-pf.png"
+      image: "/project_img/luminix.png"
     },
     {
       title: "ALKET Logo Design",
