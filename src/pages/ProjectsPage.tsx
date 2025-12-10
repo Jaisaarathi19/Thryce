@@ -141,11 +141,11 @@ const ProjectsPage: React.FC = () => {
     },
     {
         id: 8,
-        title: "ELECSTAR Recruitment Poster",
-        description: "Eye-catching recruitment poster design for Entrepreneurship Development Cell featuring bold typography and creative illustrations to attract second-year engineering students.",
-        image: "/graphics/EDC recruitment poster.png",
+        title: "Thryce Poster",
+        description: "Promotional poster design for Thryce, featuring bold visuals and modern graphic elements to capture attention and communicate the brand message.",
+        image: "/graphics/Thryce_Poster.png",
         category: "graphic",
-        technologies: ["Adobe Photoshop", "Illustrator", "Typography"],
+        technologies: ["Adobe Photoshop", "Illustrator", "Branding"],
         link: "#",
         featured: true
     },
