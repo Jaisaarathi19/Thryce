@@ -81,22 +81,12 @@ const ProjectsPage: React.FC = () => {
   const projects = [
     {
       id: 1,
-      title: "A College Symposium Website",
-      description: "A full-featured symposium with event registration and secure checkout.",
-      image: "/project_img/datalore.jpg",
-      category: "web",
-      technologies: ["React", "Node.js", "MongoDB"],
-      link: "https://rajalakshmi.org/dataloresymposium",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "MONISH E - Personal Portfolio",
-      description: "Modern and responsive personal portfolio website showcasing data analysis, design with elegant UI/UX design.",
-      image: "/project_img/monish-pf.png",
+      title: "Luminix Clothing",
+      description: "E-commerce platform for a modern clothing brand with sleek design and seamless shopping experience.",
+      image: "/project_img/luminix.png",
       category: "web",
       technologies: ["React", "TypeScript", "CSS3", "Responsive Design"],
-      link: "https://monish-pf.vercel.app/",
+      link: "https://www.luminixclothing.com",
       featured: true
     },
     {
@@ -158,6 +148,16 @@ const ProjectsPage: React.FC = () => {
         technologies: ["Adobe Photoshop", "Illustrator", "Typography"],
         link: "#",
         featured: true
+    },
+    {
+          id: 9,
+          title: "Luminix Logo",
+          description: "Brand logo design for Luminix Clothing, featuring a modern and minimalistic style to represent the brand's identity.",
+          image: "logo/Luminix Logo-Zara font.png",
+          category: "logo",
+          technologies: ["Adobe Illustrator", "Figma", "Branding"],
+          link: "#",
+          featured: true
     }
   ];
 
